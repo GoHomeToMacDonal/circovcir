@@ -1,0 +1,18 @@
+n=8  R=2.246979603717  abar=2.692794
+  G1  max(theta-f), alpha<pi/3 : +8.447e-02   <-- paper gap
+  G1  max(theta-f), alpha>=pi/3: -3.382e-04
+  G2  max(area-F)              : -2.691e-11
+  G1T max(theta-T), sampled    : -1.192e-03
+  G1T max(theta-T), SLSQP      : +2.335e-13   (0 = equality at the ring)
+n=9  R=2.414213562373  abar=2.356194
+  G1  max(theta-f), alpha<pi/3 : +8.705e-02   <-- paper gap
+  G1  max(theta-f), alpha>=pi/3: -3.521e-04
+  G2  max(area-F)              : -1.078e-11
+  G1T max(theta-T), sampled    : -1.303e-03
+  G1T max(theta-T), SLSQP      : +2.012e-13   (0 = equality at the ring)
+n=10  R=2.532088886238  abar=2.094395
+  G1  max(theta-f), alpha<pi/3 : +8.778e-02   <-- paper gap
+  G1  max(theta-f), alpha>=pi/3: -3.461e-05
+  G2  max(area-F)              : -1.656e-10
+  G1T max(theta-T), sampled    : -1.183e-03
+  G1T max(theta-T), SLSQP      : +1.764e-13   (0 = equality at the ring)
