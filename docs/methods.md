@@ -29,3 +29,7 @@
 - 浮点优化出的构型在退化的 Voronoi 顶点处常留下 ~1e-16 的“孔”：ρ(c,R) = 1 + O(1e-16) 且与 R 无关（孔在内部），于是严格意义上 R_max(c) 会塌缩，`MaxCoveredRadius` 的高精度二分也就失去意义。正确的数值证书是**缩放证书**：令 ρ = ρ(c,R)，则单位圆放在 c/ρ 处精确覆盖 D(0, R/ρ)。`verify_config.wls` 报告 `R_certified = R/ρ`（ρ ≤ 1 时取 R）。要 L3 仍须把构型识别为精确闭式再跑 `ExactCoverQ`。
 - 最优构型必然有大量紧点（等号），float 版在等号附近不可靠；判定记录必须上 Wolfram 高精度 / 精确。
 - 优化目标 r(c) = ρ(c,1) 非光滑（max-min）。`optimize.py` 用 log-sum-exp 双重光滑 + 退火作基线；严肃的局部打磨应在紧约束集固定后解方程组（FindRoot, WorkingPrecision ≥ 50）。
+
+## 弧覆盖工具
+
+`CoveredArc[r,d]` / `arcs.covered_arc`：Γ_r 落在距 O 为 d 的单位圆盘内的弧角。`RingAlpha` / `ring_alpha`：给定内圆弧 β 时外圆弧 α。推导、凹性区间与对称性定理见 `proofs/01-ring-symmetry.md`。
