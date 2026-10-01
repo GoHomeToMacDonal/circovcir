@@ -1,0 +1,42 @@
+[project]
+name = "circovcir"
+version = "0.1.0"
+description = "Research on covering the largest circle with n unit circles (Friedman's Packing Center: circovcir)"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "numpy>=2.1",
+    "scipy>=1.14",
+    "mpmath>=1.3",
+]
+
+[project.scripts]
+circovcir = "circovcir.cli:main"
+
+[dependency-groups]
+dev = [
+    "pytest>=8.3",
+    "ruff>=0.8",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/circovcir"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-ra"
+markers = [
+    "wolfram: needs a local wolframscript (Mathematica 14.3)",
+    "slow: long-running search",
+]
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP", "NPY"]

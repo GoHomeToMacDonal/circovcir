@@ -1,0 +1,37 @@
+{
+  "n": 5,
+  "R": "1.6410044636036152",
+  "centers": [
+    [
+      "0.995943590130441",
+      "0.2914949172779455"
+    ],
+    [
+      "0.5973230897968691",
+      "-0.8485741391300005"
+    ],
+    [
+      "-0.8008382739837682",
+      "-1.0254529425087893"
+    ],
+    [
+      "0.012614754235732158",
+      "1.30105207338121"
+    ],
+    [
+      "-0.8997425524224844",
+      "0.3145913261148409"
+    ]
+  ],
+  "status": "verified-numeric",
+  "source": "baseline optimizer (src/circovcir/optimize.py)",
+  "provenance": "circovcir search -n 5 --starts 8 --seed 0",
+  "checks": {
+    "command": "uv run circovcir verify data/configs/05/20261001-baseline.json --wolfram",
+    "wolfram_wp": 40,
+    "R_certified": "1.6410044636036152",
+    "R_cert_gap": "0",
+    "tight_points": 7,
+    "date": "2026-10-01"
+  }
+}

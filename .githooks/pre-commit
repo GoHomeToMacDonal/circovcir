@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+# Enable with:  make hooks   (sets core.hooksPath=.githooks for THIS repo only)
+set -euo pipefail
+make lint
+make test

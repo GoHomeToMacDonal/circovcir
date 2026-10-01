@@ -1,0 +1,23 @@
+{
+	"n":2,
+	"R":"1.",
+	"R_wl":"1",
+	"centers":[
+		[
+			"0",
+			"0"
+		],
+		[
+			"0",
+			"0"
+		]
+	],
+	"centers_wl":"{{0, 0}, {0, 0}}",
+	"status":"proved-optimal",
+	"source":"trivial (a second disk cannot help)",
+	"provenance":"wl\/scripts\/make_known_configs.wls",
+	"checks":{
+		"ExactCoverQ":true,
+		"MaxCoveredRadius_40":"0.9999999999999999999999999999999999999794"
+	}
+}

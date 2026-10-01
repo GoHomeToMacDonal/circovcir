@@ -1,0 +1,42 @@
+{
+  "n": 6,
+  "R": "1.790592575328908",
+  "centers": [
+    [
+      "0.8274661759574817",
+      "0.5297020979046065"
+    ],
+    [
+      "-0.8700787765046334",
+      "0.46288020881152475"
+    ],
+    [
+      "0.024776712744006876",
+      "-1.030681315222922"
+    ],
+    [
+      "-0.05809832509757529",
+      "1.489122871919295"
+    ],
+    [
+      "-1.2814768664668756",
+      "-0.7776518453774748"
+    ],
+    [
+      "1.334520490794411",
+      "-0.6794014487150124"
+    ]
+  ],
+  "status": "candidate",
+  "source": "baseline optimizer (src/circovcir/optimize.py)",
+  "provenance": "circovcir search -n 6 --starts 8 --seed 0",
+  "checks": {
+    "command": "uv run circovcir verify data/configs/06/20261001-baseline.json --wolfram",
+    "wolfram_wp": 40,
+    "R_certified": "1.790592575328908",
+    "R_cert_gap": "0",
+    "tight_points": 4,
+    "date": "2026-10-01"
+  },
+  "note": "sub-record (record 1.798); coverage verified L2, kept as a local optimum"
+}

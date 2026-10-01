@@ -1,0 +1,32 @@
+{
+  "source": "https://erich-friedman.github.io/packing/circovcir/",
+  "retrieved": "2026-10-01",
+  "meaning": "largest known R such that n unit circles cover a circle of radius R; 'R' is a decimal LOWER bound as printed (trailing '+' on the page), 'R_exact' when a closed form is given",
+  "records": [
+    {"n": 1,  "R": "1",     "R_exact": "1",               "status": "proved", "credit": "trivial"},
+    {"n": 2,  "R": "1",     "R_exact": "1",               "status": "proved", "credit": "trivial (not on page)"},
+    {"n": 3,  "R": "1.154", "R_exact": "2/Sqrt[3]",       "status": "proved", "credit": "trivial"},
+    {"n": 4,  "R": "1.414", "R_exact": "Sqrt[2]",         "status": "proved", "credit": "trivial"},
+    {"n": 5,  "R": "1.641", "status": "proved", "credit": "Károly Bezdek, 1983"},
+    {"n": 6,  "R": "1.798", "status": "proved", "credit": "Károly Bezdek, 1979"},
+    {"n": 7,  "R": "2",     "R_exact": "2",               "status": "proved", "credit": "trivial"},
+    {"n": 8,  "R": "2.246", "status": "proved", "credit": "Gábor Fejes Tóth, 1996"},
+    {"n": 9,  "R": "2.414", "R_exact": "1+Sqrt[2]",       "status": "proved", "credit": "Gábor Fejes Tóth, 1996"},
+    {"n": 10, "R": "2.532", "status": "proved", "credit": "Gábor Fejes Tóth, 2005"},
+    {"n": 11, "R": "2.631", "status": "found",  "credit": "Hans Melissen, 1997"},
+    {"n": 12, "R": "2.769", "status": "found",  "credit": "Hans Melissen, 1997"},
+    {"n": 13, "R": "2.884", "status": "found",  "credit": "Jeremy Tan, 2018"},
+    {"n": 14, "R": "3.014", "status": "found",  "credit": "Jeremy Tan, 2018"},
+    {"n": 15, "R": "3.143", "status": "found",  "credit": "Jeremy Tan, 2018"},
+    {"n": 16, "R": "3.244", "status": "found",  "credit": "Jeremy Tan, 2018"},
+    {"n": 17, "R": "3.349", "status": "found",  "credit": "Jeremy Tan, 2018"},
+    {"n": 18, "R": "3.446", "status": "found",  "credit": "Jeremy Tan, 2018"},
+    {"n": 19, "R": "3.605", "R_exact": "Sqrt[13]",        "status": "found",  "credit": "Jeremy Tan, 2018"},
+    {"n": 20, "R": "3.692", "status": "found",  "credit": "Jeremy Tan, 2018"},
+    {"n": 21, "R": "3.804", "status": "found",  "credit": "Jeremy Tan, 2018"},
+    {"n": 22, "R": "3.948", "status": "found",  "credit": "Jeremy Tan, 2018"},
+    {"n": 23, "R": "4.000", "status": "found",  "credit": "Jeremy Tan, 2018"},
+    {"n": 24, "R": "4.076", "status": "found",  "credit": "Jeremy Tan, 2018"},
+    {"n": 25, "R": "4.181", "R_exact": "Sqrt[6]+Sqrt[3]", "status": "found",  "credit": "Jeremy Tan, 2018"}
+  ]
+}

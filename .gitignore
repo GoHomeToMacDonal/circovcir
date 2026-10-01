@@ -1,0 +1,31 @@
+# Python / uv
+.venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+build/
+dist/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.ipynb_checkpoints/
+
+# Wolfram
+*.mx
+*.nb~
+*.cdf~
+.Mathematica/
+wolfram_*.png
+
+# Research outputs: experiments/*/out/ is regenerable and may be large
+experiments/*/out/
+scratch/
+
+# Kiro local state
+.kiro/settings/*.lock
+
+# OS / editor
+.DS_Store
+*.swp
+.vscode/
+.idea/

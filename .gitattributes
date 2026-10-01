@@ -1,0 +1,11 @@
+* text=auto eol=lf
+
+*.wl   linguist-language=Mathematica
+*.wls  linguist-language=Mathematica
+*.m    linguist-language=Mathematica
+*.nb   linguist-language=Mathematica linguist-generated=true -diff
+uv.lock linguist-generated=true
+
+*.png  binary
+*.pdf  binary
+*.npz  binary

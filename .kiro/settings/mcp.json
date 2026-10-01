@@ -1,0 +1,12 @@
+{
+  "mcpServers": {
+    "wolfram": {
+      "command": "uv",
+      "args": [
+        "run",
+        "/home/skim/projects/research/circovcir/.mcp/wolfram_mcp.py"
+      ],
+      "env": {}
+    }
+  }
+}
