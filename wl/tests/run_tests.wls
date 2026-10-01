@@ -23,6 +23,17 @@ tests = {
   VerificationTest[CirCovCir`Private`parseDecimal["1.5e-05"], 3/200000, TestID -> "parse exponent"],
   VerificationTest[Abs[CirCovCir`Private`parseDecimal["0.12345678901234567890123456789012345"] -
      12345678901234567890123456789012345/10^35] < 10^-40, True, TestID -> "parse keeps digits"],
+  VerificationTest[CoveredArc[1, 1], 2 Pi/3, TestID -> "arc unit circle d=1"],
+  VerificationTest[CoveredArc[1/3, 1/2], 2 Pi, TestID -> "arc whole circle"],
+  VerificationTest[CoveredArc[3, 1], 0, TestID -> "arc disjoint"],
+  VerificationTest[FullSimplify[CoveredArc[2, Sqrt[3]] - MaxCoveredArc[2]], 0,
+   TestID -> "arc max at d=sqrt(r^2-1)"],
+  VerificationTest[Table[FullSimplify[RingAlpha[2 Pi/k, RingRadius[k]] - 2 Pi/k], {k, 6, 9}],
+   {0, 0, 0, 0}, TestID -> "ring fixed point alpha=beta=2pi/k"],
+  VerificationTest[Table[ExactCoverQ[RingConfig[k], RingRadius[k]], {k, {6, 7, 8, 9}}],
+   {True, True, True, True}, TestID -> "ring exact cover n=7..10"],
+  VerificationTest[ExactCoverQ[RingConfig[8], RingRadius[8] + 10^-30], False,
+   TestID -> "ring n=9 tight"],
   VerificationTest[IdentifyClosedForm[N[Sqrt[6] + Sqrt[3], 60], 4]["radicals"] // FullSimplify,
    Sqrt[3] + Sqrt[6], SameTest -> (FullSimplify[#1 - #2] == 0 &), TestID -> "identify sqrt6+sqrt3"]
 };

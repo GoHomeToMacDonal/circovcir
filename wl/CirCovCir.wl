@@ -43,6 +43,18 @@ OptimizeCover::usage =
 centers minimising the covering radius of the unit disk. Returns <|\"R\", \"Centers\"|> \
 scaled to unit disks.";
 
+CoveredArc::usage =
+  "CoveredArc[r, d] = angle of the arc of the circle |x| = r inside a unit disk whose center \
+is at distance d from O: 2 ArcCos[(r^2+d^2-1)/(2 r d)] (clamped; 2Pi if r+d<=1, 0 if \
+|r-d|>=1). Exact for exact input. Twin of circovcir.arcs.covered_arc.";
+MaxCoveredArc::usage = "MaxCoveredArc[r] = 2 ArcSin[1/r] (r >= 1), the sup over d of CoveredArc[r, d].";
+RingAlpha::usage =
+  "RingAlpha[beta, R] = arc covered on |x| = R by the unit disk covering an arc beta of the \
+unit circle (d = 2 Cos[beta/2]): cos(alpha/2) = (R^2-1+4Cos[beta/2]^2)/(4 R Cos[beta/2]).";
+RingRadius::usage = "RingRadius[k] = 1 + 2 Cos[2Pi/k]: disk at O plus a regular ring of k disks.";
+RingConfig::usage =
+  "RingConfig[k] = exact centers {0,0} plus k points at distance 2 Cos[Pi/k] (n = k+1).";
+
 Begin["`Private`"];
 
 (* ---------- sign / comparison helpers (exact-safe) ---------- *)
@@ -130,6 +142,22 @@ TightPoints[c_List, R_, tol_ : 10^-8] := Module[{cc = N[c, 30], rr = N[R, 30]},
       m = Min[d]; {p, Flatten@Position[d, x_ /; Abs[x - m] < tol], m}]] /@
     CandidatePoints[cc, rr],
    Abs[#[[3]] - 1] < tol &][[All, ;; 2]]];
+
+(* ---------- arcs (proofs/01-ring-symmetry.md) ---------- *)
+
+CoveredArc[r_, d_] := Which[
+   geq0[1 - (r + d)^2], 2 Pi,                 (* r + d <= 1: whole circle *)
+   geq0[(r - d)^2 - 1], 0,                    (* |r - d| >= 1: disjoint *)
+   True, 2 ArcCos[(r^2 + d^2 - 1)/(2 r d)]];
+
+MaxCoveredArc[r_] := If[geq0[1 - r] && ! zeroQ[1 - r], 2 Pi, 2 ArcSin[1/r]];
+
+RingAlpha[beta_, R_] := CoveredArc[R, 2 Cos[beta/2]];
+
+RingRadius[k_Integer] := 1 + 2 Cos[2 Pi/k];
+
+RingConfig[k_Integer] := Join[{{0, 0}},
+   Table[2 Cos[Pi/k] {Cos[2 Pi j/k], Sin[2 Pi j/k]}, {j, 0, k - 1}]];
 
 (* ---------- presentation / identification ---------- *)
 
