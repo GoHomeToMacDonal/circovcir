@@ -6,8 +6,8 @@
 |---|---|---|
 | 5 | 证明最优，R≈1.641 | K. Bezdek, 1983（待核实书目） |
 | 6 | 证明最优，R≈1.798 | K. Bezdek, 1979（待核实书目） |
-| 8, 9 | 证明最优 | G. Fejes Tóth, 1996（待核实书目） |
-| 10 | 证明最优 | G. Fejes Tóth, “Thinnest covering of a circle by eight, nine, or ten congruent circles”, in *Combinatorial and Computational Geometry*, MSRI Publ. 52, 2005（待核实） |
+| 8, 9, 10 | 证明最优，R_n = 1+2cos(2π/(n−1))，最优构型唯一 | G. Fejes Tóth, "Thinnest covering of a circle by eight, nine, or ten congruent circles", in *Combinatorial and Computational Geometry* (J. E. Goodman, J. Pach, E. Welzl, eds.), MSRI Publ. 52, Cambridge Univ. Press, 2005, pp. 361–376。[PDF](https://library.slmath.org/books/Book52/files/18fejes.pdf)（2026-10-01 已读原文。n=8,9,10 都在这一篇，Friedman 页面写的"1996"待核实。复核中：§2 有缺口，见 `proofs/02-remove-ring-assumption.md`） |
+| 10（引理部分） | 9 个以下的圆盖不住 ∂C_10 的距离论证 | H. Melissen, *Packing and covering with circles*, PhD thesis, Utrecht, 1997, pp. 108–111（经 [FT] 转引，待核实） |
 | 11, 12 | 记录 | H. Melissen, 1997（待核实） |
 | 13–25 | 记录 | Jeremy Tan, 2018（来源形式待查：论文/私信/网页） |
 
