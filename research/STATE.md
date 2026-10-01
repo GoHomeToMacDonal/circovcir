@@ -9,12 +9,13 @@
 | n=1,2,3,4,7 已知构型精确覆盖其 R | L3 | `data/configs/*/known.json`，`ExactCoverQ` + Python 复核 |
 | n=8,9,10 已证最优值精确等于 1+2cos(2π/k)，k=n−1（中心圆 + 正则 k 环 `RingConfig[k]`）；n=7 同构型 R=2 | L3 | `ExactCoverQ[RingConfig[k], RingRadius[k]]` True、+1e-30 False（`wl/tests/run_tests.wls`）|
 | 条件对称性：在“一个圆盘恰为 D(0,1)，其余 k 个覆盖环带”的假设 H_k 下，k=6..9 有 R ≤ 1+2cos(2π/k)，且取等时外环必为正则环 | L4（条件；待人工复核）| `proofs/01-ring-symmetry.md` + `proofs/certificates/01-ring-symmetry.wls` |
+| **n=3,4,7 无条件最优性**（弧计数法，去掉 H_k）：R₃=2/√3, R₄=√2, R₇=2。核心 A(R)=2arcsin(1/R) 严格减且 A(R_n) 精确踩 2π/n（n=3,4）或 2π/6（n=7，另加"覆盖 O 的圆够不到 R>2 边界"一步） | L4（无条件；待人工复核）| `proofs/03-n7-optimal.md` + `proofs/certificates/03-n7-optimal.wls`（exit 0，7 项全 True）|
 | 基线优化器复现 n=5,8,9,10 的已证最优值（R = 1.641004463603615, 2.246979603717466, 2.414213562373093, 2.532088886237954） | L2 | `data/configs/{05,08,09,10}/20261001-baseline.json`，Py + WL(wp=40) 缩放证书一致到 ≤7e-16 |
 
 ## 开放问题
 
 - n=5 基线构型的闭式识别 → L3（n=8,9,10 已由正则环解决）。
-- 去掉 H_k：证明 n=8,9,10 的最优覆盖必含一个恰好覆盖 D(0,1) 的圆（Fejes Tóth 论证的另一半）。
+- 去掉 H_k：证明 n=8,9,10 的最优覆盖必含一个恰好覆盖 D(0,1) 的圆（Fejes Tóth 论证的另一半）。n=7 已无条件解决（`proofs/03-n7-optimal.md`，硬计数即可，因 A(2)=π/3 踩整数 6）；n≥8 硬计数失效，仍需面积论证。
   - 进行中：`proofs/02-remove-ring-assumption.md`。主线改为复核并修补 Fejes Tóth (2005) 的面积论证，原因是它的引理推不出 H_k。已发现 §2 的单格不等式 θ ≤ f(α) 在 α < π/3 时不成立（L1 反例），已提出切线补丁（L1），待做区间证书（S3b）。
 - n=6：基线只到 1.790592575329（记录 1.798），8 起点未找到最优——需要更多起点或对称种子。
 - 复现 n=11..25 记录；尤其 R_19=√13、R_25=√6+√3 的精确构型。
