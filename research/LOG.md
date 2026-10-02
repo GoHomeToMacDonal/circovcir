@@ -38,3 +38,9 @@
   - **FT n=8,9,10 计算断言**：证书 `proofs/certificates/05-fejestoth-n8-n9-n10.wls` exit 0。已验证（L3）：笔误 2sin→**2cos**（`E_typo`）、正则环精确覆盖且紧（`E_ring`）、G1T 是 f 在 ᾱ 的切线且 f 在 (ᾱ,π) 凹（`E_tangent`+`E_concave`，故 α≥ᾱ 侧 G1T 成立）。**诚实开放**：G1T 小-α 区间证书（S3b，未做）；Jensen 链 (1)–(7) 字面转写 g′(ᾱ)=+0.55/+0.79/+0.85>0，与"递减"矛盾（`E_jensen` report-only，未复现，待照原文重建 S4）。整理进 `proofs/05-fejestoth-n8-n9-n10.md`。
   - **n=6 最优值搜索**：基线 1.790593 → 宽搜 200 起点 1.795281（`out/n6-wide-s200.json`）→ 镜像对称搜索（`n6_mirror.py` 族 A/B）CPU >12min 未在时限内跑完，已停，方法与命令留档供人工重跑。**均 < 记录 1.7988，诚实记为"该方法未达到"**（差 1e-3 量级，非平局）。
   - `make lint test` 通过（ruff clean；49 pytest + 18 WL；两张新证书各 exit 0）。
+- **S4 Jensen 链 (1)–(7) 从原文重建 + 修正转写错误（L3，`E_jensen` 升为 gating）**（实验 `2026-10-02-bezdek-fejestoth-verify`，续前条）。
+  - 从 PDF 原文（`$KIROCREW_SCRATCH/ft2005.pdf`，`pdftotext -layout` 提取干净，§2 364–367 页）逐式转录 (1)–(7)。定位 bug：旧字面转写 `g=sin(2(n−2)π/(n−1)−α)+F(α)` 的 g′(ᾱ)=+0.55/+0.79/+0.85>0 与"递减"矛盾，**不是**符号/F 定义错（本仓库 `f`、`F` 与 [FT] 印出的 f′、F′ 符号恒等），而是 **(5) 式 ½Σ(sin βᵢ+sin γᵢ) 的 Jensen 项数是 2(n−1)**，正弦宗量应为 Σ(βᵢ+γᵢ)/(2(n−1))=(n−2)π/(n−1)−α/2（PDF 排版丢了分母因子 2 与 α 的 ½）。
+  - **正确函数 g(α)=sin((n−2)π/(n−1)−α/2)+F(α)**。两重验证：(7) 端点恒等 g(ᾱ)=sin β̄+F(ᾱ) **精确成立**（字面版给 sin(2β̄)≠sin β̄，自相矛盾）；g′(ᾱ)<0。
+  - **区间证书（L3）**：`E_jensen` 现 gating，三项全 True —— 端点恒等 `Simplify[…]===0`；g′(ᾱ)<0 精确符号（n=8/9/10=−0.457/−0.207/−0.0055722，40 位）；g″(α)<0 ∀α∈[ᾱ,π] 用 WL `Interval` 向外舍入 10⁻²⁵、200 面板，0 面板失败。(A)+(B)⟹g 在 [ᾱ,π] 严格递减，正是 [FT] (7)。证书 `05` exit 0（`CERTIFICATE OK`），所有旧检查（E_typo/E_ring/E_fbar/E_tangent/E_concave）保持 True 未放宽。
+  - 文档：`proofs/05` §4 重写为完整 (1)–(7) + 修正说明 + L3；`proofs/02` S4 行与"已发现的问题"更新；`proofs/05` §5 表、Research State、STATE.md 同步。**S4 关闭**；去掉 H_k 的无条件最优性仍开放（剩 S3b 小-α 区间证书 + §3 n=10 Melissen 距离引理）。
+  - `make lint test` 通过。
