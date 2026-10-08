@@ -52,8 +52,24 @@
   - **二阶**：活跃集切空间 5 维（含旋转），去旋转后 Lagrangian Hessian 4 个特征值 −0.281, −0.255, −0.222, −0.165，全负。配合严格互补（λ>0）⇒ 二阶充分条件成立：**Melissen 构型（模旋转）是 R 的严格局部极大**（等级 L2：wp=80 数值，未做区间证书）。之前说的"2 自由度"是**接触等式**族的维数；在不等式表述下 R 沿这 4 个方向（对称 2 + 反对称 2）都严格下降。
   - 构型存 `data/configs/11/20261008-melissen-kkt.json`，`make verify` wp=40：covering_radius_at_R=1.、R_gap=2.6e-37、cert_gap=0，Python ok。
   - 意义：这 22 条方程（10 接触 + 12 稳定性）就是 R 的完整"边界条件"（零维）；后续求极小多项式应消元**这个**系统，不是旧的 10 条接触方程（那组在 R 上非零维，这是 900s 超时的原因之一）。
+
+## 2026-10-08
+
+- **S3b（G1T 小-α）部分封住**（`experiments/2026-10-08-g1t-small-alpha`，证书 `proofs/certificates/05b-g1t-small-alpha.wls`，exit 1）。几何锁定（来自 2026-10-01 audit 的 `cell()` + Dirichlet 定义）：边界胞腔 o=(s,0)，顶点在 Γ_R 极角 t₁≤t₂，u_j=R(cos t_j,sin t_j)−o，**θ=t₂−t₁**（O 处张角）、**α=arccos((u₁·u₂)/(|u₁||u₂|))**（o 处张角）；约束域 Ω={s∈[R−1,√(R²−1)], t_j∈[−h(s),h(s)]⟺|u_j|≤1, α≤ᾱ}，h(s)=arccos((R²+s²−1)/(2Rs))。
+- float 校准（`screen.py`/`screen2.py`，seed 20261008）：正则环取等点 s*=2cos(π/k)、t_j=∓π/k 复现 α=ᾱ、θ=f(ᾱ)、margin→0（机器零，三 n）。四个结构发现：(1) f 在 (0,π) 全局凹（f″<0，0/500 正）；(2) 边界面 |u₁|=|u₂|=1 上 **θ=f(α) 精确**（max|θ−f|=5e−15）；(3) 内部 |u_j|<1 时 θ 可 >f(α)（+0.083，G1 缺口）⟹ 不能退化成 θ≤f≤T；(4) (s,t₁,t₂)-空间 **sup(θ−T)=0 仅在 ring 点取到，二阶负定触点**。
+- 证书封住两块 **L3**：**(P1) T≥f on (0,π)**（T 是 f 在 ᾱ 的切线 + 全局凹，区间 f″<0 向外舍入 10⁻²⁵、300 面板、0 失败）；**(BF) 边界面 θ=f(α) 精确** ⟹ 该面 θ≤T（含正则环取等轨迹）。
+- **仍开放（诚实）**：内部 |u_j|<1（P2 ring collar Hessian 负定 + P3 内部 3D 区间 B&B）。朴素 WL `Interval` 在 arccos((u₁·u₂)/(|u₁||u₂|)) 与符号 Hessian 的 |u|^(3/2) 分母上**跨 0 包裹**：collar(δ₀=1/20) Hessian 区间矩阵 entry 非 Interval（1/|u|^(3/2) → (−∞,∞)）；B&B 60000 盒/深度 28 内 min_margin_enclosed 停在 −0.32/−0.47/−0.55（高估），预算耗尽未封。**未动容差、未缩约束域、未向内舍入**。
+- Cycle 4 计划：换**不含 arccos/归一化**的区间表述。候选 (a) 解析证内部 max(θ−T) 必在 |u_j|=1 面取得（则 P1+BF 封全域）；(b) cos-空间区间 `cos θ ≥ cos T(α)` + centered-form 收紧 + collar 用梯度 Lipschitz 盒界（非 Hessian）。
+- **route (a) 否证（2026-10-08，`screen3.py`/`screen4.py`，seed 20261008，N≥4e5）**：|u_j| 由 (s,t_j) 钉死（|u_j|²=R²+s²−2Rs cos t_j），**无独立径向自由度**——route (a) 字面「固定 θ 减小 ρ_j」不是 Ω 内运动；边界面是曲线 |t_j|=h(s)。落到真实变量后：(1) dG/dt₁、dG/dt₂（G=θ−T）**双符号**（min dG/dt₂=−1.58、max dG/dt₁=+0.89），无全局单调坐标把内部点抬到面；(2) **同-s 面支配不成立**——反例 s=2.325460,t₁=−0.404509,t₂=−0.124867（|u₁|=0.9966,|u₂|=0.3666 强不对称），内部 G=−0.0903 > 同-s 对称面 G=−0.1059（超 +1.5e−2）。θ≤T 仍逐点成立，失败的是「面≥内部」传输。**死路记档，不再走 route (a)。** Cycle 5 走 route (b)。（注：此 cycle 的子会话因 kiro-cli 登录态过期中断，否证结论已在中断前写入 README/screen，由 Kiro 核验并落档。）
+- `make lint test` 全绿：52 pytest（1 slow deselected）+ 18 WL，0 失败（未改 wl/src）。**未 git commit**。
 - **n=11 严格局部最优 L3（Krawczyk 区间证书）**（2026-10-08，`experiments/2026-10-08-n11-kkt/krawczyk.wls` → `proofs/certificates/07-n11-local-opt.wls`，exit 0，约 15 s；文档 `proofs/07-n11-local-optimality.md`）。
   - K1：对称 22×22 KKT 系统，盒半径 1e-45，K(X) ⊂ int X（收缩比 2e-42）⇒ 唯一 KKT 点。近似点先在 150 位 Newton 精化——run.wls 存的 λ 只有约 40 位（LeastSquares 用了 wp/2），直接用会使 K 与 X 不相交（第一次失败的原因）。
   - K2：λ 区间下界全 >0（最小 0.01205）。K3：Finsler（ρ=1，规范行 e₅），中点有理矩阵 − 1e-30·I 精确正定（λ_min 0.0447；`PositiveDefiniteMatrixQ` + Sylvester），条目宽度 4e-84。K4：其余圆心间隙 ≥ 1.04，几何间隙 ≥ 3.1。K5：286 个候选点 = 18 活跃 + 236 证 f<1 + 26 在 K 外 + 5 由对称恰为 J + 1 精确共线（S0,S1,S2）。
   - 坑：WL 注释里写 `u*)`、`R*)` 会提前闭合 `(*`，导致 ToExpression 语法错。轴上候选点（镜像对中垂线 = y 轴、轴上圆心的对径点）区间算法无法区分它与 J，需用对称性精确处理。
   - 结论（L3）：c* 是模旋转的严格局部极大，且精确覆盖 D(0,R*)。全局最优仍开放。
+
+- **S3b 续（Cycle 4-5，仍部分）**：试两条封内部 |u|<1 的路，均未全封，但定位清楚、无硬凑。
+  - **route (a) 边界面单调性归约——否证**：Ω 中 |u_j| 由 (s,t_j) 钉死，无独立径向自由度；边界面是曲线 |t_j|=h(s)。逐顶点单调 dG/dt_j 双符号（违例大量），同-s 对称面不支配不对称内部点（n=10 反例 s=2.325460,t₁=−0.404509,t₂=−0.124867,|u₁|=0.997,|u₂|=0.367,α=0.533<ᾱ,θ=0.280,G=−0.0903<0 但 >同-s 面 G=−0.106）。route(a) 作为干净引理死。
+  - **route (b) cos-空间——去包裹成功、依赖高估未封**：M=cos θ−cos T(α)≥0 等价于 θ≤T。|u_j|∈[0.21,1] 远离 0 ⟹ 无 arccos/|u|^(3/2) 包裹；cos α 干净区间；n=9,10 符号 Hessian 已是 interval matrix。但朴素端点区间依赖高估（s 共享），B&B 120000 盒 min_lowerM −0.22/−0.27/−0.28（真值 float min M≥+7e−4），collar Hessian 盒太宽 Sylvester 下界负。cert `05b` 仍 exit 1（P1+BF 封取等轨迹 L3，P2cos/P3cos 开放）。
+  - Cycle 6：centered/mean-value form 收依赖（宽度 O(δ²)）+ ring 梯度精确 + Hessian PSD 小盒；退路：固定 (t₁,t₂) 对 s 单变量区间定号降到 2D B&B。`experiments/2026-10-08-g1t-small-alpha/screen3..5.py`。
+  - `make lint test` 全绿（52 pytest + 18 WL）；未改 wl/src；未 git commit。
