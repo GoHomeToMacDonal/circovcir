@@ -157,3 +157,79 @@ float 快筛（`screen5.py`，seed 20261008，N=8e5）：
 1. **centered form**：盒 X 上 `M(x) ∈ M(c) + ∇M(X)·(X−c)`（c=盒中心），把 s 共享的依赖二阶化，宽度 O(δ²) 而非 O(δ)。或对 `cos α` 的分子/分母各做 centered form。
 2. **collar**：ring 梯度零改**精确**（`RootReduce` 或闭式手算，已知 M 在 ring 是 min）；Hessian PSD 的 d0 调到 centered-form 能封的小盒（先数值定 PSD 半径）。
 3. 若 centered form 仍不够：固定 (t₁,t₂) 对 **s 单变量** 区间定号（G 对 s 的区间导数定号 ⟹ s 方向单调，降到 2D (t₁,t₂) B&B）嵌套。
+
+## 结果（Cycle 6，centered-form 原型 — 内部可收紧，ring collar 仍需 Hessian）
+
+原型 `screen6.wls`（向外舍入 OUT=10⁻³⁰，WP 40）对比朴素端点区间下界 `Min[M(X)]` vs centered-form 下界 `M(c) − Σ rᵢ·max|∂ᵢM(X)|`（c=盒心，rᵢ=半径）。calibration `M(ring)=0`（三 n，411 位精度）。数值行对比：
+
+| 盒 | n=8 朴素→centered | n=9 朴素→centered | n=10 朴素→centered |
+|---|---|---|---|
+| ring r=0.01 | −0.0305→−0.0266 | −0.0288→−0.0156 | −0.0257→−0.0128 |
+| ring r=0.001 | −0.00334→−0.00153 | −0.00303→−0.00126 | −0.00267→−0.00102 |
+| interior B r=0.02 | +0.156→+0.165 | +0.056→+0.071 | +0.0025→**+0.0213** |
+
+**结论**：
+1. **centered-form 处处收紧**（内部 B 最紧的 n=10 从 +0.0025 收到 +0.0213，8×；近 ring r=0.01 高估约减半）⟹ **内部 B&B 现在可封**（min M 远离 0 的盒子 centered 下界显著 >0，分支数会大降）。
+2. **近 ring 仍为负**（r=0.01→−0.013…−0.027，r=0.001→−0.001…−0.0033）：触点 M~O(dist²) 而 centered 修正是 O(r)，ring 处 M(c)≈0 被修正项压负 ⟹ **centered-form 单靠自己封不住 ring collar**，collar 必须用 Hessian-PSD 的局部凸下界（二阶），不是更紧的一阶包络。
+3. 实现待办：(a) 近 ring 盒的 `arccos[宽 cos 区间]` 在原型里留符号未数值化（PaddedForm 未求值）——真证书里要强制 `N[...]`/clamp；(b) Hessian-PSD collar 的 Hessian entry 本身也需 centered-form 收紧（Cycle 5 δ₀=1/40 Sylvester 下界负 = Hessian 盒依赖高估），否则 collar 封不住。
+
+**诚实状态**：Cycle 6 确认 centered-form 使**内部可封**，但 **ring collar 的 Hessian-PSD 仍是瓶颈**（与 Cycle 5 定位一致）。证书 `05b` 本轮**未改动、未升级**（仍 exit 1，P1+BF 的 L3 不变）；原型证据在此，接法明确。
+
+**Cycle 7 收尾（二选一，先 a）**：
+- (a) **collar 用 centered-form Hessian**：对 Hessian 的每个 entry 也用 `H_ij(c) ± Σ rₖ max|∂ₖH_ij|` 收紧，再 Sylvester / `midpoint(H) − ‖width‖·I ≺ 0`（PSD of −H... 这里要 M 的 Hessian **PSD**，即 M 局部凸 ⟹ 用 `mid(H) − radius·I ≻ 0`）。先数值定能 PSD 的最大 δ₀，再把 B&B 外区与 collar 严丝缝合（B&B 跳过 `inRing`，collar 单独证）。
+- (b) 若 collar Hessian 仍不 PSD：固定 (t₁,t₂) 对 s 单变量区间定号（∂M/∂s）塌成 2D，collar 也降维。
+
+## 结果（Cycle 6 续，collar Hessian 原型 — 仍 blow up，collar 未封）
+
+`screen7.wls`：ring 梯度 RootReduce + 小 δ₀ collar 的区间 Hessian PSD（M 凸，`mid(H)−rad·I≻0`）。结论诚实：
+- **ring 梯度 RootReduce 未证为 0**：返回非平凡 `Root[...]` 嵌套 `Sin[2ArcSin[...]+...]` 表达式，`all-zero=False`。这是 RootReduce 对含 `ArcSin/ArcCos` 的超越式**未化简到 0**（符号化简限制），**不是**梯度非零的证据——float 与 cos-空间触点结构都表明 ∇M(ring)=0，但缺一个干净的符号/区间证。
+- **collar 区间 Hessian 仍 blow up**：即便在 cos-空间，M 的符号 Hessian 的二阶链式项里仍出现 `Cos[...]·Interval[{−∞,∞}]`（某个 `1/(跨 0 量)` 二阶因子），`mid`/`radius` 无法成形，PSD 判据不可用。与 Cycle 5 的 θ−T 空间 Hessian 同类失败。
+
+**诚实状态**：
+- **内部 B&B 可封**（centered-form，Cycle 6 原型量化：收紧至 8×）——这是真进展。
+- **ring collar 封不住**：符号 Hessian 在 θ−T 与 cos 两种空间都 blow up；RootReduce 未能把 ∇M(ring) 化简为 0。collar 是**唯一**剩余缺口。
+- 证书 `05b` 本轮**未改动**（仍 exit 1，P1+BF 的 L3 不变）。**未动容差/约束域/舍入方向。**
+
+**Cycle 7 计划（collar 必须换非-符号-Hessian 的手法）**：
+1. **collar 的 PSD 不用符号 Hessian**：改用 **M 的二阶 centered-form**（在 ring 点泰勒展开，一阶=0 若能证，二阶系数用**数值自动微分 + 区间余项**而非 `D[...]` 符号式），避开 `1/(跨 0)` 的符号链式项。
+2. **ring 梯度 =0 的干净证**：不靠 RootReduce 化简超越式；改为**解析手算** ∂M/∂xᵢ(ring) 并逐项符号对消（u₁,u₂ 在 ring 处对称，∂cos α/∂s 等有闭式对消），或用高精度区间 `|∂ᵢM(ring)|<10⁻³⁰` 的**数值**证（配合二阶 Lipschitz 盒界把一点推到小盒）。
+3. 退路：固定 (t₁,t₂) 对 s 单变量区间定号（∂M/∂s）塌成 2D，collar 也降维——ring 在 2D 里的触点更易用一维凸性处理。
+
+## 结果（Cycle 7，关键更正：ring 是 KKT 边界极小，非内部驻点）
+
+screen8/9 两个诊断推翻了 Cycle 2–6 一直假设的「ring 是 M 的内部二阶触点」：
+
+1. **符号 Hessian 其实有限**（screen8，d0=1/40）：`∂²M/∂s²` 在 ring 盒上 = `[−0.484, 3.283]`，**无 ∞**。`1−w²∈[0.42,0.91]`、`|u|²∈[0.85,1.15]` 都远离 0。Cycle 5/6 的 `Interval[{−∞,∞}]` 是 **PSD 步骤的 bug + 依赖高估**，不是 Hessian 本身发散。
+2. **∇M(ring) ≠ 0**（screen9，50 位高精度）：`|∇M(ring)| = 0.66 / 0.50 / 0.38`（n=8/9/10），**非零**。
+3. **Hessian 在 ring 是负的**：`λ_min(mid) → −1.48/−1.79/−1.91`（d0→0），M 在 ring **凹**，不是凸。
+
+⟹ **ring 不是内部驻点，而是 KKT 边界极小**：ring 处 `|u₁|²=|u₂|²=1` 两个约束**同时 active**（ring 在 t-盒的边界面 `|t_j|=h(s)` 上，不是内部）。M 沿「离开 Ω、进入 |u|>1」方向递减，约束把它挡住，故受约束极小 M=0 落在边界、梯度朝外。所有 Cycle 2–6 的「内部 Hessian PSD collar」从根上就不对。
+
+**正确机制（screen /tmp/kkt.py 验证）**：
+- `∇M(ring)=[+0.17,+0.66,−0.66]`（n=8），t₁/t₂ 分量反对称 (+c,−c)。
+- active 约束 `|u_j|²≤1`：`d|u₁|²/dt₁=−3.51<0`、`d|u₂|²/dt₂=+3.51>0` ⟹ 可行内向 = (t₁↑, t₂↓)。
+- **M 沿可行内向的方向导数 = +1.32 / +1.00 / +0.76 > 0**（三 n）⟹ **从 ring 进入可行内部，M 严格增**。
+
+⟹ **collar 用一阶 KKT 论证即可封，无需 Hessian**：
+- BF 给**边界面 |u|=1 上 M=0**（P1+BF 已 L3）；
+- 可行内部（|u|<1）由「减小某个 |u_j|」从边界面到达，M 沿该方向增 ⟹ 任一近-ring 可行点 M ≥ M(其到面的投影)=0。
+- 严格版：`∂M/∂(可行内向) ≥ c>0` 在 collar 上用**区间梯度**（一阶，有限且紧，无 ∞、无 Hessian）证 ⟹ collar 封死。
+
+**Cycle 8 计划（实现 KKT collar）**：
+1. 把 collar 并进 BF：证「ring 邻域内，M 的可行内向导数 `g·d_in ≥ c>0`」用区间梯度（screen9 已证梯度区间有限）；d_in=(0, +1, −1) 方向（s 分量另行处理或并入 B&B）。
+2. 内部远离 ring 用 Cycle 6 的 centered-form 一阶 B&B（已验证可封）。
+3. 两者 + BF(面) + P1(T≥f) 并起来覆盖整个 Ω ⟹ 接进 `05b` 的 P2cos/P3cos，cert exit 0。
+
+## 结果（Cycle 9，S3b 完全封住 — 证书 exit 0，L3）
+
+Cycle 7/8 的 KKT 洞察（ring 是边界极小、用一阶梯度号而非 Hessian）落进证书成为 **Pcollar**，并把内部 B&B（**Pbb**）从「卡在 −0.22」修到完全闭合。两处修复 + 一处封住关键：
+
+- **Bug 1（centered-form 的 ArcCos' 包裹爆炸）**：旧符号梯度 `D[cos θ−Cos[T[ArcCos[w]]], ·]` 含 `ArcCos'[w]=−1/√(1−w²)`，w=cos α 触 ±1 时 1−w² 跨 0 ⟹ 梯度区间 `Interval[{−∞,∞}]` ⟹ corr=∞ ⟹ cen=−∞。朴素端点路径的 cosv 已 clamp，炸的只有 centered-form。**链式分解修复**：w 与 dw/dx 保持不含 arccos 的干净式；`dM/ds=−fp·Q·sinT·dw/ds`、`dM/dt₁=sinθ−fp·Q·sinT·dw/dt₁`、`dM/dt₂=−sinθ−fp·Q·sinT·dw/dt₂`，其中 Q=1/√(1−w²) 单独构造，**仅当盒内 wabs=max|w|≤1−eQ（eQ=1e−6）**用 Qmax=1/√(1−wabs²)（Q 偶、随|w|增 ⟹ Qmax 是 |dM/dx| 的上估 ⟹ 外界有效），否则退回恒有效的朴素端点界。
+- **Bug 2（Exit 非有限）**：旧 worst 可为含 ∞ 的符号 Interval。改为每盒下界 `N[Max[naive,cen],PREC]` 求值 + 有限断言（非有限 → −BIG，细分）；worst **仅在叶子**（已封或触 maxDepth=100）取——旧代码把被细分父盒的松界也折进 worst，这才是前几轮「min_lowerM 卡在 −0.22/−0.27/−0.28」的真因（根盒松界，非方法失败）；Pbb 返回合取 `NumericQ ∧ Reals ∧ 有限 ∧ ≥0`。
+- **封住关键（丢弃出-Ω 盒）**：外盒 `[smin,smax]×[−H0,H0]²` 严格包含 Ω，其 s=R−1 附近（h(s)→0、|u_j|>1）的不可行角把界拖负（原 worst box |u₁|=1.27、|u₂|=1.06>1，本不在 Ω）。凡 `Min[|u₁|²]>1` 或 `Min[|u₂|²]>1`（outward 下界 ⟹ 整盒出 Ω）即丢弃；搜索从 >5e5 盒塌到几千盒、min_lowerM 转正。细分维取 `rad_i·|grad_i|` 最大者。
+
+**证书读数（真 exit 0）**：calib/P1/BF/Pcollar 全 True；**Pbb=True 三 n**，min lower(M)（N[] 有限正数）= n=8:**+4.739e−8**（3665 盒）、n=9:**+1.230e−9**（5379 盒）、n=10:**+1.816e−7**（7719 盒），closed_all=True、stack 空、未触预算。打印 `CERTIFICATE OK — S3b (G1T small-alpha) CLOSED for n=8,9,10 (L3)`。
+
+**coverage 无缝 explicit 复核**（`coverage_check.wls`，独立于证书）：d0 两处同 1/160；ring 取等点 M=0（49 位零）；各 n 密网格 ~65–70k 可行点 **M<0 违例=0**；每可行点恰属 {B_ring collar / |u|=1 面 / 内部 B&B}之一，三块所有权之和=可行点数（无缝无重叠）。
+
+**诚实边界**：Exit 0 当且仅当 allok=True 且所有依赖量都是 N[] 求值的有限数；未动容差、未缩约束域、未向内舍入、未把符号/∞ 塞进 Exit。S3b 升到 **L3 完全封住**。`make lint test` 全绿（52 pytest + 18 WL）。
