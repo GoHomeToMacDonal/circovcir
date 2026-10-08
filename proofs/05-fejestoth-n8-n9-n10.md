@@ -48,11 +48,18 @@
 - `E_tangent`：T(α) = f(ᾱ) + f′(ᾱ)(α−ᾱ) 确实是 f 在 ᾱ 处的切线（值与斜率都对上）。f′(ᾱ) 精确为 n=8: 0.1099…、n=9: 0.1716…、n=10: 0.2101…。
 - `E_concave`：f″(α) < 0 在 (ᾱ, π) 上（40 位高精度，5 个采样点全负）⟹ f 在该区间凹 ⟹ 切线 T 在 f **上方**，故 G1T 在 α ≥ ᾱ 侧由凹性直接得到。
 
-**S3b（部分封住，2026-10-08）.** α < ᾱ（尤其 α < π/3）区域的 G1T 严格化。几何锁定：θ=t₂−t₁、α=∠(u₁,o,u₂)、u_j=R(cos t_j,sin t_j)−(s,0)、约束域 Ω={s∈[R−1,√(R²−1)], |u_j|≤1, α≤ᾱ}（见 `experiments/2026-10-08-g1t-small-alpha`）。证书 `proofs/certificates/05b-g1t-small-alpha.wls`（exit 1，部分）封住两块：
+**S3b（完全封住，2026-10-09 — L3）.** α < ᾱ（尤其 α < π/3）区域的 G1T 严格化。几何锁定：θ=t₂−t₁、α=∠(u₁,o,u₂)、u_j=R(cos t_j,sin t_j)−(s,0)、约束域 Ω={s∈[R−1,√(R²−1)], |u_j|≤1, α≤ᾱ}（见 `experiments/2026-10-08-g1t-small-alpha`）。证书 `proofs/certificates/05b-g1t-small-alpha.wls`（**exit 0**）在 cos-空间证 **M:=cos θ−cos T(α)≥0**（等价 θ≤T，因 T 在 [0,π] 单增）于整个 Ω，四块无缝覆盖：
 - **(P1) T≥f on (0,π)（L3）**：T 是 f 在 ᾱ 的切线（`E_tangent`）+ f **全局凹**（区间 `f″<0`，300 面板向外舍入）⟹ 切线在 f 上方。
 - **(BF) 边界面 |u₁|=|u₂|=1 上 θ=f(α) 精确（L3）** ⟹ 该面上 θ=f(α)≤T(α)，等号仅 ᾱ（即正则环所在的取等轨迹）。
+- **(Pcollar) ring 邻域 B_ring=ring±1/160 一阶 KKT 梯度号引理（L3）**：ring 是 KKT **边界**极小（∇M≠0，两约束 |u₁|²=1、|u₂|²=1 活跃，M 在 ring 处凹），故不是内部驻点、Hessian-PSD 是错工具。改在 B_ring 上用向外区间梯度号 dM/dt₁>0、dM/dt₂<0、d|u₁|²/dt₁<0、d|u₂|²/dt₂>0：可行性 |u|²≤1 把 (t₁,t₂) 逼到 |u|=1 面，该面 M≥0（BF+P1）。无 Hessian、无路径积分。
+- **(Pbb) Ω∖B_ring 内部区间 B&B（L3）**：centered-form 下界 + 向外舍入，min lower(M)=**+4.7e−8 / +1.2e−9 / +1.8e−7**（n=8/9/10，皆 N[] 求值的有限正数），closed_all=True、stack 空、未触预算（3665/5379/7719 盒）。
 
-**仍开放**：内部 |u_j|<1 偏离边界面（证书 P2 ring collar + P3 内部 3D B&B）。朴素 WL `Interval` 在 `arccos((u₁·u₂)/(|u₁||u₂|))` 与符号 Hessian 的 `|u|^(3/2)` 分母上跨 0 包裹失败：collar Hessian 区间矩阵不收敛；B&B 60000 盒 / 深度 28 内 min_margin_enclosed 停在 −0.32/−0.47/−0.55（严重高估），预算耗尽。audit 的粗界 θ≤f(π/3)≤T(0) 只够 n=8（余量 +0.153），n=9/10 不够。float 全域 sup(θ−T)=0 仅在 ring 点取到 ⟹ 命题可信，但内部整段仍是 **L1**。下一步需换**不含 arccos/归一化**的区间表述（解析边界面归约，或 cos-空间区间）。
+**Cycle 9 的两个 bug 修复**（旧证书 exit 1，min_lowerM 卡在 ~−0.22 并吐几 MB 符号/∞）：
+- **Bug 1（ArcCos' 包裹爆炸）**：旧 centered-form 用符号梯度 `D[…Cos[T[ArcCos[w]]]…]`，含 `ArcCos'[w]=−1/√(1−w²)`；盒内 w=cos α 触 ±1（窄/退化胞腔 w→1）时 1−w² 跨 0，整个梯度区间塌成 (−∞,∞) ⟹ corr=∞ ⟹ cen=−∞。**修法（链式分解）**：把 w 与 dw/dx 保持为**不含 arccos** 的干净有理/三角式，Q=1/√(1−w²)=−d(arccos w)/dw **单独构造**，仅在 w 可证严格落于 (−1,1)（余量 eQ=1e−6）时喂窄区间，否则退回恒有效的朴素端点界。Q 偶且随 |w| 增，盒上最大值取在 |w| 端点、此时有限，用 Qmax 替代 Q 是对 |dM/dx| 的**上**估 ⟹ centered 修正仍是有效外界。
+- **Bug 2（Exit 非有限）**：worst 曾是含 ∞ 的符号 Interval，N[worst] 仍 ∞，Exit 判定不诚实。**修法**：每个盒下界 N[] 求值并断言有限实数（非有限 → 有限哨兵 −BIG，盒细分）；worst 仅在**叶子**（已封或触深度）取；Pbb 返回合取显式"NumericQ ∧ 实数 ∧ 有限 ∧ ≥0"检验 ⟹ 任何符号/∞ 都到不了 Exit。
+- **封住关键**：外盒 [smin,smax]×[−H0,H0]² 严格包含 Ω，其 s=R−1 附近（h(s)→0、|u_j|>1）的不可行角把界拖负；凡 Min[|u₁|²]>1 或 Min[|u₂|²]>1（整盒出 Ω）即丢弃，搜索从 >5e5 盒塌到几千盒且 min_lowerM 转正。
+
+**coverage 无缝的 explicit 复核**（`experiments/2026-10-08-g1t-small-alpha/coverage_check.wls`，独立于证书）：各 n 对 Ω 密网格（~65–70k 可行点）复核 **M<0 违例=0**；每个可行点恰属 {B_ring collar / |u|=1 面 / 内部}之一，三块所有权之和 = 可行点数（无缝、无重叠、无缝隙）；d0 在 Pcollar 与 Pbb inRing 两处**同为 1/160**；ring 取等点 M=0（49 位零，margin→0 自检）。诚实边界：Exit 0 当且仅当 calib & P1 & BF & Pcollar & Pbb 全 True 且 Pbb 的 B&B 树完全闭合（stack 空、无触深度叶、未超预算）且 worst 叶下界为有限数 ≥0。
 
 ## 4. Jensen 链（S4，已复现 — L3）
 
@@ -94,16 +101,17 @@
 | 外环距离 = 2cos(π/k)（[FT] 笔误 2sin → 2cos）| L3 | `E_typo`（精确）|
 | G1T 是 f 在 ᾱ 的切线；f 在 (ᾱ,π) 凹 ⟹ G1T 在 α≥ᾱ 成立 | L3（切线/凹性）| `E_tangent` + `E_concave`（40 位）|
 | G1 原式在 α<π/3 不成立（[FT] 缺口）| L1 | audit（float 采样 + SLSQP）|
-| G1T 在 α<ᾱ 严格成立（区间证书）| **部分（L3）**：边界面 \|u\|=1 已封（P1 T≥f + BF θ=f(α)），内部 \|u\|<1 开放 | `proofs/certificates/05b-g1t-small-alpha.wls`（exit 1；P1+BF True，P2/P3 open）|
+| G1T 在 α<ᾱ 严格成立（区间证书）| **L3（完全封住，2026-10-09）**：边界面 \|u\|=1（P1 T≥f + BF θ=f(α)）+ ring collar（Pcollar 一阶 KKT 梯度号）+ 内部 B&B（Pbb）无缝覆盖 Ω | `proofs/certificates/05b-g1t-small-alpha.wls`（exit 0；calib & P1 & BF & Pcollar & Pbb 全 True，min lower(M)=+4.7e−8/+1.2e−9/+1.8e−7）|
 | Jensen 链 (1)–(7) 的单调性（修正 g 在 [ᾱ,π] 递减）| **L3** | `E_jensen`（gating）：端点恒等精确 + g′(ᾱ)<0 精确 + g″<0 区间（200 面板，向外舍入）|
 | n=8,9,10 **无条件**最优性（去掉 H_k）| **开放** | 依赖 S3b + S4 + §3 面积论证的人工复核 |
 
-**与 `01` 的净差**：`01` 已经把 n=8,9,10 的最优值做到 L3（正则环 + `ExactCoverQ`），并在 H_k 下给出 L4 条件最优性。本篇**没有**把最优性升到无条件 L4 —— 剩下的硬骨头是 G1T 小-α 区间证书（S3b）与 n=10 的 Melissen 距离引理（§3）。本篇的净贡献是：(a) 验证了 [FT] 的笔误与 G1 缺口；(b) 把 G1T 切线补丁的「切线性 + 凹性」做到 L3；(c) **从 PDF 原文重建 Jensen 链 (1)–(7)，定位并修正了转写错误（(5) 的 Jensen 项数 2(n−1)，正弦宗量 (n−2)π/(n−1)−α/2，非字面的 2(n−2)π/(n−1)−α），并把 (7) 的单调性引理升到区间证书 L3（S4 关闭）**。
+**与 `01` 的净差**：`01` 已经把 n=8,9,10 的最优值做到 L3（正则环 + `ExactCoverQ`），并在 H_k 下给出 L4 条件最优性。本篇**没有**把最优性升到无条件 L4 —— 剩下的硬骨头是 n=10 的 Melissen 距离引理（§3）与取等⟹全等（S5）；**G1T 小-α 区间证书（S3b）已于 2026-10-09 完全封住 L3**。本篇的净贡献是：(a) 验证了 [FT] 的笔误与 G1 缺口；(b) 把 G1T 切线补丁的「切线性 + 凹性」做到 L3；(c) **从 PDF 原文重建 Jensen 链 (1)–(7)，定位并修正了转写错误（(5) 的 Jensen 项数 2(n−1)，正弦宗量 (n−2)π/(n−1)−α/2，非字面的 2(n−2)π/(n−1)−α），并把 (7) 的单调性引理升到区间证书 L3（S4 关闭）**；(d) **把 S3b 的内部 \|u\|<1 全封（cos-空间 M≥0 四块无缝覆盖 Ω：P1+BF+Pcollar 一阶 KKT 梯度号+Pbb 内部 B&B；修复旧证书的 ArcCos' 包裹爆炸与非有限 Exit 两个 bug，证书 exit 0）**。
 
 ## Research State（下一步）
 
 - **已关闭 S4**：Jensen 链 (1)–(7) 的单调性引理已复现并做到 L3。更正内容：旧字面转写 `g=sin(2(n−2)π/(n−1)−α)+F` 丢了 (5) Jensen 平均分母 2(n−1) 的因子 2，正确函数 `g=sin((n−2)π/(n−1)−α/2)+F`，满足 (7) 端点恒等 g(ᾱ)=sin β̄+F(ᾱ) 且在 [ᾱ,π] 严格递减（g′(ᾱ)<0 精确 + g″<0 区间 200 面板，向外舍入）。证书 `E_jensen` 已改为 gating。
-- **部分 S3b（2026-10-08）**：G1T 小-α 证书 `proofs/certificates/05b-g1t-small-alpha.wls`（exit 1）。已封 L3：(P1) T≥f on (0,π)（切线+全局凹，区间 f″<0）、(BF) 边界面 |u₁|=|u₂|=1 上 θ=f(α) 精确 ⟹ 该面 θ≤T（含正则环取等）。**开放**：内部 |u_j|<1（P2 ring collar Hessian 负定 + P3 内部 3D B&B）——朴素 WL `Interval` 在 arccos((u₁·u₂)/(|u₁||u₂|)) 与 |u|^(3/2) 上跨 0 包裹失败。**route (a)（边界面归约）已否证（2026-10-08）**：|u_j| 由 (s,t_j) 钉死无独立径向自由度，dG/dt_j 双符号且存在不对称内部点（反例 s=2.32546,t₁=−0.40451,t₂=−0.12487，|u₂|≈0.37）G 超同-s 对称面 +1.5e−2 ⟹「面支配内部」不成立（θ≤T 仍逐点成立，失败的是传输方向）。下一步 route (b)：cos-空间区间（cos θ≥cos T(α) 绕开 arccos，centered-form 收紧 s 共享依赖，触点用梯度 Lipschitz 盒界）。**route (b) Cycle 5 结果**：cos-空间**去包裹成功**——|u_j|∈[0.21,1] 远离 0，`cos α=(u₁·u₂)/(|u₁||u₂|)` 干净区间，n=9,10 的符号 Hessian 已是 interval matrix（arccos/|u|^(3/2) 病态消除）；但**朴素端点区间依赖高估仍未封**（B&B 120000 盒 min_lowerM −0.22/−0.27/−0.28，float 真值 min M≥+7e−4）。Cycle 6：centered/mean-value form（宽度 O(δ²)）+ ring 梯度精确 + Hessian PSD 小盒；退路 固定 (t₁,t₂) 对 s 单变量区间定号降 2D。几何与诊断见 `experiments/2026-10-08-g1t-small-alpha`。
+- **已关闭 S3b（2026-10-09，L3）**：G1T 小-α 证书 `proofs/certificates/05b-g1t-small-alpha.wls`（**exit 0**）。cos-空间证 M:=cos θ−cos T(α)≥0 于整个 Ω，四块无缝覆盖：(P1) T≥f on (0,π)（切线+全局凹）、(BF) 边界面 |u₁|=|u₂|=1 上 θ=f(α) 精确、(Pcollar) ring 邻域 B_ring=ring±1/160 一阶 KKT 梯度号引理（ring 是 KKT 边界极小 ∇M≠0，用 dM/dt₁>0、dM/dt₂<0、d|u₁|²/dt₁<0、d|u₂|²/dt₂>0 把可行点逼到 |u|=1 面）、(Pbb) Ω∖B_ring 内部区间 B&B（min lower(M)=+4.7e−8/+1.2e−9/+1.8e−7，closed_all、stack 空、未触预算）。**修复两个 bug**：Bug 1（centered-form 符号梯度含 ArcCos'[w]=−1/√(1−w²)，w 触 ±1 时整梯度 (−∞,∞)）→ 链式分解把 w、dw 保干净，Q=1/√(1−w²) 单独构造仅在 w∈(−1,1) 时喂窄区间否则退朴素界；Bug 2（worst 含 ∞ 使 Exit 不诚实）→ 每盒下界 N[] 求值+有限断言、worst 仅取叶子、返回合取"有限实数 ∧ ≥0"。**封住关键**：丢弃整盒出 Ω 的框（Min[|u|²]>1），消去外盒 s=R−1 不可行角的负拖累，搜索塌到几千盒。coverage explicit 复核（独立网格 ~65–70k 可行点/各 n）M<0 违例=0、三块所有权之和=可行点数（无缝无重叠）、d0 两处同 1/160、ring M=0。`make lint test` 全绿（52 pytest + 18 WL）。
+- **历史（S3b 封住前的死路/路径，供复核）**：**route (a)（边界面归约）已否证（2026-10-08）**：|u_j| 由 (s,t_j) 钉死无独立径向自由度，dG/dt_j 双符号且存在不对称内部点（反例 s=2.32546,t₁=−0.40451,t₂=−0.12487，|u₂|≈0.37）G 超同-s 对称面 +1.5e−2。**route (b) cos-空间**是最终成功路：去包裹（|u_j|∈[0.21,1] 远离 0，cos α 干净区间）在 Cycle 5 已成，Cycle 6-8 的朴素端点依赖高估（min_lowerM −0.22/−0.27/−0.28）由 Cycle 9 的链式 centered-form + 叶子 worst + 出-Ω 盒丢弃彻底解决。几何与诊断见 `experiments/2026-10-08-g1t-small-alpha`。
 - **开放 §3（n=10）**：Melissen 距离引理（h(ϑ) 单调且凸、|pᵢpᵢ₊₃|>2、|pᵢpᵢ₊₄|>2，Case 1/2 的 (9)–(13) 面积界）尚未配证书。
 - **死路提醒**：`01` 的切线弧长法在 k=10（n=11）失效（L(0)−A(R*)=−0.0072）；n≥11 不要再走"中心圆+正则环"。
 - 证书命令：`wolframscript -file proofs/certificates/05-fejestoth-n8-n9-n10.wls`（exit 0）。

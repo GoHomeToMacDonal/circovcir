@@ -73,3 +73,15 @@
   - **route (b) cos-空间——去包裹成功、依赖高估未封**：M=cos θ−cos T(α)≥0 等价于 θ≤T。|u_j|∈[0.21,1] 远离 0 ⟹ 无 arccos/|u|^(3/2) 包裹；cos α 干净区间；n=9,10 符号 Hessian 已是 interval matrix。但朴素端点区间依赖高估（s 共享），B&B 120000 盒 min_lowerM −0.22/−0.27/−0.28（真值 float min M≥+7e−4），collar Hessian 盒太宽 Sylvester 下界负。cert `05b` 仍 exit 1（P1+BF 封取等轨迹 L3，P2cos/P3cos 开放）。
   - Cycle 6：centered/mean-value form 收依赖（宽度 O(δ²)）+ ring 梯度精确 + Hessian PSD 小盒；退路：固定 (t₁,t₂) 对 s 单变量区间定号降到 2D B&B。`experiments/2026-10-08-g1t-small-alpha/screen3..5.py`。
   - `make lint test` 全绿（52 pytest + 18 WL）；未改 wl/src；未 git commit。
+
+## 2026-10-09
+
+- **S3b（G1T 小-α）完全封住 — L3（Cycle 9）**（证书 `proofs/certificates/05b-g1t-small-alpha.wls`，**exit 0**；实验 `experiments/2026-10-08-g1t-small-alpha`）。前八轮把命题拆成 `allok = calib && P1 && BF && Pcollar && Pbb`，只剩内部 B&B 的 **Pbb=False**；本轮修两个 bug 后全封。
+  - **Bug 1（centered-form 的 ArcCos' 包裹爆炸）**：旧 `gMs=D[cos θ−Cos[T[ArcCos[w]]], s]`（gMt1/gMt2 同）含 `ArcCos'[w]=−1/√(1−w²)`，其中 w=cos α=(u₁·u₂)/(|u₁||u₂|)。盒内 w 区间触 ±1（窄/退化胞腔 w→1）时 1−w² 跨 0 ⟹ 梯度区间塌成 `Interval[{−∞,∞}]` ⟹ corr=∞ ⟹ cen=−∞。朴素端点路径里 cosv 已 clamp 到 [−1,1]，所以炸的只有 centered-form 的符号梯度。**修法（链式分解，route b 收尾）**：把 w 与 dw/dx 保持为**不含 arccos** 的干净有理/三角式；由 dM/ds=−fp·Q·sin(T)·dw/ds、dM/dt₁=sin θ−fp·Q·sin(T)·dw/dt₁、dM/dt₂=−sin θ−fp·Q·sin(T)·dw/dt₂，把 **Q=1/√(1−w²)** 单独构造，**仅当盒内 w 可证严格落于 (−1,1)（余量 eQ=1e−6）**时用 Q 的盒上最大值 Qmax=1/√(1−wabs²)（偶、随|w|增，端点取极大 ⟹ 以 Qmax 替 Q 是对 |dM/dx| 的上估 ⟹ 外界有效）；否则退回**恒有效的朴素端点界**。arccos 只在盒心数值出现一次（Mc）和作为这个单独受控的 Q 因子。
+  - **Bug 2（Exit 非有限）**：旧 `worst` 可为含 ∞ 的符号 Interval，`N[worst,8]` 仍 ∞/符号 ⟹ Exit 判定不诚实。**修法**：每个盒下界 `N[Max[naive,cen],PREC]` 求值并断言有限实数（非有限 → 有限哨兵 −BIG，盒细分）；`worst` 仅在**叶子**（已封 lb≥0 或触深度 maxDepth=100）上取（旧代码把每个被细分的父盒松界也折进 worst，故 min_lowerM 永远被根盒 −0.22 钉死——这是前几轮"卡在 −0.22/−0.27/−0.28"的真正原因，而非方法失败）；Pbb 返回合取显式 `NumericQ ∧ Element[Reals] ∧ 有限 ∧ ≥0`。
+  - **封住关键（丢弃出-Ω 盒）**：B&B 外盒 [smin,smax]×[−H0,H0]² 严格包含 Ω；其 s=R−1 附近（h(s)→0、|u_j|>1）的**不可行角**把界拖负（worst box 恰在此，|u₁|=1.27、|u₂|=1.06>1，点本不在 Ω）。凡 `Min[|u₁|²]>1` 或 `Min[|u₂|²]>1`（outward 下界 ⟹ 整盒每点 |u|>1 ⟹ 整盒出 Ω）即丢弃。此一改使搜索从 >5e5 盒塌到几千盒且 min_lowerM 转正。另把细分维选在 rad_i·|grad_i| 最大者（最快收 centered 修正）。
+  - **结果（真 exit 0，`wolframscript -f …; echo EXIT=$?` 确认）**：calib/P1/BF/Pcollar 全 True 不变；**Pbb=True 三 n**，min lower(M)（N[] 求值的有限正数）= **n=8:+4.739e−8（3665 盒）、n=9:+1.230e−9（5379 盒）、n=10:+1.816e−7（7719 盒）**，closed_all=True、stack 空、budget_hit=False。证书打印 `CERTIFICATE OK — S3b (G1T small-alpha) CLOSED for n=8,9,10 (L3)`。
+  - **coverage 无缝的 explicit 复核**（`coverage_check.wls`，独立于证书）：d0 在 Pcollar 与 Pbb inRing 两处**同为 1/160**；ring 取等点 (sstar,−tstar,tstar) 的 M=0（49 位零，margin→0 自检）；各 n 对 Ω 密网格（~65–70k 可行点）**M<0 违例=0**；每可行点恰属 {B_ring collar / |u|=1 面 / 内部 B&B} 之一，三块所有权之和=可行点数（无缝、无重叠、无缝隙）。两个 drop（|u|>1 不可行、α>ᾱ 偏侧）只移除非-Ω 点。
+  - **诚实边界**：Exit 0 当且仅当 allok=True 且其所有依赖量都是 N[] 求值的有限数；未动容差、未缩约束域、未向内舍入、未把符号/∞ 塞进 Exit。S3b 由此从"部分（边界面 L3，内部开放）"升到 **L3 完全封住**。
+  - 文档同步：`proofs/02` S3b 行与进度段、`proofs/05` §3b 段+状态表+净差+Research State、`research/STATE.md`。`make lint test` 全绿（ruff clean；52 pytest（1 slow deselected）+ 18 WL，0 失败；未改 wl/src）。**未 git commit**，留待人工核。
+  - **去掉 H_k 的无条件最优性**仍开放，剩余硬骨头收窄为 §3 n=10 的 Melissen 距离引理（未配证书）与 S5（取等⟹全等）。
