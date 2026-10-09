@@ -13,7 +13,7 @@
 |---|---|---|---|
 | S0 | 反射约定：可设 o 与 o_i 在 C_i、C_n 的根轴同侧（⇒ α_i ≤ π） | 待证（[FT] 无证明） | — |
 | S1 | 引理（n=8,9）：恰一个圆在 int C_n 内；边界上无三圆共点。只用 arcsin 不等式 | 待做证书 | — |
-| S2 | 引理（n=10）：Melissen 距离论证 + 面积论证（[FT] §3），h(ϑ) 单调且凸，Case 1/2 面积界 | 待做，最重 | — |
+| S2 | 引理（n=10）：Melissen 距离论证 + 面积论证（[FT] §3），h(ϑ) 单调且凸，Case 1/2 面积界 | **L3（基于 [FT] 转引，2026-10-09）**：h 第一性原理重建复现 FT 印刷数，h′/h″>0 区间 B&B，(9)–(13)+Case 1/2 总和<a(C₁₀) 逐位命中 FT；Melissen 原文待核实 | `proofs/certificates/05c-melissen-n10.wls`（exit 0，6 gating）|
 | S3a | 单格界 G1：θ_i ≤ f(α_i) | **[FT] 缺口**：α_i < π/3 时不成立，改用切线界 G1T | `experiments/2026-10-01-fejes-toth-audit`（L1） |
 | S3b | G1T 在 α < π/3 区域严格成立（区间分支定界） | **L3（完全封住，2026-10-09）**：边界面 + ring collar + 内部 B&B 三块无缝覆盖 Ω | `proofs/certificates/05b-g1t-small-alpha.wls`（exit 0；calib & P1 & BF & Pcollar & Pbb 全 True，n=8,9,10）|
 | S3c | 单格界 G2：a(R_i) ≤ F(α_i)；f 凹且增，F 凹（[FT] 的代数） | L1 成立，待证 | 同上 |
