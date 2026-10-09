@@ -18,7 +18,7 @@
 | S3b | G1T 在 α < π/3 区域严格成立（区间分支定界） | **L3（完全封住，2026-10-09）**：边界面 + ring collar + 内部 B&B 三块无缝覆盖 Ω | `proofs/certificates/05b-g1t-small-alpha.wls`（exit 0；calib & P1 & BF & Pcollar & Pbb 全 True，n=8,9,10）|
 | S3c | 单格界 G2：a(R_i) ≤ F(α_i)；f 凹且增，F 凹（[FT] 的代数） | L1 成立，待证 | 同上 |
 | S4 | Jensen 链 (1)–(7)；修正函数 `g(α)=sin((n−2)π/(n−1)−α/2)+F(α)` 在 6π/(n−1) 处递减（[FT] 原排版丢了 (5) Jensen 分母 2(n−1) 的因子 2）| **L3（证书）** | `E_jensen`（gating）：端点恒等精确 + g′(ᾱ)<0 精确 + g″<0 区间（200 面板）|
-| S5 | 取等 ⇒ 构型全等 | 待写细节 | — |
+| S5 | 取等 ⇒ 构型全等 | **L3（刚性事实封闭，2026-10-09）/ 定理 L4-条件**：等号情形的严格性（R1 f″<0、R2 F″<0、R3 g 严格递减、R4 单格取等轨迹=正则胞腔、R5 等角闭合）全部 exit-0；S5 定理 = R1–R5 与 S3b/S4/§3 证书的几何组合，无新自由系统故无 Krawczyk 盒 | `proofs/certificates/05d-s5-equality-rigidity.wls`（exit 0，R1&R2&R3&R4&R5 全 True，n=8,9,10）|
 
 ## 已发现的问题
 
