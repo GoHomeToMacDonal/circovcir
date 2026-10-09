@@ -104,3 +104,9 @@
   - **两个工具修复（诚实记档，非放宽量词）**：(1) R1/R2 的 α→0 第一面板 worstUpper 曾 +1.4e−4/+5.6e−3（panelsFail=1/2），是**区间高估**（f″、F″ 分子趋 0，端点包裹松）非真实变号 —— 逐点 f″≈−1e−4 严格负，自适应二分（最大深度 1–5）即清零。(2) R4 的三恒等式 `Simplify===0` 全判 False（arcsin/arccos 形），改 `RootReduce`（精确，与 `CirCovCir`sgn` 近零同工具）后全 True。另修一处注释 `*)` 提前闭合的 WL 语法噪声（`T_i*).`）。
   - **诚实边界**：R1–R5 本身 L3；S5 **定理** = R1–R5 与 S3b(05b)/S4(05)/§3(05c) 证书的几何组合，取最弱依赖等级：**n=8,9 为 L4-条件**（待人工复核 [FT] §2 面积论证骨架 S0/S1 引理 + Dirichlet 剖分），**n=10 另搭未取得的 Melissen 原文**（pp.108–111）。至此 `proofs/02` 四个计算关卡 S3b/S4/§3/S5 全部 exit-0。
   - 文档同步：`proofs/02` S5 行、`proofs/05` §4c + §5 表 + 净差 + Research State、`research/STATE.md`。`make lint test` 全绿。**未 git commit**，留待人工核。
+
+- **S0/S1 缺口的问题化文档（写作任务，非证书）** — 新建 `proofs/06-remaining-gaps-problem.md`。从 [FT] 2005 §2 原文（PDF `pdftotext -layout` 抽取，pp.363–367）逐字抽出 S0（反射约定）与 S1（n=8,9 结构引理）的确切陈述，并对无条件 L4 仅剩的三个**非计算**缺口做诚实定级：
+  - **S0（反射约定）= genuine-open（初等）**：[FT] 把「反射保覆盖」("…and still get a covering")与「同侧⟹αᵢ≤π」("…implies that αᵢ≤π")两处都**断言而未证**。拆成命题 P0a、P0b（初等平面几何，待补）。
+  - **S1(n=8,9) = 转录 + 机械验证（非开放难题）**：[FT] §2 的 arcsin 论证**完整写出**（5 个不等式 6·arcsin(1/r₈)<π 等 + 两条弧长上界 2arcsin(1/r)、2arcsin(2/r)）。缺口仅是本仓库尚无弧长引理的独立证明与五个不等式的向外舍入区间复核 —— 做完即关闭。
+  - **S1(n=10) = 文献依赖**：[FT] 明说 arcsin 法失效（8·arcsin(1/r₁₀)>π），改借 Melissen 距离论证 + §3 面积法。G-C(05c) 已复现 §3 计算断言 L3，但 Melissen 原文 pp.108–111 未取得；清晰路径 (a) 取得原文 / (b) 自封闭重证 + 补「距离不等式⟹结构结论」归约。
+  - 文档含：§1 四个 exit-0 证书（S3b/S4/§3/S5 + 可达性/笔误）作公理引用；§2 一处定义全部记号（α/θ/f/F/ᾱ/Dirichlet 胞腔/根轴/Ω/T）；§3 [FT] §2 S0/S1 逐字转录 + 保真度 + 定级；§4 命题 P0/P1/P2；§5 五步合拢定理（P0+P1+P2 与四证书合拢 ⟹ 无条件唯一性）+ 自封闭保证（这三件是 ONLY 缺口）。PDF 抽取存 `$KIROCREW_SCRATCH/ft2005-layout.txt`（§2 抽取干净，五个 arcsin 常数无破坏）。**不碰 proofs/02、05 的证明内容；未 git commit。**
