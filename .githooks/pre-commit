@@ -1,5 +1,29 @@
 #!/usr/bin/env bash
 # Enable with:  make hooks   (sets core.hooksPath=.githooks for THIS repo only)
+#
+# Fast path: the WL self-test (wl/tests/run_tests.wls) takes ~100s. It guards the
+# Wolfram geometry/certificate logic, so it only needs to run when a commit touches
+# that code. ruff + pytest (~6s) run on every commit. A commit that touches only
+# docs/research/experiments skips the WL suite. Force a full run with SKIP_WL=0;
+# force a skip with SKIP_WL=1.
 set -euo pipefail
+
 make lint
-make test
+make test-py
+
+staged="$(git diff --cached --name-only --diff-filter=ACM)"
+
+run_wl=0
+if [ "${SKIP_WL:-}" = "0" ]; then
+  run_wl=1
+elif [ "${SKIP_WL:-}" = "1" ]; then
+  run_wl=0
+elif printf '%s\n' "$staged" | grep -qE '^(wl/|src/|proofs/certificates/)'; then
+  run_wl=1
+fi
+
+if [ "$run_wl" = "1" ]; then
+  make test-wl
+else
+  echo "pre-commit: no wl/ src/ proofs/certificates/ changes staged -> skipping WL self-test (set SKIP_WL=0 to force)"
+fi
