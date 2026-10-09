@@ -1,0 +1,826 @@
+Combinatorial and Computational Geometry
+MSRI Publications
+Volume 52, 2005
+
+
+
+
+         Thinnest Covering of a Circle by Eight,
+            Nine, or Ten Congruent Circles
+                                 GÁBOR FEJES TÓTH
+
+
+
+         Abstract. Let rn be the maximum radius of a circular disc that can be
+         covered by n closed unit circles. We show that rn = 1 + 2 cos(2π/(n−1))
+         for n = 8, n = 9, and n = 10.
+
+
+
+
+                                    1. Introduction
+
+   What is the maximum radius rn of a circular disk which can be covered by
+n closed unit circles? The √ determination
+                                         √ of rn for n ≤ 4 is an easy task: we
+have r1 = r2 = 1, r3 = 2/ 3 and r4 = 2. The problem of finding r5 has been
+motivated by a game popular on fairs around the turn of the twentieth century
+[Neville 1915; Ball and Coxeter 1987, pages 97–99]. The goal of the game was
+to cover a circular space painted on a cloth by five smaller circles equal to each
+other. The difficulty consisted in the restriction that an “on-line algorithm” had
+to be used, that is no circle was allowed to be moved once it had been placed.
+Neville [1915] conjectured that r5 = 1.64100446 . . . and this has been verified by
+K. Bezdek [1979; 1983] who also determined the value of r6 = 1.7988 . . . . The
+proofs of these cases are complicated. The case n = 7 is again easy. We have
+r7 = 2 and if 7 unit circles cover a circle C7 of radius 2, then one of them is
+concentric with C7 while√the centers of the other circles lie in the vertices of a
+regular hexagon of side 3 concentric with C7 . In his thesis Dénes Nagy [1975]
+claimed without proof that rn = 1 + 2 cos 2π/(n−1) for n = 8 and n = 9 and
+that, as for n = 7, the best arrangement has (n−1)-fold rotational symmetry.
+He conjectured the same for n = 10. Krotoszyński [1993] claimed to have proved
+this even for n ≤ 11. Unfortunately, his proof contains some errors. In fact,
+Melissen and Schuur (see [Melissen 1997]) gave a counter example for n = 11.
+
+Part of this work was done at the Mathematical Sciences Research Institute at Berkeley, CA,
+where the author was participating in a program on Discrete and Computational Geometry.
+The research was also supported by OTKA grants T 030012, T 038397, and T 043520.
+
+
+                                           361
+362                            GÁBOR FEJES TÓTH
+
+  In this note we settle the cases n = 8, n = 9, and n = 10.
+
+Theorem. Let rn be the maximum radius of a circular disk which can be covered
+by n unit circles. Then we have for n = 8, 9, and 10
+
+                                                 2π
+                               rn = 1 + 2 cos       .
+                                                n−1
+
+Moreover , if for n = 8, n = 9, or n = 10, n unit circles cover a circle Cn of radius
+rn , then one of them is concentric with Cn and the centers of the other circles
+are situated in the vertices of a regular (n−1)-gon at a distance 2 sin π/(n−1)
+from the center of Cn .
+
+The analogous problems of the thinnest covering of a square and an equilateral
+triangle with a given number of equal circles, as well as the dual problem con-
+cerning the densest packing of a given number of equal circles in a circle, a square
+or an equilateral triangle have been investigated intensively. A comprehensive
+account can be found in [Melissen 1997].
+   Generally, given a compact set C in a metric space, one can consider the
+problems of the densest packing of n balls in C and the thinnest covering of C
+with n balls. In lack of similarity the problems are formulated in a dual form.
+Let rC (n) be the maximum number with the property that n balls of radius
+rC (n) can be packed in C and let RC (n) be the minimum number with the
+property that n balls of radius rC (n) can cover C. The basic task is, of course,
+to design effective algorithms determining the values of rC (n) and RC (n), as well
+as the corresponding arrangements. So far only the case of rC (n) for C a square
+has been solved, by an algorithm devised by Peikert [1994]; see also [Peikert
+et al. 1992]. Exact solutions are generally known only for small values of n.
+The only exception is the problem of densest packing of circles in an equilateral
+triangle. When C is an equilateral triangle, rC (n) is known for all n of the
+form k(k + 1)/2, the triangular numbers; see [Groemer 1960; Oler 1961]. If C is
+an equilateral triangle
+                    √ with side-length 1, we have for such triangular numbers
+rC (n) = 1/2(k + 3 − 1). The optimal arrangement is given by the regular
+triangular lattice.
+   Many conjectured best arrangements of circles, both for packing and for cov-
+ering, have been constructed using different heuristic algorithms. The examples
+show that optimal arrangements quite often contain freely movable circles. This
+raises the following questions.
+
+Does there exist a compact set C for which for infinitely many n an optimal
+packing of (covering with) n congruent circles contains a freely movable circle?
+Does there exist a C for which there is no n at all such that an optimal packing
+of (covering with) n congruent circles contains a freely movable circle? Is there
+a constant c, possibly depending on C but independent of n such that the number
+of freely movable circles in an optimal arrangement is at most c?
+          COVERING A CIRCLE WITH EIGHT, NINE, OR TEN CIRCLES                         363
+
+The densest packing of n = k(k + 1)/2 circles in an equilateral triangle shows
+another interesting phenomenon. According a conjecture of Erdős and Oler
+[Croft et al. 1991, page 248] if n is a triangular number, then rC (n) = rC (n −
+1), that is, the optimal arrangement for n − 1 circles is obtained by removing
+one circle from the optimal arrangement of n circles. The conjecture has been
+confirmed for n = 6 and n = 10 [Melissen 1997]. There is a similar situation
+on the sphere: it is known (see [Rankin 1955], for example) that if C = S d , the
+d-dimensional sphere, then rC (d + 3) = rC (d + 4) = . . . = rC (2d + 2). This
+suggests the following question.
+For a given compact set C, are there natural numbers k = k(C) and K = K(C)
+such that rC (n) > rC (n + k) and RC (n) > RC (n + K) for every n?
+I conjecture that the answer is yes if C = S d and also if C is a compact convex set
+in Euclidean or spherical space, but I would not be surprised if the answer turned
+out to be no for general compact sets, or even for convex bodies in hyperbolic
+geometry.
+
+                           2. Proof of the Theorem
+   For the proof we modify the argument used by Schütte [1955] for the de-
+termination of the thinnest covering of the sphere by 5 and 7 congruent caps.
+Clearly, it suffices to show the second statement of the theorem, from that it
+follows immediately that no circle of radius greater than rn can be covered by
+n unit circles (n = 8, n = 9, or 10). The proof of the three cases are similar,
+however the case n = 10 is more complicated. We shall leave two of the more
+involved discussions for n = 10 to Section 3. In the treatment of all three cases
+the functions fr (α) and Fr (α) defined for 0 ≤ α ≤ π by
+                                                  sin(α/2)
+                              fr (α) = 2 arcsin
+                                                      r
+and
+                                                        sin α
+                   2     sin(α/2) 1             sin(α/2)
+       Fr (α) = r arcsin         − sin 2 arcsin            +
+                             r    2                 r         2
+play an important role. Here r > 2 is not a variable but a parameter.
+   The geometric meaning of fr (α) and Fr (α) is the following: Let C be a circle
+                                  e be a unit circle with center õ ∈ C such that
+of radius r centered at o and let C
+              e
+bd C and bd C intersect, say in a and b. If ]aõb = α, then f (α) = ]aob and
+F (α) is the area of the domain bounded by the segments õa, õb and the arc ab
+of bd C.
+   We have
+                       cos(α/2)                              (r2 − 1) sin(α/2)
+       fr0 (α) =                  1/2 ,    fr00 (α) = −                    3/2 ,
+                   r2 − sin2 (α/2)                         2 r2 − sin2 (α/2)
+364                                      GÁBOR FEJES TÓTH
+
+                        sin α sin(α/2)      cos α
+         Fr0 (α) =                    1/2 + 2 ,
+                                2
+                     2 r2 − sin (α/2)
+                              α
+                                    cos α sin2 (α/2) − r2  − r2 cos2 (α/2)         
+                                                                                      α
+        Fr00 (α) = −       sin                                                  + cos   .
+                               2               2(r2 − sin2 (α/2))3/2                  2
+Hence it is easily seen that fr (α) is concave and strictly increasing for 0 ≤ α ≤ π.
+The concavity of Fr (α) needs some calculation. To check it, we have to show
+that
+                     α                  α        α 2          α 3/2
+        cos α sin2 − r2 − r2 cos2 + 2 cos              r − sin2          > 0.
+                      2                   2        2              2
+Introducing the abbreviations s = sin(α/2) and c = cos(α/2), we have
+                                  3/2
+cos α s2 − r2 − r2 c2 + 2c r2 − s2
+                                                                             
+                                         > cos α s2 − r2 − r2 c2 + 2c r2 − s2
+                                                                                      
+                                         = 2c2 − 1 1 − c2 − r2 − r2 c2 + 2c r2 − 1 + c2
+                                         = (r2 − 1) (1 − c) (1 + 3c) + 2c3 (1 − c) > 0.
+
+    Let Cn be a circle of radius rn centered at o and let C0 , . . . , Cn−1 be closed
+unit circles with centers o0 , . . . , on−1 covering Cn . We assume that for a circle
+Ci , i = 0, . . . , n − 1, for which Ci ∩ bd Cn 6= ? the centers of Ci and Cn lie on the
+same side of the radical axis of the circles Ci and Cn . Otherwise we reflect Ci in
+this radical axis and still get a covering of Cn . Let C 0 , . . . , C n−1 be unit circles
+in the position described in the theorem, that is so that C 0 is concentric with
+Cn and the centers ō1 , . . . , ōn−1 of C 1 , . . . , C n−1
+                                                             are situated in the vertices of
+a regular (n−1)-gon at distance 2 sin π/(n−1) from o. We are going to show
+that the two arrangements of circles are congruent.
+    The following lemma claims that the two arrangements of circles {Ci }ni=0 and
+{C i }ni=0 have the same topological structure.
+                                           n−1
+Lemma. Exactly one of the circles {Ci }i=0     is contained in int Cn . Moreover ,
+no three of the circles intersecting bd Cn can have a common point.
+Since rn > 2, there is a circle, say C0 , which is contained in int Cn . Observe that
+an arc of bd Cn which is covered by a unit circle spans at o an angle not greater
+than 2 arcsin(1/rn ). Since
+                 1                                              1
+      6 arcsin      = 2.76326081 . . . < π       and 7 arcsin      = 2.989550105 . . . < π,
+                 r8                                             r9
+it follows that if n = 8 or n = 9, then Ci ∩ bd Cn 6= ? for i = 1, . . ., n − 1. We
+also observe that three unit circles with a common point cannot cover a part of
+bd Cn whose angle spanned at o exceeds 2 arcsin(2/rn ). Since
+                                     1           2
+                       4 arcsin         + arcsin    = 2.942412903 . . . < π
+                                     r8          r8
+           COVERING A CIRCLE WITH EIGHT, NINE, OR TEN CIRCLES                          365
+
+and
+                          1           2
+                    5 arcsin + arcsin    = 3.111686536 . . . < π,
+                          r9          r9
+it follows that for n = 8 and 9 no three of the circles Ci , i = 1, . . . , n − 1, can
+have a common point.
+    This argument breaks down when n = 10. We have
+                                       1
+                           7 arcsin       = 2.841948021 . . . < π,
+                                      r10
+showing that at most two of the circles {Ci }9i=0 are contained in int C10 ; however
+                                       1
+                           8 arcsin       = 3.24794059 . . . > π,
+                                      r10
+so we cannot exclude in this way that two of the circles {Ci }9i=0 are contained in
+int C10 . Also the proof that no three of the circles intersecting bd Cn can have
+a common point requires a different argument. Melissen [1997, pp. 108–111]
+proved the Lemma for n = 10 using an argument based on the investigation of
+distances. In Section 3 we repeat Melissen’s argument for the proof of the first
+part of the Lemma and give an alternative proof for the second statement, using
+estimations of areas.
+   Let Di , i = 0, . . . , n − 1, be the Dirichlet cell of Ci with respect to Cn . From
+the considerations above it follows that each vertex in the cell complex of the
+Dirichlet cells is trihedral, D0 is an (n − 1)-gon, while for i = 1, . . . , n − 1, Di is a
+curved quadrilateral bounded by three line segments and an arc of bd Cn . Thus
+the cell complex of the cells Di is isomorphic to the cell complex of the Dirichlet
+cells Di of the circles C i .
+   We introduce some notations. We describe them for the circles Ci . The same
+symbols with a bar will be used for the corresponding objects and quantities for
+the circles C i (see Figure 1).
+   Let the vertices of D0 be p1 , . . . , pn−1 and let the vertices of Dirichlet cells
+on bd Cn be q1 , . . . , qn−1 . We write pn = p1 , qn = q1 and assume, as we may
+without loss of generality, that the notation is chosen so that the vertices of Di
+are pi , pi+1 , qi+1 , qi for i = 1, . . . , n − 1. We write
+
+                αi = ]qi oi qi+1 ,     βi = ]pi oi qi ,    γi = ]pi+1 oi qi+1 ,
+                           δi = ]pi oi pi+1 ,      εi = ]pi o0 pi+1 .
+
+   We note that the assumption that o and oi lie on the same side of the radical
+axis of Cn and Ci implies that
+                                              αi ≤ π
+for i = 1, . . . , n − 1. It is easy to check that
+                    6π                       (n − 5)π                        2π
+           ᾱi =       ,       β̄i = γ̄i =            ,   and δ̄i = ε̄i =       .
+                   n−1                         n−1                          n−1
+366                                       GÁBOR FEJES TÓTH
+
+
+
+
+                                                    Figure 1.
+
+Using the relation ᾱi = 6π/(n−1) one can verify that
+                                               6π             2π
+                                          f                =       .
+                                                n−1            n−1
+  We dissect Cn into the triangles Ti = pi o0 pi+1 , Ti∗ = pi oi pi+1 , Ti− = pi oi qi ,
+ +
+Ti = pi+1 oi qi+1 and into the regions Ri bounded by the segments oi qi , oi qi+1
+and the arc qi qi+1 of bd Cn , for i = 1, . . . , n−1. We shall estimate the total area of
+these domains and show that it is less than the area of Cn unless the arrangement
+of the circles C0 , . . . , Cn−1 is congruent to that of the circles C 0 , . . . , C n−1 .
+   Observe that the triangles Ti and Ti∗ are congruent, so that
+                             n−1
+                             X            n−1
+                                          X                     n−1
+                                                                X             n−1
+                                                                              X
+                                   δi =         εi = 2π =             δ̄i =         ε̄i                    (1)
+                             i=1          i=1                   i=1           i=1
+
+and
+          n−1
+          X                                          n−1
+                                                     X                                       n−1
+                                                                                             X
+                (βi + γi ) = (n − 1)2π −                   (αi + δi ) = (n − 2)2π −                αi .    (2)
+          i=1                                        i=1                                     i=1
+
+We have
+                      n−1                     n−1                                Pn−1             
+                      X                       X
+                                                                                          i=1 αi
+           2π =             ]qi oqi+1 ≤             frn (αi ) ≤ (n − 1)frn                             .
+                      i=1                     i=1
+                                                                                          n−1
+
+Hence we get
+                n−1
+                X                              2π                        6π
+                                                                                n−1
+                                                                                X
+                      αi ≥ (n − 1)fr−1                       = (n − 1)        =     ᾱi .                  (3)
+                i=1
+                                    n
+                                                n−1                       n−1   i=1
+
+  Now we are in the position to estimate the total area of the parts of Cn . Using
+Jensen’s inequality we get
+            COVERING A CIRCLE WITH EIGHT, NINE, OR TEN CIRCLES                                   367
+
+               n−1
+               X                              n−1
+                                              X                            Pn−1
+                                                                            i=1 εi
+                     (a(Ti ) + a(Ti∗ )) ≤           sin εi ≤ (n − 1) sin           ,             (4)
+               i=1                            i=1
+                                                                           n−1
+
+ n−1
+ X                                n−1
+                                  X                                         Pn−1
+                             1                                                i=1 (βi + γi )
+       (a(Ti− ) + a(Ti+ )) ≤            (sin βi + sin γi ) ≤ (n − 1) sin                       , (5)
+ i=1
+                                2 i=1                                             n−1
+                n−1               n−1                              Pn−1        
+                X                 X
+                                                                       i=1 αi
+                       a(Ri ) ≤         Frn (αi ) ≤ (n − 1)Frn                      .            (6)
+                 i=1              i=1
+                                                                      n−1
+  In view of (1) we have
+                       Pn−1      n−1
+                                 X             n−1
+                                               X
+                            εi
+            (n − 1) sin i=1    =     sin ε̄i =     (a(T i ) + a(T ∗i )).
+                         n−1     i=1           i=1
+
+  Write
+                                               n−1
+                                               X      αi
+                                          α=             .
+                                                i=1
+                                                    n −1
+Then we have, in view of (2),
+                      Pn−1
+                                i=1 (βi + γi )          2(n − 2)π
+                                                    =             − α;
+                                    n−1                   n−1
+hence, by (5) and (6),
+  n−1
+  X                                                                 
+                                               2(n − 2)π
+       a(Ti− ) + a(Ti+ ) + a(Ri ) ≤ (n − 1) sin           − α + Frn (α) .
+   i=1
+                                                  n−1
+
+  The function                                      
+                                        2(n − 2)π
+                              sin                 − α + Frn (α)
+                                          n−1
+is concave for 0 ≤ α ≤ π and, as it can be checked numerically, decreasing for
+α = 6π/(n−1). Therefore it is decreasing for 6π/(n−1) ≤ α ≤ π. Observing
+that
+           6π                       2(n − 2)π    6π   2(n − 10)π
+              = ᾱi       and                 −     =            = β̄i = γ̄i ,
+          n−1                         n−1       n−1      n−1
+we deduce that
+  n−1
+  X                                                                    
+                                                 2(n − 10)π          6π
+         a(Ti− ) + a(Ti+ ) + a(Ri ) ≤ (n − 1) sin            + Frn
+   i=1
+                                                     n−1             n−1
+                                                n−1                        n−1
+                                              1X                           X
+                                          =         (sin β̄i + sin γ̄i ) +     Frn (ᾱi )
+                                              2 i=1                        i=1
+                                              n−1
+                                              X                                
+                                          =          a(T −         +
+                                                         i ) + a(T i ) + a(Ri ) .                (7)
+                                              i=1
+368                                  GÁBOR FEJES TÓTH
+
+   Adding inequalities (4) and (7) we get
+                    n−1
+                    X
+         a(Cn ) =         (a(Ti ) + a(Ti∗ ) + a(Ti− ) + a(Ti+ ) + a(Ri ))
+                    i=1
+                    n−1
+                    X
+                ≤         (a(T i ) + a(T i∗ ) + a(T i− ) + a(T i+ ) + a(Ri )) = a(Cn ).
+                    i=1
+
+   Therefore we have equality in all of the inequalities (5)–(7). This can only
+occur if the arrangements of the circles C0 , . . . , Cn−1 and C 0 , . . . , C n−1 are con-
+gruent.
+
+
+
+                       3. Proof of the Lemma for n = 10
+   Let C0 , . . . , C9 be closed unit circles covering the circle C10 of radius r10 . As in
+the previous section, we denote the center of Ci , i = 0, . . . , 9 by oi and the center
+of C10 by o. We shall follow the argument of Melissen to show that no eight of
+                                                             S7
+the circles can cover bd C10 . Suppose that bd C10 ⊂ i=0 Ci . Since the angular
+measure of an arc of bd C10 covered by a unit circle is at most 2 arcsin(1/r10 )
+and
+                                      1
+                            7 arcsin     = 2.841948021 . . . < π,
+                                     r10
+no proper subset of the circles Ci , i = 0, . . . , 7 covers bd C10 , hence no three of
+the arcs Ci ∩ bd C10 , 0 ≤ i ≤ 7 intersect. This property defines a cyclic order
+of the arcs Ci ∩ bd C10 . We assume that the notation is chosen so that this
+cyclic order coincides with the order of the indices, that is C0 ∩ C1 ∩ bd C10 6=
+?, . . . , C6 ∩ C7 ∩ bd C10 6= ?, C7 ∩ C0 ∩ bd C10 6= ?. We choose points q1 , . . . , q8
+from the sets C0 ∩ C1 ∩ bd C10 , . . . , C7 ∩ C0 ∩ bd C10 , respectively.
+   Recall that the maximum angular measure of an arc of bd C10 covered by
+three unit circles with a common point is 2 arcsin(2/r10 ). Since
+                              2              1
+                    arcsin       + 5 arcsin     = 2.940546309 . . . < π,
+                             r10            r10
+no three of the circles Ci , i = 0, . . . , 7 have a common point. Let
+
+                                 pi = bd Ci−1 ∩ Ci ∩ int C10
+
+for i = 1, . . . , 7, and p8 = C7 ∩ C0 ∩ int C10 (see Figure 2).
+   The main observation of Melissen is that the points pi , i = 1, . . . , 8, cannot
+be covered by two circles. This follows easily from the following result:
+Proposition. We have
+
+                              |pi pi+3 | > 2   and    |pi pi+4 | > 2
+
+for i = 1, . . . , 8, with pi = pi+8 .
+            COVERING A CIRCLE WITH EIGHT, NINE, OR TEN CIRCLES                            369
+
+                                                                       Ci
+                                   Ci+1          qi+1
+
+                                                                            qi =qi+8
+                            qi+2
+                                                        pi+1
+                                                               pi
+                                                 pi+2
+                                                         o                         qi+7
+                         qi+3
+                                          pi+3
+
+
+                                                                                qi+6
+                                          qi+4
+                                                                qi+5
+
+
+                                             Figure 2.
+
+Indeed, the first inequality readily implies that one of the circles C8 and C9
+contains all points pi with an odd subscript and the other contains all points
+with an even subscript. This, however, contradicts the second inequality.
+   In order to estimate the distances between the points pi we need a lower bound
+for the distance |opi |. Let h(ϑ) be the minimum distance between o and a point
+of intersection of the boundaries of two unit circles that cover an arc of angular
+measure ϑ from bd C10 , with 0 ≤ ϑ ≤ 4 arcsin(1/r10 ). It is easy to see that this
+minimum distance is achieved in the symmetric position when each of the unit
+circles cover an arc of angular measure ϑ2 from bd C10 . Using some trigonometry
+we calculate that
+                                         r
+                                   ϑ            2 sin2 ϑ cos ϑ .
+                    h(ϑ) = r10 cos − 2 1 − r10
+                                    2                  4     4
+Writing s = sin2 ϑ4 we have
+                                 √ p       2 s2 − r cos ϑ
+                                                           2
+                                  s   1 − r10       10   4
+                        h0 (ϑ) =        p
+                                                 2 s2
+                                           1 − r10
+and
+                              2
+                  −2r10 (1 − r10 s)3/2 cos ϑ2 + (1 + r10
+                                                       2      2
+                                                          − 6r10       4 2
+                                                                 s + 4r10 s ) cos ϑ4
+      h00 (ϑ) =                                   2 s2 )3/2
+                                                                                     .
+                                          8(1 − r10
+It immediately follows that h(ϑ) is increasing. Observing that
+                               2      2        4 2     2                          5
+                          1 + r10 − 6r10 s + 4r10 s > r10 −
+                                                                                  4
+we get
+            −2r10 cos ϑ2 + (r10
+                             2
+                                − 45 ) cos ϑ4   −4r10 cos2 ϑ4 + (r10
+                                                                  2
+                                                                     − 45 ) cos ϑ4 + 2r10
+h00 (ϑ) >                                     =                                           .
+                          8                                        8
+370                             GÁBOR FEJES TÓTH
+                                                    
+The minimum of the right side is 18 r10
+                                      2
+                                         − 2r10 − 45 > 0, showing that h(ϑ) is
+convex.
+  Now we are in the position to estimate the distances between the points pi .
+Write ψ = ]pi opi+3 and ξ = ]pi opi+4 . Then we have, on the one hand,
+                                   6
+                                   X
+         ψ = 2π − ]pi+3 oqi+4 −          ]qi+j oqi+j+1 − ]qi+7 opi
+                                   j=4
+                              2              1                            π
+           ≥ 2π − 2 arcsin       − 6 arcsin     = ψmin = 2.026062 . . . >
+                             r10            r10                           2
+and
+                                 6
+                                 X
+       ξ = 2π − ]pi+4 oqi+5 −           ]qi+j oqi+j+1 − ]qi+7 opi
+                                 j=45
+                            2              1                              π
+         ≥ 2π − 2 arcsin       − 4 arcsin     = ξmin = 2.838048136 . . . > ,
+                           r10            r10                             2
+and on the other hand,
+                ψ = ]pi oqi+1 + ]qi+1 oqi+2 + ]qi+2 opi+3
+                              2              1
+                  ≤ 2 arcsin     + 2 arcsin     = 2.633152 . . . < π
+                             r10            r10
+and
+            ξ = ]pi oqi+1 + ]qi+1 oqi+2 + ]qi+2 opi+3 + ]pi+3 opi+4
+                            2              1
+              ≤ 2 arcsin       + 4 arcsin     = 2π − ξmin .
+                           r10            r10
+   By the law of cosines we get
+                            p
+               |pi pi+3 | = |opi |2 + |opi+3 |2 − 2|opi ||opi+3 | cos ψ,
+                            p
+               |pi pi+4 | = |opi |2 + |opi+4 |2 − 2|opi ||opi+4 | cos ξ.
+Let ϑ1 , ϑ2 , and ϑ3 be the angular measure of the arc of bd C10 covered by
+the pair of circles Ci−1 , Ci , Ci+2 , Ci+3 , and Ci+3 , Ci+4 , respectively. As the
+triangles pi opi+3 and pi opi+4 are obtuse, we get lower bounds for |pi pi+3 | and
+|pi pi+4 | if we substitute for |opi |, |opi+3 |, and |opi+4 | their minimum values and
+for cos ψ and cos ξ their maximum values:
+                             p
+                 |pi pi+3 | ≥ h2 (ϑ1 ) + h2 (ϑ2 ) − 2h(ϑ1 )h(ϑ2 ) cos ψmin ,
+                             p
+                 |pi pi+4 | ≥ h2 (ϑ1 ) + h2 (ϑ3 ) − 2h(ϑ1 )h(ϑ3 ) cos ξmin .
+We have, for j = 2, 3,
+                                                        1
+                             ϑ1 + ϑj ≤ 2π − 8 arcsin       .
+                                                       r10
+Since h(ϑ) is increasing and convex, therefore,
+                                                           1
+                                                               
+                      h(ϑ1 ) + h(ϑj ) ≥ 2h π − 4 arcsin        .
+                                                           r10
+           COVERING A CIRCLE WITH EIGHT, NINE, OR TEN CIRCLES                          371
+                p                                   p
+The functions h21 + h22 − 2h1 h2 cos ψmin and h21 + h22 − 2h1 h2 cos ξmin are ho-
+mogeneous of degree one in the variables h1 and h2 , thus, they are convex. They
+are also increasing in both variables. Therefore
+                          p
+           |pi pi+3 | ≥ 2h2 (π − 4 arcsin(1/r10 ))(1 − cos ψmin ) =
+                                                   ψmin
+                    = 2h(π − 4 arcsin(1/r10 )) sin      = 2.02349 . . . > 2
+                                                     2
+and
+                         p
+          |pi pi+4 | ≥  2h2 (π − 4 arcsin(1/r10 ))(1 − cos ξmin ) =
+                                                   ξmin
+                    = 2h(π − 4 arcsin(1/r10 )) sin      = 2.357538 . . . > 2.
+                                                    2
+This completes the proof of the Proposition and at the same time the proof of
+the first part of the Lemma.
+    It remains to show the second part of the Lemma, namely that if nine of the
+circles C0 , . . . , C9 intersect bd C10 , then no three of them can have a common
+point. This part of the Lemma can be settled by estimating areas in a similar
+way as we did in the previous section.
+    Suppose that C0 ∩ bd C10 = ? and Ci ∩ bd C10 6= ? for i = 1, . . . , 9. We
+shall scrutinize the cell complex formed by the Dirichlet cells Di of the circles
+Ci , 0 ≤ i ≤ 9, with respect to C10 . We may assume that Di ∩ bd C10 6= ?
+for i = 1, . . . , 9, otherwise bd C10 is covered by eight circles, which we already
+excluded. Without loss of generality we may suppose that the arcs Di ∩ bd C10 ,
+i = 1, . . . , 9, are situated on bd C10 in their natural cyclic order.
+    We shall exclude the possibility that three of the Dirichlet cells D1 , . . . , D9
+intersect. We note that three circles can intersect without their corresponding
+Dirichlet cells having a common point, however the case when no three of the
+cells D1 , . . . , D9 intersect has been already discussed in the previous section.
+Observe that
+
+                    Di ∩ Di±j = ? for i = 1, . . . , 9,      j = 3, 4.                 (8)
+
+Otherwise the circles Ci , Ci±1 . . . , Ci±j cover from bd C10 an arc whose angular
+measure is at most 2 arcsin(2/r10 ), while the angular measure of the arc cov-
+ered by the other 9 − j − 1 ≤ 5 circles cannot exceed 10 arcsin(1/r10 ). Since
+arcsin(2/r10 ) + 5 arcsin(2/r10 ) = 2.940546309 . . . < π, this is impossible.
+   Suppose that three of the cells D1 , . . . , D9 intersect. In view of (8) they must
+belong to consecutive indices. Assume, say, that D1 ∩ D2 ∩ D3 6= ?. If no further
+triple of the cells D1 , . . . , D9 intersect, then the cells are arranged as depicted
+on the left side of Figure 3, where the Dirchlet cells are drawn by broken lines.
+We shall refer to this situation as Case 1.
+   If there is another intersecting triple, say Di , Di+1 , and Di+2 , among the
+cells D1 , . . . , D9 , then {1, 2, 3} ∩ {i, i + 1, i + 2} =
+                                                           6 ?. Otherwise the total angular
+372                                             GÁBOR FEJES TÓTH
+
+
+                                                                                  q4                  q3
+            q3                            q2
+                      o2                       q1                                           o3
+      q4                                                                                                   o2
+                                                                             o4
+                                                                       q5                                            q2
+                o3                   o1
+           o4                                   o9
+                           p3                                                          p         p3             o1    q1
+                                                     q9                      o5         4
+q5                   p4               p1                          q6
+                                o0                                                           o0 p1              o9
+
+
+
+
+                                                          Figure 3.
+
+measure of the arcs of bd C10 covered by the circles is at most 4 arcsin(2/r10 ) +
+6 arcsin(1/r10 ) = 6.078289194 . . . < 2π. D2 cannot be the member of another in-
+tersecting triple of cells. For, if D2 , D3 , and D4 or D9 , D1 , and D2 intersect, then
+D1 ∩ D4 6= ? or D9 ∩ D3 6= ?, which is impossible by (8). Thus, the only candi-
+dates for another triple of intersecting cells are {D3 , D4 , D5 } and {D8 , D9 , D1 }.
+As these triples are disjoint, only one of them can have a nonempty intersection.
+Hence, the other case we have to investigate is that besides D1 , D2 , and D3 , say
+D3 , D4 , and D5 have a common point. This is Case 2 which is represented on
+the right side of Figure 3.
+    As before, we denote by oi , i = 1, . . . , 10, the center of Ci , and by qi , i =
+1, . . . , 9, the vertices of Dirichlet cells on bd C10 choosing the notation so that qi
+is common to Di−1 and Di . We denote the vertices of D0 in their consecutive
+order for the two cases by p1 , p3 , p4 , . . . , p9 and p1 , p3 , p5 , . . . , p9 , respectively,
+so that p1 q1 is the side common to D1 and D9 (see Figure 3). We divide C10
+into the following regions:
+
+(i) the 16-gon P1 = p1 o1 p3 o3 p4 o4 p5 o5 p6 o6 p7 o7 p8 o8 p9 o9 , the pentagon P2 =
+    q2 o1 p3 o3 q3 , the segment S1 cut off from C10 by the chord q2 q3 , the quadrilat-
+    erals Qi = oi qi+1 oi+1 pi+1 , 3 ≤ i ≤ 9, and the regions Ri , 1 ≤ i ≤ 9, i 6= 2,
+    bounded by the segments oi qi , oi qi+1 and the arc qi qi+1 of bd Cn in Case 1;
+(ii) the 14-gon P1 = p1 o1 p3 o3 p5 o5 p6 o6 p7 o7 p8 o8 p9 o9 , the pentagons
+
+                                 P2 = q2 o1 p3 o3 q3        and P3 = q4 o3 p5 o5 q5 ,
+
+     the two segments S1 and S2 cut off from C10 by the chords q2 q3 and q4 q5 ,
+     respectively, the quadrilaterals Qi = oi qi+1 oi+1 pi+1 , 5 ≤ i ≤ 9, and the
+     regions Ri , 1 ≤ i ≤ 9, i 6= 2, 4, bounded by the segments oi qi , oi qi+1 and the
+     arc qi qi+1 of bd Cn in Case 2.
+          COVERING A CIRCLE WITH EIGHT, NINE, OR TEN CIRCLES                                373
+
+As we saw in the previous section, P1 can be dissected into pairs of congruent
+triangles one half of the triangles making up the cell D0 . Hence we get
+                                        π
+                        a(P1 ) ≤ 8 sin = 5.656854249 . . .                     (9)
+                                        4
+in Case 1 and
+                                       2π
+                        a(P1 ) ≤ 7 sin    = 5.472820377 . . .                 (90 )
+                                        7
+in Case 2.
+   The length of four sides of the pentagon P2 (P3 ) is bounded above by 1, while
+the length of the fifth side is at most 2. The area of such a pentagon cannot
+exceed the area of a pentagon with four sides of length 1 and one side of length
+2 inscribed into a circle. The radius r of the circle is determined implicitly by
+the equation
+                                      1          1
+                            4 arcsin     + arcsin = π.
+                                     2r          r
+r0 = 1.07326 is an upper bound for r and
+                                                            1 
+                    1              1          π − arcsin r0
+          r02         sin 2 arcsin    + 2 sin                       = 2.284572282 . . .
+                    2              r0               2
+is an upper bound for the area of the pentagon. Thus, we have
+
+                                   a(P2 ) ≤ 2.284572282 . . .                             (10)
+and, in Case 2,
+                             a(P2 ) + a(P3 ) ≤ 4.5691944564 . . . .                       (100 )
+  The area of S1 (S2 ) cannot exceed
+                               1   1              1
+                                                            
+                 2
+                r10 arcsin         − sin 2 arcsin               = 0.27675335 . . . ,
+                               r10  2             r10
+the area of a segment of C10 cut off by a chord of length 2. Hence
+
+                                    a(S1 ) ≤ 0.27675335 . . .                             (11)
+and
+                              a(S1 ) + a(S2 ) ≤ 0.533506699 . . . .                       (110 )
+Using the rough estimate a(Qi ) ≤ 1 we get
+                                         9
+                                         X
+                                               a(Qi ) ≤ 7                                 (12)
+                                         i=3
+and
+                                        9
+                                        X
+                                               a(Qi ) ≤ 5,                                (120 )
+                                        i=5
+respectively.
+   We estimate the total area of the regions Ri using the method developed in
+the previous section. Let x = ]q2 oq3 in Case 1 and x = ]q2 oq3 + ]q4 oq5 in
+374                                            GÁBOR FEJES TÓTH
+
+Case 2. Then we have x ≤ 2 arcsin(1/r10 ) and x ≤ 4 arcsin(1/r10 ), respectively.
+Writing αi = ]qi oi qi+1 we have
+                                                                                                                        
+                         X                                X                                       1         X
+      2π − x =                   ]qi oqi+1 ≤                           fr10 (αi ) ≤ 8fr10                           αi
+                                                                                                  8
+                   1≤i≤9, i6=2                        1≤i≤9, i6=2                                     1≤i≤9, i6=2
+
+
+and
+                                                                                                                            
+                    X                                     X                                       1            X
+2π − x =                        ]qi oqi+1 ≤                            fr10 (αi ) ≤ 8fr10                             αi ,
+                                                                                                  8
+                1≤i≤9, i6=2,4                    1≤i≤9, i6=2,4                                        1≤i≤9, i6=2,4
+
+
+hence
+                                     2π−x                                            
+      1       X                                                    π − arcsin r110
+                        αi ≥ fr−1                     ≥ fr−1                                = 2.028453422 . . .
+      8                        10
+                                           8              10
+                                                                            4
+          1≤i≤9, i6=2
+
+
+and
+                                     π−x                                               
+ 1          X                                                   2π − 4 arcsin r110
+                        αi ≥ fr−1                ≥ fr−1                                       = 1.948256547 . . . ,
+ 7                             10
+                                       7             10
+                                                                            7
+      1≤i≤9, i6=2, 4
+
+
+respectively.
+   Observing that Fr10 (α) is decreasing for α ≥ 1.9 we get for the total area of
+the regions Ri the estimate
+                                                                                                          
+             X                        X                                          1      X
+                        a(Ri ) ≤                 Fr10 (αi ) ≤ 8Fr10                                   αi
+                                                                                 8
+          1≤i≤9, i6=2              1≤i≤9, i6=2                                       1≤i≤9, i6=2
+                                                                              
+                                                          π − arcsin r110
+                              ≤ 8Fr10          fr−1                                   = 4.92397937 . . .                 (13)
+                                                 10
+                                                                   4
+
+in Case 1 and
+                                                                                                           
+          X                          X                                           1       X
+                   a(Ri ) ≤                      Fr10 (αi ) ≤ 7Fr10                                    αi
+                                                                                 7
+  1≤i≤9, i6=2,4                 1≤i≤9, i6=2,4                                        1≤i≤9, i6=2,4
+                                                                       
+                                                      2π − 4 arcsin r110
+                             ≤ 7Fr10 fr−1                                               = 4.332295377 . . . (130 )
+                                       10
+                                                                   7
+
+in Case 2.
+   From inequalities (9)–(13) we conclude that
+                                                                   9
+                                                                   X                      X
+             a(C10 ) = a(P1 ) + a(P2 ) + a(S1 ) +                        a(Qi ) +                      a(Ri ) ≤
+                                                                   i=3                1≤i≤9, i6=2
+
+                        ≤ 20.14216 < 20.1422 < a(C10 )
+          COVERING A CIRCLE WITH EIGHT, NINE, OR TEN CIRCLES                                 375
+
+in Case 1, and it follows from (90 )–(130 ) that
+                                                         9
+                                                         X                    X
+a(C10 ) = a(P1 ) + a(P2 ) + a(P3 ) + a(S1 ) + a(S2 ) +         a(Qi ) +                   a(Ri )
+                                                         i=5              1≤i≤9, i6=2,4
+
+        ≤ 20 < 20.1422 < a(C10 )
+
+in Case 2, yielding in both cases a contradiction.
+   This completes the proof of the Lemma.
+
+
+                                    References
+
+[Ball and Coxeter 1987] W. W. R. Ball and H. S. M. Coxeter, Mathematical recreations
+   and essays, Dover Publications Inc., New York, 1987. Original edition, 1892.
+[Bezdek 1979] K. Bezdek, Optimal covering of circles, Thesis, Budapest, 1979. In
+   Hungarian.
+[Bezdek 1983] K. Bezdek, “Über einige Kreisüberdeckungen”, Beiträge Algebra Geom.
+   no. 14 (1983), 7–13.
+[Croft et al. 1991] H. T. Croft, K. J. Falconer, and R. K. Guy, Unsolved problems in
+   geometry, Problem Books in Mathematics, Springer, New York, 1991.
+[Groemer 1960] H. Groemer, “Über die Einlagerung von Kreisen in einen konvexen
+   Bereich”, Math. Z 73 (1960), 285–294.
+[Krotoszyński 1993] S. Krotoszyński, “Covering a disk with smaller disks”, Studia Sci.
+   Math. Hungar. 28:3-4 (1993), 277–283.
+[Melissen 1997] H. Melissen, Packing and covering with circles, Ph.D. Thesis, 1997.
+[Nagy 1975] D. Nagy, Coverings and their applications, Thesis, Budapest, 1975. In
+   Hungarian.
+[Neville 1915] E. H. Neville, “On the solutions of numerical functional equations,
+   illustrated by an account of a popular puzzle and its solution”, Proc. London Math.
+   Soc. (2) 14 (1915), 308–326.
+[Oler 1961] N. Oler, “A finite packing problem”, Canad. Math. Bull. 4 (1961), 153–155.
+[Peikert 1994] R. Peikert, “Dichteste Packungen von gleichen Kreisen in einem Qua-
+   drat”, Elem. Math. 49:1 (1994), 16–26.
+[Peikert et al. 1992] R. Peikert, D. Würtz, M. Monagan, and C. de Groot, “Packing
+   circles in a square: a review and new results”, pp. 45–54 in System modelling and
+   optimization (Zurich, 1991), Lecture Notes in Control and Inform. Sci. 180, Springer,
+   Berlin, 1992.
+[Rankin 1955] R. A. Rankin, “The closest packing of spherical caps in n dimensions”,
+   Proc. Glasgow Math. Assoc. 2 (1955), 139–144.
+[Schütte 1955] K. Schütte, “Überdeckungen der Kugel mit höchstens acht Kreisen”,
+   Math. Ann. 129 (1955), 181–186.
+376                        GÁBOR FEJES TÓTH
+
+Gábor Fejes Tóth
+Alfréd Rényi Institute of Mathematics
+Hungarian Academy of Sciences
+P.O.Box 127
+H-1364 Budapest
+Hungary
+   gfejes@renyi.hu
+
