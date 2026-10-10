@@ -48,6 +48,14 @@ CoveredArc::usage =
 is at distance d from O: 2 ArcCos[(r^2+d^2-1)/(2 r d)] (clamped; 2Pi if r+d<=1, 0 if \
 |r-d|>=1). Exact for exact input. Twin of circovcir.arcs.covered_arc.";
 MaxCoveredArc::usage = "MaxCoveredArc[r] = 2 ArcSin[1/r] (r >= 1), the sup over d of CoveredArc[r, d].";
+MaxCoveredArcTriple::usage =
+  "MaxCoveredArcTriple[r] = 2 ArcSin[2/r] (r >= 2), an upper bound (sup) for the angle at O \
+of the arc of the circle |x| = r covered by three unit disks that share a common point p. \
+Proof: a common point p lies in all three disks, so every covered point x satisfies \
+|x - p| <= |x - center| + |center - p| <= 1 + 1 = 2; the covered boundary points thus lie \
+in the disk of radius 2 about p, whose chord on |x| = r has length <= 4, subtending a \
+central angle <= 2 ArcSin[(4/2)/r] = 2 ArcSin[2/r]. Twin bound of MaxCoveredArc (single disk, \
+chord <= 2 => 2 ArcSin[1/r]); see proofs/06 P1 (L-arc1/L-arc2).";
 RingAlpha::usage =
   "RingAlpha[beta, R] = arc covered on |x| = R by the unit disk covering an arc beta of the \
 unit circle (d = 2 Cos[beta/2]): cos(alpha/2) = (R^2-1+4Cos[beta/2]^2)/(4 R Cos[beta/2]).";
@@ -151,6 +159,13 @@ CoveredArc[r_, d_] := Which[
    True, 2 ArcCos[(r^2 + d^2 - 1)/(2 r d)]];
 
 MaxCoveredArc[r_] := If[geq0[1 - r] && ! zeroQ[1 - r], 2 Pi, 2 ArcSin[1/r]];
+
+(* Twin of MaxCoveredArc for three unit disks sharing a common point: the covered
+   boundary points all lie within distance 2 of the common point (triangle ineq,
+   each disk radius 1 and the common point in every disk), so the chord is <= 4 and
+   the central angle at O is <= 2 ArcSin[2/r].  Intended domain r >= 2 (r_8, r_9 > 2),
+   where 2/r <= 1 and the bound is a genuine angle in (0, Pi]. *)
+MaxCoveredArcTriple[r_] := 2 ArcSin[2/r];
 
 RingAlpha[beta_, R_] := CoveredArc[R, 2 Cos[beta/2]];
 
