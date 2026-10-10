@@ -1,0 +1,97 @@
+#!/usr/bin/env wolframscript
+(* rad_scan.wls -- numeric exploration (NOT a certificate): how large can the Krawczyk
+   box radius `rad` be while K1 (K(X) subset int X) still holds for the n=11 KKT system?
+   Reuses the exact symmetric 22-var system from proofs/certificates/07-n11-local-opt.wls.
+   Evidence only. *)
+
+ip = 120;
+js = <|"R" -> "2.631690772619808205521501159505696105167116847823853445969749",
+  "centers" -> {{"0", "-0.3932496017925002708635378870188585597148384006557298789320946"},
+    {"0", "0.7183922793168587759691262844044318355475831452396019248041889"},
+    {"0", "2.348841200975659537285727839271986587928833666553898573930836"},
+    {"1.575352640043428065802449496337887161298862911092924554982755", "1.620625886426919128381784381608080980742336716062781971424765"},
+    {"-1.575352640043428065802449496337887161298862911092924554982755", "1.620625886426919128381784381608080980742336716062781971424765"},
+    {"1.772736162809740931177046015998214109212326186477577487596963", "-0.9363223991029024464318732156284408335803267749070746950471178"},
+    {"-1.772736162809740931177046015998214109212326186477577487596963", "-0.9363223991029024464318732156284408335803267749070746950471178"},
+    {"1.827509552952129939636798208010455137158416369370672494617501", "0.2495804850428392243071515184626584069205006824579677449932997"},
+    {"-1.827509552952129939636798208010455137158416369370672494617501", "0.2495804850428392243071515184626584069205006824579677449932997"},
+    {"0.7852170824682634676403880931417250144222803359426211372316482", "-2.012470187206154238192519523262277332440977624239791662450922"},
+    {"-0.7852170824682634676403880931417250144222803359426211372316482", "-2.012470187206154238192519523262277332440977624239791662450922"}},
+  "lambda" -> <|"A" -> "0.038199292134613654316986049596371638181139", "A'" -> "0.038199292134613654316986049596371638181139", "B" -> "0.16713165234526830863419534376097062609608", "B'" -> "0.16713165234526830863419534376097062609608", "C" -> "0.013019895240547427071221088241436135174514", "C'" -> "0.013019895240547427071221088241436135174514", "D" -> "0.040261139386120925259422269398164584524185", "D'" -> "0.040261139386120925259422269398164584524185", "E" -> "0.068298856783088065953955195337686462885521", "F" -> "0.014037982755703957208566163648025883503112", "F'" -> "0.014037982755703957208566163648025883503112", "G" -> "0.029441349306237969408043430251911650182347", "G'" -> "0.029441349306237969408043430251911650182347", "H" -> "0.024681052807444056600730263015663272586225", "H'" -> "0.024681052807444056600730263015663272586225", "I" -> "0.020808319769022077190428682971193135339662", "I'" -> "0.020808319769022077190428682971193135339662", "J" -> "0.012054517283103224045593723294458723931666"|>|>;
+cS = Map[Rationalize[ToExpression[#], 0] &, js["centers"], {2}];
+RS = Rationalize[ToExpression[js["R"]], 0];
+lamS = Rationalize[ToExpression[#], 0] & /@ js["lambda"];
+
+zv = Array[z, 23]; cen[i_] := {zv[[2 i - 1]], zv[[2 i]]}; RR = zv[[23]];
+cross[a_, b_] := a[[1]] b[[2]] - a[[2]] b[[1]];
+hInt[i_, j_, k_] := Module[{a = cen[j] - cen[i], b = cen[k] - cen[i]},
+   (a.a) (b.b) ((a - b).(a - b))/(4 cross[a, b]^2) - 1];
+wperp[i_, j_] := Module[{d = cen[j] - cen[i]}, {-d[[2]], d[[1]]}];
+yOut[i_, j_, s_] := Module[{w = wperp[i, j]}, (cen[i] + cen[j])/2 + s Sqrt[1/(w.w) - 1/4] w];
+z0 = Append[Flatten[cS], RS]; rule0 = Thread[zv -> z0];
+sgn[i_, j_] := If[(#.# &[yOut[i, j, 1] /. rule0]) > (#.# &[yOut[i, j, -1] /. rule0]), 1, -1];
+act = {{"A", {1, 2, 8}}, {"A'", {1, 2, 9}}, {"B", {1, 6, 8}}, {"B'", {1, 7, 9}},
+   {"C", {2, 3, 4}}, {"C'", {2, 3, 5}}, {"D", {2, 4, 8}}, {"D'", {2, 5, 9}}, {"E", {1, 10, 11}},
+   {"F", {3, 4}}, {"F'", {3, 5}}, {"G", {4, 8}}, {"G'", {5, 9}}, {"H", {6, 8}}, {"H'", {7, 9}},
+   {"I", {6, 10}}, {"I'", {7, 11}}, {"J", {10, 11}}};
+names = act[[All, 1]];
+h = If[Length[#[[2]]] == 3, hInt @@ #[[2]],
+      Module[{y = yOut[#[[2, 1]], #[[2, 2]], sgn @@ #[[2]]]}, RR^2 - y.y]] & /@ act;
+
+q = {qa, qb, qg, qu1, qv1, qu2, qv2, qu3, qv3, qu4, qv4};
+symz = {0, qa, 0, qb, 0, qg, qu1, qv1, -qu1, qv1, qu2, qv2, -qu2, qv2,
+   qu3, qv3, -qu3, qv3, qu4, qv4, -qu4, qv4, qR};
+reps = {"A", "B", "C", "D", "E", "F", "G", "H", "I", "J"};
+lv = Array[l, 10];
+tie = (First@First@Position[reps, StringDelete[#, "'"]]) & /@ names;
+lamFull = lv[[tie]];
+symRule = Thread[zv -> symz];
+uvars = Join[q, {qR}, lv];
+Fsys = Join[Pick[h, StringFreeQ[#, "'"] & /@ names] /. symRule,
+   D[(RR - lamFull.h) /. symRule, {Append[q, qR]}]];
+Jsys = D[Fsys, {uvars}];
+ut = Join[{cS[[1, 2]], cS[[2, 2]], cS[[3, 2]], cS[[4, 1]], cS[[4, 2]], cS[[6, 1]], cS[[6, 2]],
+    cS[[8, 1]], cS[[8, 2]], cS[[10, 1]], cS[[10, 2]], RS}, lamS /@ reps];
+
+Do[Module[{u = N[ut, 180]}, ut = Rationalize[u - LinearSolve[Jsys /. Thread[uvars -> u],
+      Fsys /. Thread[uvars -> u]], 10^-170]], {4}];
+Print["|F(u~)| (float) = ", ScientificForm[N[Max[Abs[Fsys /. Thread[uvars -> N[ut, 180]]]], 3]]];
+
+eps = 10^-(ip - 10);
+iv[x_] := Interval[{N[x, ip] - eps, N[x, ip] + eps}];
+Y = Rationalize[Inverse[N[Jsys /. Thread[uvars -> ut], 90]], 10^-80];
+YF0 = Y . (Fsys /. Thread[uvars -> (iv /@ ut)]);
+dispBound = Max[(Max[#] - Min[#])/2 + Max[Abs[{Min[#], Max[#]}]] & /@ YF0];
+Print["||Y F(u~)|| displacement upper ~ ", ScientificForm[N[dispBound, 3]]];
+
+test[rad_] := Module[{X, FX, JX, Kx, inside, contr, ratio, w},
+  X = Interval[{N[# - rad, ip], N[# + rad, ip]}] & /@ ut;
+  JX = Jsys /. Thread[uvars -> X];
+  FX = Fsys /. Thread[uvars -> (iv /@ ut)];
+  Kx = (iv /@ ut) - Y.FX + (IdentityMatrix[22] - Y.JX).(X - (iv /@ ut));
+  inside = And @@ MapThread[(Min[#1] > Min[#2] && Max[#1] < Max[#2]) &, {Kx, X}];
+  w = IdentityMatrix[22] - Y.JX;
+  contr = Max[Total /@ Map[Max[Abs[{Min[#], Max[#]}]] &, w, {2}]];
+  ratio = Max[(Max[#] - Min[#]) & /@ Kx]/(2 rad);
+  {inside, contr, ratio}];
+
+Print["\nexp(rad=10^e)   K(X) in intX   ||I-YJ(X)||inf   maxWidth K/X"];
+Do[Module[{r = 10^e, res},
+   res = TimeConstrained[test[r], 90, {$Aborted, $Aborted, $Aborted}];
+   Print[PaddedForm[e, 4], "        ", res[[1]], "        ",
+     ScientificForm[N[res[[2]], 4]], "     ", ScientificForm[N[res[[3]], 4]]]],
+  {e, {-45, -40, -35, -30, -25, -20, -15, -12, -10, -8, -6, -5, -4}}];
+
+Print["\n-- finer sweep near boundary --"];
+Do[Module[{r = 10^e, res},
+   res = TimeConstrained[test[r], 90, {$Aborted, $Aborted, $Aborted}];
+   Print["10^", PaddedForm[N[e, 3], {5, 2}], "   in=", res[[1]], "   contr=",
+     ScientificForm[N[res[[2]], 4]], "   ratio=", ScientificForm[N[res[[3]], 4]]]],
+  {e, Range[-7, -3, 0.5]}];
+
+Print["\n-- bisection on log10(rad) for K1 threshold --"];
+lo = -3.5; hi = -3.;
+Do[Module[{m = (lo + hi)/2}, If[test[10^m][[1]], lo = m, hi = m]], {14}];
+Print["K1 holds at 10^", N[lo, 6], " = ", ScientificForm[N[10^lo, 4]],
+  "; fails at 10^", N[hi, 6]];
+Print["at threshold: ", test[10^lo]];

@@ -20,3 +20,10 @@
 - 这 22 条方程（10 接触 + 12 稳定性）构成 R 的零维代数系统，是求 R 极小多项式的正确消元对象。
 - 想升级：对 λ>0 和 Hessian 负定做区间证书（Krawczyk / `Interval`），可得严格的"局部最优" L3 陈述；全局最优仍开放。
 - **已完成（L3）**：`krawczyk.wls` → `proofs/certificates/07-n11-local-opt.wls`（exit 0），文档 `proofs/07-n11-local-optimality.md`。
+
+## 2026-10-08 Krawczyk 盒半径探索（数值，L1/L2 证据，非证书）
+
+- `rad_scan.wls`（朴素 J(X)）：K1 成立到 rad ≈ 4.77e-4，收缩因子 ≈ 2092·rad。
+- `rad_scan_slope.wls`（二阶斜率包含 S ⊂ J(ũ) + ½Σ∂ₖJ(X)[−rₖ,rₖ]）：均匀盒 K1 成立到 rad ≈ 3.44e-3（×7.2）；瓶颈分量 qb（S1 的 y），比值 0.9998。
+- 加权盒的启发式迭代失败（放大 λ 分量反而破坏收缩），未得结论。
+- 共用设置 `kkt_setup.wl`（从证书 07 抽出）。
