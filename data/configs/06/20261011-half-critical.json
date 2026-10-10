@@ -1,0 +1,38 @@
+{
+ "n": 6,
+ "R": "1.798867827577554371145793563745276044096601115",
+ "centers": [
+  [
+   "0",
+   "0.9354854282012050973201937283428477342650273709"
+  ],
+  [
+   "0",
+   "-1.010581336728185530797556722344446077846765673"
+  ],
+  [
+   "1.242583645641291162040186513478000891238446806",
+   "0.8318120849557236613403876252706096884014154509"
+  ],
+  [
+   "1.029938636841221783549238416473830103379040709",
+   "-0.6385143380692532406925405146644737607948990644"
+  ],
+  [
+   "-1.242583645641291162040186513478000891238446806",
+   "0.8318120849557236613403876252706096884014154509"
+  ],
+  [
+   "-1.029938636841221783549238416473830103379040709",
+   "-0.6385143380692532406925405146644737607948990644"
+  ]
+ ],
+ "status": "verified-numeric",
+ "source": "n=6 half-problem threshold (proofs/10-n6-half.md, experiments/2026-10-10-n6-proof)",
+ "provenance": "wolframscript -file experiments/2026-10-10-n6-proof/exist.wls (FindRoot wp 80 on G = G_a = G_b = 0; C3 = midpoint(T1,X0), C4 = circumcenter(V,T2,X0), mirror in the y-axis)",
+ "checks": {
+  "wl_MaxCoveredRadius_wp50": "1.7988678275775543711457935637452760440966 (diff to R6 ~1e-47)",
+  "make_verify_2026-10-11": "uv run circovcir verify --wolfram: python R_max 1.7988678275775505 (gap -4.0e-15), rho(R)=1.0000000000000002, 8 tight; Wolfram wp40 R_max gap 1.5e-37, R_cert_gap 0, 8 tight; ok=true",
+  "level": "L2 (exact algebraic form of R6 not determined: Groebner elimination aborted at 5400 s)"
+ }
+}
