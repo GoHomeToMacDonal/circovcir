@@ -130,3 +130,10 @@
   - 新工具（实验内）：`fast.py` Delaunay 候选集精确覆盖半径（比全三元组快约 150×，与 `geometry.covering_radius` 一致）+ SLP 打磨（活跃集取 3·step 内；按 step 独立收缩会让 LP 锯齿，n=25 卡在 4.058）；`run.py` 多族种子；`ils.py` 扰动搜索；`bscan.py` 外环圆数扫描；`prep_kkt.py` → 复用 `kkt.wls`。
   - 结果：**R₁₀₀ = 8.6578719165130917604273575652738899943**（L2，`data/configs/100/20261009-ils-kkt.json`），b=33 个外圆，152 个活跃点（119 三圆共点 + 33 边界点），961 维 KKT 满秩。两次独立找到（六角格种子、b=32 种子）；b 扫描 28..38 最终都收敛到 b≈33。六角密度启发式上界 9.094（出处未核实），达到 95.2%。
   - 坑：`circovcir verify --wolfram` 包装 600 s 超时（n=100 的 WL 验证约 60 min，需直接跑 `verify_config.wls`）；`kkt.wls` 高精度 `MatrixRank` 在 961 维上卡住超过 30 min，已改为大系统用机器精度秩，并加 `nocover` 参数。2026-10-10 复核：Python `circovcir verify` ok（152 紧点）。
+
+- **P0 反射约定（[FT] §2 S0）补证 → L3 关闭（2026-10-10）**（证书 `proofs/certificates/05f-p0-reflection.wls`，**exit 0**，8 gating 全为符号/精确判定；证明写在 `proofs/06-remaining-gaps-problem.md` §4 P0）。
+  - 坐标：oᵢ=(0,d)，根轴 y=h=(d²+R²−1)/(2d)，镜像 d′=(R²−1)/d；同侧 ⟺ d²≤R²−1。
+  - **P0a**：根轴下方由 |p−oᵢ′|²−|p−oᵢ|²=2(d−d′)(y−h)≤0 直接覆盖；上方是圆弓形=弧的凸包，弧上 |p−oᵢ′|²−1=−2d′(y−h)≤0。`Reduce` 给出更强刻画：Cᵢ∩C_n⊆Cᵢ′ ⟺ d≥√(R²−1)。
+  - **P0b**：Dᵢ⊆Cᵢ ⟹ 胞腔弧在 {y≥h≥d}，从内点 oᵢ 看方向单调且全在闭上半平面 ⟹ αᵢ≤π（取等 ⟺ d²=R²−1）。
+  - **P0c（新增，[FT] 未提）**：反射归一化不丢唯一性——若归一化=RingConfig 而某环圆是反射所得，撤销反射后内部三重点附近出现未覆盖点（k=7,8,9 精确判定）。
+  - 剩余：n=8,9 无条件 L4 仅待人工通读 [FT] §2 面积论证骨架；n=10 仍待 P2（Melissen）。
