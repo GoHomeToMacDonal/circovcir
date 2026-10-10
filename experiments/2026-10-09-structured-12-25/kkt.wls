@@ -53,15 +53,21 @@ Do[
 
 zs = u[[1 ;; 2 n + 1]]; ms = u[[Length[xv] + 1 ;;]];
 cs = Partition[Most[zs], 2]; Rk = Last[zs];
-rankJ = MatrixRank[N[ap[Jf, u], wp], Tolerance -> 10^-(wp/2)];
-(* one multiplier per active candidate: lambda_t = multiplier of the R-dependent / first eq;
-   report the sign of the R-gradient contribution instead: dL/dR uses only B eqs *)
-Rmax = MaxCoveredRadius[cs, WorkingPrecision -> wp];
 dec[x_, d_] := StringReplace[ToString[N[x, d], InputForm, NumberMarks -> False], "*^" -> "e"];
 Print["R_kkt   = ", N[Rk, wp]];
-Print["R_cover = ", N[Rmax, wp], "   diff = ", N[Rmax - Rk, 3]];
+(* rank: arbitrary-precision MatrixRank is O(N^3) bignum work -- for large systems (n=100:
+   961 unknowns, > 30 min) use machine precision with a relative tolerance instead *)
+rankJ = If[Length[uv] > 400,
+   MatrixRank[N[ap[Jf, u]], Tolerance -> 10^-10],
+   MatrixRank[N[ap[Jf, u], wp], Tolerance -> 10^-(wp/2)]];
 Print["rank J = ", rankJ, " / ", Length[uv]];
+(* optional 4th arg "nocover": skip the independent MaxCoveredRadius check here (it is
+   ~1 h at n=100 and verify_config.wls repeats it anyway) *)
+skipCover = Length[args] >= 4 && args[[4]] == "nocover";
+Rmax = If[skipCover, Missing["skipped"], MaxCoveredRadius[cs, WorkingPrecision -> wp]];
+If[! skipCover, Print["R_cover = ", N[Rmax, wp], "   diff = ", N[Rmax - Rk, 3]]];
 Export[out, <|"n" -> n, "R" -> dec[Rk, wp], "centers" -> Map[dec[#, wp] &, cs, {2}],
-   "mu" -> (dec[#, 20] & /@ ms), "R_cover_wp" -> dec[Rmax, wp], "wp" -> wp,
+   "mu" -> (dec[#, 20] & /@ ms),
+   "R_cover_wp" -> If[skipCover, "skipped (run verify_config.wls)", dec[Rmax, wp]], "wp" -> wp,
    "residual" -> dec[res[u], 5], "rankJ" -> rankJ, "nU" -> Length[uv],
    "m" -> m, "active" -> act|>, "RawJSON"];
