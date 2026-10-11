@@ -8,7 +8,7 @@
 ## 索引（部分）
 
 - `09-n5-independent.md`：n=5 的最优性与存在性独立证明。思路是左右拼接，再按 B 的覆盖方式分情形。
-  - 证书：`certificates/09a-n5-basic.wls`、`09b-n5-L8-gap.wls`、`09c-n5-existence.wls`、`09d-n5-local.wls`、`09e-n5-sweep.wls`，共用库 `09lib-n5.wl`。
+  - 证书：`certificates/09a-n5-basic.wls`、`09b-n5-L8-gap.wls`、`09c-n5-existence.wls`、`09d-n5-local.wls`、`09e-n5-sweep.wls`、`09f-n5-uniqueness.wls`（§10 取等唯一性 + 镜像对称，~30 s），共用库 `09lib-n5.wl`。
   - 耗时：09e 约 2 h，09d 约 6.5 min，其余各约 2 min。
 - `10-n6-half.md`：n=6 在“直径前提”(H0) 下的最优性与覆盖方式唯一性（右半圆化为三点 V,T2,X(w) 不可容纳；阈值 R₆=1.79886782757755437…，构型唯一且镜像对称）。(H0) 本身未证；R₆ 与存在性 L2。
   - 证书：`certificates/10a-n6-domain.wls`、`10b-n6-bracket.wls`、`10c-n6-local.wls`、`10d-n6-sweep.wls`，共用库 `10lib-n6.wl`。
