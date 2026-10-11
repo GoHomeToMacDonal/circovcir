@@ -33,6 +33,8 @@
  "checks": {
   "wl_MaxCoveredRadius_wp50": "1.7988678275775543711457935637452760440966 (diff to R6 ~1e-47)",
   "make_verify_2026-10-11": "uv run circovcir verify --wolfram: python R_max 1.7988678275775505 (gap -4.0e-15), rho(R)=1.0000000000000002, 8 tight; Wolfram wp40 R_max gap 1.5e-37, R_cert_gap 0, 8 tight; ok=true",
-  "level": "L2 (exact algebraic form of R6 not determined: Groebner elimination aborted at 5400 s)"
+  "cert_10h_2026-10-11": "wolframscript -file proofs/certificates/10h-n6-R6-enclosure.wls: exit 0. Krawczyk box (wp150 Interval) proves R6 in [1.7988678275775543711457935637452760440966011147093112, 1.7988678275775543711457935637452760440966011147093313]; the exact extremal configuration at R6 covers D(0,R6) (48 strict + 8 identified tight candidates) -> L3 for the exact configuration. This decimal file itself stays verified-numeric.",
+  "cert_10i_2026-10-11": "wolframscript -file proofs/certificates/10i-n6-R6-closed-form.wls: exit 0 (~7.5 min). R6^2 = root in (3.2359,3.2360) of irreducible 3072t^9+54016t^8-746832t^7+5156603t^6-19376280t^5+41451480t^4-63156942t^3+62607492t^2-33449976t+7841367; a6, b6 degree-18 algebraic (polynomials in proofs/10-n6-half.md s8); F=(G,G_a,G_b) RootReduce to exactly 0 at the exact point inside the 10h Krawczyk box.",
+  "level": "L2 for this decimal file; L3 for R6 enclosure + existence (proofs/10-n6-half.md s7) and for the exact value of R6 (s8, cert 10i)"
  }
 }

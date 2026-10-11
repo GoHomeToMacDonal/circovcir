@@ -1,0 +1,18 @@
+PASS K0 X inside [Rlo,Rhi] x core(10c)
+  |F(m)| <= 4.6083946293011926277063201434994`5.*^-84
+  K widths {2.082764494732398059`5.*^-97, 2.3449580648691435009`5.*^-96, 2.4984073269031064516`5.*^-96} vs 2r = 2.`3.*^-50
+PASS K1 Krawczyk K(X) in int X
+PASS K1c control (shifted box not certified)
+  R6 in [1.7988678275775543711457935637452760440966011147093112`53., 1.7988678275775543711457935637452760440966011147093313`53.]
+PASS K2 printed decimal R6 enclosure is outward
+  a6 = 0.93548542820120509732019372834284773426502737092716088991960002957121065191699`50. +- 1e-50;  b6 = 1.01058133672818553079755672234444607784676567322215238594587673078388641200051`50. +- 1e-50
+PASS I1 |T1|^2 = R^2, |T1 - c1|^2 = 1, |T2|^2 = R^2, |T2 - c2|^2 = 1
+PASS I2 |X0|^2 = R^2, |X0 - T1|^2 = 4
+PASS I3 |V - c1|^2 = |V - c2|^2 = 1
+PASS I4 circumcentre identity |cc - P|^2 = |cc - Q|^2 = |cc - S|^2 = circR2(P,Q,S)
+  candidates 56: strict 48, identified tight 8, undecided {}
+PASS C1 every candidate covered at xhat (strict or identified tight)
+PASS C1' exactly 8 tight identifications
+  control: undecided 6
+PASS C0 control (radius + 1e-40 not certified)
+CERTIFICATE OK
