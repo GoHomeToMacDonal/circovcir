@@ -1,0 +1,164 @@
+{
+  "level": "L3 exact exclusion of explicitly listed boxes only",
+  "global_b9_bound_proved": false,
+  "rotation_exact_exclusions": 36,
+  "fixed_sample_accepts_float": 35,
+  "chart_runs": [
+    {
+      "delta": "1/1000",
+      "width": "1/100000",
+      "closed": true,
+      "replay": true,
+      "stats": {
+        "visited": 1,
+        "excluded": 1,
+        "unresolved": 0,
+        "max_depth": 0
+      }
+    },
+    {
+      "delta": "1/1000000",
+      "width": "1/100000000",
+      "closed": true,
+      "replay": true,
+      "stats": {
+        "visited": 1,
+        "excluded": 1,
+        "unresolved": 0,
+        "max_depth": 0
+      }
+    },
+    {
+      "delta": "1/1000",
+      "width": "1/100",
+      "closed": false,
+      "replay": false,
+      "stats": {
+        "visited": 255,
+        "excluded": 98,
+        "unresolved": 60,
+        "max_depth": 65
+      }
+    }
+  ],
+  "residual_runs": [
+    {
+      "radius": "2.631691",
+      "point_count": 18,
+      "exact_replay": true
+    },
+    {
+      "radius": "2.7",
+      "point_count": 18,
+      "exact_replay": true
+    },
+    {
+      "radius": "2.8",
+      "point_count": 18,
+      "exact_replay": true
+    }
+  ],
+  "global_root_probes": [
+    {
+      "root": 0,
+      "closed": true,
+      "stats": {
+        "visited": 1,
+        "excluded": 1,
+        "unresolved": 0,
+        "max_depth": 0
+      }
+    },
+    {
+      "root": 1,
+      "closed": false,
+      "stats": {
+        "visited": 1,
+        "excluded": 0,
+        "unresolved": 2,
+        "max_depth": 0
+      }
+    },
+    {
+      "root": 2,
+      "closed": false,
+      "stats": {
+        "visited": 1,
+        "excluded": 0,
+        "unresolved": 2,
+        "max_depth": 0
+      }
+    },
+    {
+      "root": 3,
+      "closed": false,
+      "stats": {
+        "visited": 1,
+        "excluded": 0,
+        "unresolved": 2,
+        "max_depth": 0
+      }
+    },
+    {
+      "root": 4,
+      "closed": false,
+      "stats": {
+        "visited": 1,
+        "excluded": 0,
+        "unresolved": 2,
+        "max_depth": 0
+      }
+    },
+    {
+      "root": 5,
+      "closed": false,
+      "stats": {
+        "visited": 1,
+        "excluded": 0,
+        "unresolved": 2,
+        "max_depth": 0
+      }
+    },
+    {
+      "root": 6,
+      "closed": false,
+      "stats": {
+        "visited": 1,
+        "excluded": 0,
+        "unresolved": 2,
+        "max_depth": 0
+      }
+    },
+    {
+      "root": 7,
+      "closed": false,
+      "stats": {
+        "visited": 1,
+        "excluded": 0,
+        "unresolved": 2,
+        "max_depth": 0
+      }
+    },
+    {
+      "root": 8,
+      "closed": false,
+      "stats": {
+        "visited": 1,
+        "excluded": 0,
+        "unresolved": 2,
+        "max_depth": 0
+      }
+    }
+  ],
+  "b9_probe": {
+    "closed": false,
+    "replay": false,
+    "stats": {
+      "visited": 127,
+      "excluded": 49,
+      "unresolved": 30,
+      "max_depth": 38
+    }
+  },
+  "wolfram_domain_certificate": true
+}

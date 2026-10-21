@@ -1,0 +1,14 @@
+{
+  "level": "L3 computations; geometric reductions await review",
+  "strict_b9_upper": "2.72",
+  "domains": 56,
+  "steps": {
+    "hole": 13,
+    "conflict": 34,
+    "force": 45,
+    "prune": 45,
+    "rank_prune": 147
+  },
+  "sharp_Rstar_bound_proved": false,
+  "b10_touched": false
+}

@@ -1,0 +1,41 @@
+Failed to open configuaration file at path: /home/skim/.config/Wolfram/WolframScript/WolframScript.conf
+Failed to open configuaration file at path: /home/skim/.config/Wolfram/WolframScript/WolframScript.conf
+Failed to open configuaration file at path: /home/skim/.config/Wolfram/WolframScript/WolframScript.conf
+Failed to open configuaration file at path: /home/skim/.config/Wolfram/WolframScript/WolframScript.conf
+R1_complete_radius_panels : True
+R2_rank_coverage_panel_1 : True
+panel 1 : 56 exact dual/sector/conflict leaves OK
+R2_rank_coverage_panel_2 : True
+panel 2 : 56 exact dual/sector/conflict leaves OK
+R2_rank_coverage_panel_3 : True
+panel 3 : 56 exact dual/sector/conflict leaves OK
+R2_rank_coverage_panel_4 : True
+panel 4 : 56 exact dual/sector/conflict leaves OK
+R2_rank_coverage_panel_5 : True
+panel 5 : 56 exact dual/sector/conflict leaves OK
+R3_all_280_domains : True
+R4_negative_rank_dual_rejected : True
+R5_reassigning_seed_rejected : True
+minimum squared-distance residual margin >= 6.96521956606618494978097027447994`20.*^-6
+CERTIFICATE OK (L3): all b9 rank domains excluded for 2.76<=R<=2.786784686984; combine 15b for R<2.76; sharp bound NOT proved
+P1_complete_new_radius_panels : True
+P2_rank_coverage_panel_1 : True
+new panel 1 : all 56 dual/sector/propagation leaves OK
+P2_rank_coverage_panel_2 : True
+new panel 2 : all 56 dual/sector/propagation leaves OK
+P2_rank_coverage_panel_3 : True
+new panel 3 : all 56 dual/sector/propagation leaves OK
+P2_rank_coverage_panel_4 : True
+new panel 4 : all 56 dual/sector/propagation leaves OK
+P2_rank_coverage_panel_5 : True
+new panel 5 : all 56 dual/sector/propagation leaves OK
+P2_rank_coverage_panel_6 : True
+new panel 6 : all 56 dual/sector/propagation leaves OK
+P2_rank_coverage_panel_7 : True
+new panel 7 : all 56 dual/sector/propagation leaves OK
+P3_all_392_domains : True
+P4_genuine_propagation_used : True
+P5_unfinished_derivation_rejected : True
+P6_negative_center_dual_rejected : True
+propagation leaves = 29; forced-point steps = 201
+CERTIFICATE OK (L3): all b9 domains excluded for 2.74<=R<=2.76; 16a replayed; combine 15b for R<2.74; sharp Rstar NOT proved

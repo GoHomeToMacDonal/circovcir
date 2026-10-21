@@ -1,0 +1,20 @@
+R1_complete_radius_panels : True
+R2_rank_coverage_panel_1 : True
+panel 1 : 56 exact dual/sector/conflict leaves OK
+R2_rank_coverage_panel_2 : True
+panel 2 : 56 exact dual/sector/conflict leaves OK
+R2_rank_coverage_panel_3 : True
+panel 3 : 56 exact dual/sector/conflict leaves OK
+R2_rank_coverage_panel_4 : True
+panel 4 : 56 exact dual/sector/conflict leaves OK
+R2_rank_coverage_panel_5 : True
+panel 5 : 56 exact dual/sector/conflict leaves OK
+R3_all_280_domains : True
+minimum squared-distance residual margin >= 6.96521956606618494978097027447994`20.*^-6
+CERTIFICATE OK (L3): all b9 rank domains excluded for 2.76<=R<=2.786784686984; combine 15b for R<2.76; sharp bound NOT proved
+
+STDERR:
+Failed to open configuaration file at path: /home/skim/.config/Wolfram/WolframScript/WolframScript.conf
+Failed to open configuaration file at path: /home/skim/.config/Wolfram/WolframScript/WolframScript.conf
+Failed to open configuaration file at path: /home/skim/.config/Wolfram/WolframScript/WolframScript.conf
+Failed to open configuaration file at path: /home/skim/.config/Wolfram/WolframScript/WolframScript.conf

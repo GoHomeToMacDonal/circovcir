@@ -1,0 +1,16 @@
+S1_small_cover_arc_bounds : True
+S2_radial_caps_inside_inward_branch : True
+S3_radius_monotonicity : True
+S4_unique_bound_root_bracket : True
+S5_nonvacuous_lower_endpoint : True
+b9 capacity root in [2786784686983/1000000000000,348348085873/125000000000]
+f(lo) = InputForm[Interval[{1.3199653390623953389091720756176306037720581117382384402083485519700746963935264699486664435943825347706`76.46922018751232*^-12, 1.3199653390623953389091720756176306037720581117382384402083485519700746963945707381994122667378037010017`76.46922018751232*^-12}]]; f(hi) = InputForm[Interval[{-7.168074370614650215863372963479781774217491281920033916654425289394433750620414818023776868463470498872`76.20406016287873*^-13, -7.168074370614650215863372963479781774217491281920033916654425289394433750609280719659679346588205261878`76.20406016287873*^-13}]]
+S6_stable_radicand_identity : True
+ALL ORDER STATISTIC: <|S1_small_cover_arc_bounds -> True, S2_radial_caps_inside_inward_branch -> True, S3_radius_monotonicity -> True, S4_unique_bound_root_bracket -> True, S5_nonvacuous_lower_endpoint -> True, S6_stable_radicand_identity -> True|>
+CERTIFICATE OK (L3): all b9 R < 2.786784686984, conditional on central-disk reduction; sharp Rstar bound NOT proved
+
+STDERR:
+Failed to open configuaration file at path: /home/skim/.config/Wolfram/WolframScript/WolframScript.conf
+Failed to open configuaration file at path: /home/skim/.config/Wolfram/WolframScript/WolframScript.conf
+Failed to open configuaration file at path: /home/skim/.config/Wolfram/WolframScript/WolframScript.conf
+Failed to open configuaration file at path: /home/skim/.config/Wolfram/WolframScript/WolframScript.conf

@@ -1,0 +1,24 @@
+|F(u~)| (float) = ScientificForm[9.86114055509635`3.*^-140]
+K1 Krawczyk K(X) in int X: True   max width K/X = ScientificForm[2.2119817575985308`3.*^-42]
+K2 all lambda > 0: True   min lower = 0.01205451728310322404559372329445872393`8.
+K3 SOSC (Finsler rho=1): True   lambda_min(mid) = 0.0447325376256604893`8.   max entry width = ScientificForm[3.956251548312`3.*^-84]  (bound dF=1e-30 valid: True)
+K4 margins: True   min other-centre margin = 1.0423016497460498696`6.   min geometric margin = 3.1089777702139193401`6.
+K5 accounted 286 of 286 candidates (1 exactly collinear triple)
+K5 candidates: active=18 strict(f<1)=236 outside=26 coincide-with-J=5 unresolved={}  => True
+R* in InputForm[Interval[{2.63169077261980820552150115950569610516711684782381068173438771509112173013924`50., 2.63169077261980820552150115950569610516711684782389621020511066535179822730619`50.}]]
+ALL: <|K1_krawczyk -> True, K2_lambda_pos -> True, K3_width -> True, K3_sosc -> True, K4_margins -> True, K5_coverage -> True|>
+n=11 local-optimality certificate OK
+O1_angle_branches : True
+O2_cyclic_order : True
+O3_inward_radial_branch : True
+O4_shortest_anchor : True
+O5_valid_nonnegative_bounds : True
+O6_tiny_overlap : True
+ALL ORDERED ROOT: <|O1_angle_branches -> True, O2_cyclic_order -> True, O3_inward_radial_branch -> True, O4_shortest_anchor -> True, O5_valid_nonnegative_bounds -> True, O6_tiny_overlap -> True|>
+CERTIFICATE OK (L3): exact root enclosed in ordered simplex; no global localization claim
+
+STDERR:
+Failed to open configuaration file at path: /home/skim/.config/Wolfram/WolframScript/WolframScript.conf
+Failed to open configuaration file at path: /home/skim/.config/Wolfram/WolframScript/WolframScript.conf
+Failed to open configuaration file at path: /home/skim/.config/Wolfram/WolframScript/WolframScript.conf
+Failed to open configuaration file at path: /home/skim/.config/Wolfram/WolframScript/WolframScript.conf

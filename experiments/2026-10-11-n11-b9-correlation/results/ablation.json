@@ -1,0 +1,317 @@
+{
+  "rows": [
+    {
+      "radii": [
+        "273/100",
+        "547/200"
+      ],
+      "rank": [
+        1,
+        2
+      ],
+      "slices": 4,
+      "unsliced_24_or_48_closed": false
+    },
+    {
+      "radii": [
+        "273/100",
+        "547/200"
+      ],
+      "rank": [
+        1,
+        4
+      ],
+      "slices": 4,
+      "unsliced_24_or_48_closed": false
+    },
+    {
+      "radii": [
+        "273/100",
+        "547/200"
+      ],
+      "rank": [
+        1,
+        5
+      ],
+      "slices": 4,
+      "unsliced_24_or_48_closed": false
+    },
+    {
+      "radii": [
+        "273/100",
+        "547/200"
+      ],
+      "rank": [
+        1,
+        6
+      ],
+      "slices": 4,
+      "unsliced_24_or_48_closed": false
+    },
+    {
+      "radii": [
+        "273/100",
+        "547/200"
+      ],
+      "rank": [
+        1,
+        8
+      ],
+      "slices": 4,
+      "unsliced_24_or_48_closed": false
+    },
+    {
+      "radii": [
+        "273/100",
+        "547/200"
+      ],
+      "rank": [
+        2,
+        6
+      ],
+      "slices": 4,
+      "unsliced_24_or_48_closed": false
+    },
+    {
+      "radii": [
+        "273/100",
+        "547/200"
+      ],
+      "rank": [
+        3,
+        7
+      ],
+      "slices": 4,
+      "unsliced_24_or_48_closed": false
+    },
+    {
+      "radii": [
+        "273/100",
+        "547/200"
+      ],
+      "rank": [
+        4,
+        2
+      ],
+      "slices": 4,
+      "unsliced_24_or_48_closed": true
+    },
+    {
+      "radii": [
+        "273/100",
+        "547/200"
+      ],
+      "rank": [
+        4,
+        5
+      ],
+      "slices": 4,
+      "unsliced_24_or_48_closed": false
+    },
+    {
+      "radii": [
+        "273/100",
+        "547/200"
+      ],
+      "rank": [
+        4,
+        7
+      ],
+      "slices": 4,
+      "unsliced_24_or_48_closed": false
+    },
+    {
+      "radii": [
+        "273/100",
+        "547/200"
+      ],
+      "rank": [
+        4,
+        8
+      ],
+      "slices": 4,
+      "unsliced_24_or_48_closed": false
+    },
+    {
+      "radii": [
+        "273/100",
+        "547/200"
+      ],
+      "rank": [
+        5,
+        1
+      ],
+      "slices": 8,
+      "unsliced_24_or_48_closed": false
+    },
+    {
+      "radii": [
+        "273/100",
+        "547/200"
+      ],
+      "rank": [
+        5,
+        2
+      ],
+      "slices": 4,
+      "unsliced_24_or_48_closed": true
+    },
+    {
+      "radii": [
+        "273/100",
+        "547/200"
+      ],
+      "rank": [
+        5,
+        4
+      ],
+      "slices": 8,
+      "unsliced_24_or_48_closed": false
+    },
+    {
+      "radii": [
+        "273/100",
+        "547/200"
+      ],
+      "rank": [
+        5,
+        6
+      ],
+      "slices": 4,
+      "unsliced_24_or_48_closed": false
+    },
+    {
+      "radii": [
+        "273/100",
+        "547/200"
+      ],
+      "rank": [
+        6,
+        2
+      ],
+      "slices": 4,
+      "unsliced_24_or_48_closed": false
+    },
+    {
+      "radii": [
+        "273/100",
+        "547/200"
+      ],
+      "rank": [
+        7,
+        3
+      ],
+      "slices": 4,
+      "unsliced_24_or_48_closed": false
+    },
+    {
+      "radii": [
+        "273/100",
+        "547/200"
+      ],
+      "rank": [
+        7,
+        8
+      ],
+      "slices": 4,
+      "unsliced_24_or_48_closed": true
+    },
+    {
+      "radii": [
+        "273/100",
+        "547/200"
+      ],
+      "rank": [
+        8,
+        4
+      ],
+      "slices": 8,
+      "unsliced_24_or_48_closed": false
+    },
+    {
+      "radii": [
+        "273/100",
+        "547/200"
+      ],
+      "rank": [
+        8,
+        5
+      ],
+      "slices": 4,
+      "unsliced_24_or_48_closed": false
+    },
+    {
+      "radii": [
+        "273/100",
+        "547/200"
+      ],
+      "rank": [
+        8,
+        7
+      ],
+      "slices": 4,
+      "unsliced_24_or_48_closed": true
+    },
+    {
+      "radii": [
+        "547/200",
+        "137/50"
+      ],
+      "rank": [
+        1,
+        5
+      ],
+      "slices": 4,
+      "unsliced_24_or_48_closed": true
+    },
+    {
+      "radii": [
+        "547/200",
+        "137/50"
+      ],
+      "rank": [
+        4,
+        5
+      ],
+      "slices": 4,
+      "unsliced_24_or_48_closed": false
+    },
+    {
+      "radii": [
+        "547/200",
+        "137/50"
+      ],
+      "rank": [
+        4,
+        7
+      ],
+      "slices": 4,
+      "unsliced_24_or_48_closed": true
+    },
+    {
+      "radii": [
+        "547/200",
+        "137/50"
+      ],
+      "rank": [
+        4,
+        8
+      ],
+      "slices": 4,
+      "unsliced_24_or_48_closed": false
+    },
+    {
+      "radii": [
+        "547/200",
+        "137/50"
+      ],
+      "rank": [
+        5,
+        4
+      ],
+      "slices": 4,
+      "unsliced_24_or_48_closed": true
+    }
+  ],
+  "still_unresolved_without_slicing": 19
+}

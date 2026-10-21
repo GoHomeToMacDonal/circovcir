@@ -1,0 +1,103 @@
+{
+  "level": "L3 specified leaves and coarse b9 bound; global sharp bound NOT proved",
+  "coarse_b9_upper": "2.786784686984",
+  "local_parameter_padding": "1/100000000000",
+  "local_tree": {
+    "visited": 1,
+    "excluded": 0,
+    "localized": 1,
+    "empty": 0,
+    "unresolved": 0,
+    "max_depth": 0,
+    "radius_splits": 0
+  },
+  "runs": [
+    {
+      "radii": [
+        "348348085873/125000000000",
+        "6967/2500"
+      ],
+      "closed_to_target": true,
+      "stats": {
+        "visited": 69,
+        "excluded": 32,
+        "localized": 0,
+        "empty": 3,
+        "unresolved": 0,
+        "max_depth": 13,
+        "radius_splits": 0
+      },
+      "file": "results/domain-0.json"
+    },
+    {
+      "radii": [
+        "6967/2500",
+        "2787/1000"
+      ],
+      "closed_to_target": true,
+      "stats": {
+        "visited": 69,
+        "excluded": 32,
+        "localized": 0,
+        "empty": 3,
+        "unresolved": 0,
+        "max_depth": 13,
+        "radius_splits": 0
+      },
+      "file": "results/domain-1.json"
+    },
+    {
+      "radii": [
+        "139/50",
+        "2781/1000"
+      ],
+      "closed_to_target": false,
+      "stats": {
+        "visited": 127,
+        "excluded": 32,
+        "localized": 0,
+        "empty": 0,
+        "unresolved": 64,
+        "max_depth": 67,
+        "radius_splits": 0
+      },
+      "file": "out/domain-2.json"
+    },
+    {
+      "radii": [
+        "27/10",
+        "2701/1000"
+      ],
+      "closed_to_target": false,
+      "stats": {
+        "visited": 127,
+        "excluded": 25,
+        "localized": 0,
+        "empty": 0,
+        "unresolved": 78,
+        "max_depth": 93,
+        "radius_splits": 1
+      },
+      "file": "out/domain-3.json"
+    },
+    {
+      "radii": [
+        "32896133407747602569/12500000000000000000",
+        "348348085873/125000000000"
+      ],
+      "closed_to_target": false,
+      "stats": {
+        "visited": 127,
+        "excluded": 21,
+        "localized": 0,
+        "empty": 0,
+        "unresolved": 86,
+        "max_depth": 96,
+        "radius_splits": 18
+      },
+      "file": "out/domain-4.json"
+    }
+  ],
+  "global_sharp_bound_proved": false,
+  "b10_touched": false
+}

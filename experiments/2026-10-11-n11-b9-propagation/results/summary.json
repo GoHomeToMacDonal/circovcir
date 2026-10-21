@@ -1,0 +1,72 @@
+{
+  "level": "L3 complete b9 coarse bound; geometric reductions await review",
+  "strict_b9_upper": "2.74",
+  "panels": [
+    {
+      "radii": [
+        "137/50",
+        "2741/1000"
+      ],
+      "residual": 49,
+      "propagation": 7,
+      "forced_points": 36
+    },
+    {
+      "radii": [
+        "2741/1000",
+        "1371/500"
+      ],
+      "residual": 53,
+      "propagation": 3,
+      "forced_points": 0
+    },
+    {
+      "radii": [
+        "1371/500",
+        "2743/1000"
+      ],
+      "residual": 49,
+      "propagation": 7,
+      "forced_points": 85
+    },
+    {
+      "radii": [
+        "2743/1000",
+        "549/200"
+      ],
+      "residual": 51,
+      "propagation": 5,
+      "forced_points": 62
+    },
+    {
+      "radii": [
+        "549/200",
+        "11/4"
+      ],
+      "residual": 53,
+      "propagation": 3,
+      "forced_points": 18
+    },
+    {
+      "radii": [
+        "11/4",
+        "551/200"
+      ],
+      "residual": 53,
+      "propagation": 3,
+      "forced_points": 0
+    },
+    {
+      "radii": [
+        "551/200",
+        "69/25"
+      ],
+      "residual": 55,
+      "propagation": 1,
+      "forced_points": 0
+    }
+  ],
+  "previous_certificate_16_replayed": true,
+  "sharp_Rstar_bound_proved": false,
+  "b10_touched": false
+}

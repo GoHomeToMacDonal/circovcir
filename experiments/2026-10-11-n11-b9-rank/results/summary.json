@@ -1,0 +1,56 @@
+{
+  "level": "L3 complete b9 coarse bound with geometric reductions awaiting review",
+  "b9_upper_strict": "2.76",
+  "panels": 5,
+  "rank_cases_per_panel": 56,
+  "excluded_root_domains": 280,
+  "partial_near_target": [
+    {
+      "rank": [
+        1,
+        2
+      ],
+      "stats": {
+        "visited": 15,
+        "excluded": 0,
+        "localized": 0,
+        "empty": 0,
+        "unresolved": 16,
+        "max_depth": 14,
+        "radius_splits": 0
+      }
+    },
+    {
+      "rank": [
+        4,
+        5
+      ],
+      "stats": {
+        "visited": 15,
+        "excluded": 0,
+        "localized": 0,
+        "empty": 0,
+        "unresolved": 16,
+        "max_depth": 14,
+        "radius_splits": 0
+      }
+    },
+    {
+      "rank": [
+        4,
+        6
+      ],
+      "stats": {
+        "visited": 15,
+        "excluded": 0,
+        "localized": 0,
+        "empty": 0,
+        "unresolved": 16,
+        "max_depth": 14,
+        "radius_splits": 0
+      }
+    }
+  ],
+  "sharp_Rstar_bound_proved": false,
+  "b10_touched": false
+}

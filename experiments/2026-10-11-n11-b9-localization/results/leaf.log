@@ -1,0 +1,12 @@
+P1_root_enclosure_strictly_in_leaf : True
+P2_exact_rotation_and_permutation : True
+P3_entire_radius_interval_above_target_floor : True
+P4_continuous_image_inside_G3 : True
+ALL LEAF: <|P1_root_enclosure_strictly_in_leaf -> True, P2_exact_rotation_and_permutation -> True, P3_entire_radius_interval_above_target_floor -> True, P4_continuous_image_inside_G3 -> True|>
+CERTIFICATE OK (L3): radius-interval ordered leaf enters G3 after exact rotation; global NOT proved
+
+STDERR:
+Failed to open configuaration file at path: /home/skim/.config/Wolfram/WolframScript/WolframScript.conf
+Failed to open configuaration file at path: /home/skim/.config/Wolfram/WolframScript/WolframScript.conf
+Failed to open configuaration file at path: /home/skim/.config/Wolfram/WolframScript/WolframScript.conf
+Failed to open configuaration file at path: /home/skim/.config/Wolfram/WolframScript/WolframScript.conf

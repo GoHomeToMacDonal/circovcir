@@ -1,0 +1,29 @@
+|F(u~)| (float) = ScientificForm[9.86114055509635`3.*^-140]
+K1 Krawczyk K(X) in int X: True   max width K/X = ScientificForm[2.2119817575985308`3.*^-42]
+K2 all lambda > 0: True   min lower = 0.01205451728310322404559372329445872393`8.
+K3 SOSC (Finsler rho=1): True   lambda_min(mid) = 0.0447325376256604893`8.   max entry width = ScientificForm[3.956251548312`3.*^-84]  (bound dF=1e-30 valid: True)
+K4 margins: True   min other-centre margin = 1.0423016497460498696`6.   min geometric margin = 3.1089777702139193401`6.
+K5 accounted 286 of 286 candidates (1 exactly collinear triple)
+K5 candidates: active=18 strict(f<1)=236 outside=26 coincide-with-J=5 unresolved={}  => True
+R* in InputForm[Interval[{2.63169077261980820552150115950569610516711684782381068173438771509112173013924`50., 2.63169077261980820552150115950569610516711684782389621020511066535179822730619`50.}]]
+ALL: <|K1_krawczyk -> True, K2_lambda_pos -> True, K3_width -> True, K3_sosc -> True, K4_margins -> True, K5_coverage -> True|>
+n=11 local-optimality certificate OK
+L1_root_strictly_inside_collar : True
+L2_fixed_gauge_at_root : True
+L3_exact_reference_margin : True
+L4_uniform_strong_concavity : True
+L4 row-sum perturbation bound (rounded display) = InputForm[0.0252224251786529684806957117167998130337662972666115879358`40.]; certified mu = 7/500
+L5_feasible_penalty_sign : True
+L5 max absolute constraint = InputForm[0.0000690225552204011439080885858403257272585998886110287375171219530096972611981933099702324078671647824251561832447`94.10514205554668]
+L6_all_interior_coverage_implications : True
+L7_all_boundary_coverage_implications : True
+collar center (exact rational) = InputForm[{0, -19662480089625013543/50000000000000000000, 0, 71839227931685877597/100000000000000000000, 0, 234884120097565953729/100000000000000000000, 7876763200217140329/5000000000000000000, 81031294321345956419/50000000000000000000, -7876763200217140329/5000000000000000000, 81031294321345956419/50000000000000000000, 88636808140487046559/50000000000000000000, -93632239910290244643/100000000000000000000, -88636808140487046559/50000000000000000000, -93632239910290244643/100000000000000000000, 45687738823803248491/25000000000000000000, 24958048504283922431/100000000000000000000, -45687738823803248491/25000000000000000000, 24958048504283922431/100000000000000000000, 19630427061706586691/25000000000000000000, -201247018720615423819/100000000000000000000, -19630427061706586691/25000000000000000000, -201247018720615423819/100000000000000000000, 32896134657747602569/12500000000000000000}]
+collar coordinate radius = 1/500000
+ALL COLLAR: <|L1_root_strictly_inside_collar -> True, L2_fixed_gauge_at_root -> True, L3_exact_reference_margin -> True, L4_uniform_strong_concavity -> True, L5_feasible_penalty_sign -> True, L6_all_interior_coverage_implications -> True, L7_all_boundary_coverage_implications -> True|>
+CERTIFICATE OK (L3): explicit 23-coordinate collar, R <= Rstar; global localization NOT proved
+
+STDERR:
+Failed to open configuaration file at path: /home/skim/.config/Wolfram/WolframScript/WolframScript.conf
+Failed to open configuaration file at path: /home/skim/.config/Wolfram/WolframScript/WolframScript.conf
+Failed to open configuaration file at path: /home/skim/.config/Wolfram/WolframScript/WolframScript.conf
+Failed to open configuaration file at path: /home/skim/.config/Wolfram/WolframScript/WolframScript.conf

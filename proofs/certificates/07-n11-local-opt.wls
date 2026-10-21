@@ -182,4 +182,8 @@ Print["K5 candidates: active=", nAct, " strict(f<1)=", nStrict, " outside=", nSk
 
 Print["R* in ", InputForm[N[XK[[12]], 50]]];
 Print["ALL: ", ok];
-If[And @@ Values[ok], Print["n=11 local-optimality certificate OK"]; Exit[0], Exit[1]];
+(* Consumer certificates may set $N11CertificateNoExit=True before Get to reuse
+   the checked enclosure. Failure always exits nonzero; standalone behavior is unchanged. *)
+If[And @@ Values[ok],
+ Print["n=11 local-optimality certificate OK"];
+ If[!TrueQ[$N11CertificateNoExit], Exit[0]], Exit[1]];

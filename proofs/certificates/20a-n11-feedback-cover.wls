@@ -1,0 +1,93 @@
+#!/usr/bin/env wolframscript
+(* Coverage feedback: inner Helly exclusions force outer owners; outer slices
+   deleted by distance; rank/total-mass necessities propagate the contraction. *)
+root=DirectoryName[DirectoryName[DirectoryName[ExpandFileName[$InputFileName]]]];
+$N11SeparatedCertificateNoExit=True;
+Get[FileNameJoin[{root,"proofs","certificates","19a-n11-separated-cover.wls"}]];
+file=FileNameJoin[{root,"experiments","2026-10-11-n11-b9-feedback","results","feedback-cover.json"}];
+data=Import[file,"RawJSON"];
+rankImpossible[params_,active_,rank_,owner_,piece_]:=Module[{lo,hi,edges,i,j},
+ lo=Table[Min[params[[k,active[[k]],1]]],{k,9}];
+ hi=Table[Max[params[[k,active[[k]],2]]],{k,9}];
+ {lo[[owner]],hi[[owner]]}=params[[owner,piece]];
+ {i,j}=rank+1;edges=Join[{{1,i},{i,j}},({j,#}&/@Complement[Range[2,9],{i,j}])];
+ Do[Do[lo[[e[[1]]]]=Max[lo[[e[[1]]]],lo[[e[[2]]]]];
+ hi[[e[[2]]]]=Min[hi[[e[[2]]]],hi[[e[[1]]]]],{e,edges}],{9}];
+ Total[lo]>1||Or@@Thread[lo>hi]];
+feedbackReplay[rr_,dom_,cert_]:=Catch[Module[{groups,params,active,seeds,colors,assigned,
+ boxes={None,None},missed,steps,step,obj,k,i,j,p,ids,removed,pool,terminal,idx,status,rank},
+ groups=Table[Map[parse,piece["sector"],{2}],{parts,dom["pieces"]},{piece,parts}];
+ params=Table[parse/@piece["parameter"],{parts,dom["pieces"]},{piece,parts}];
+ active=Range[Length[#]]&/@groups;rank=dom["root"]["rank"];
+ seeds=Map[parse,cert["seed_points"],{2}];status=cert["status"];
+ If[!MemberQ[{"excluded","unresolved"},status]||Length[seeds]<2||
+ !And@@(insideResidual[#,Flatten[groups,1],rr[[1]]]&/@seeds),Throw[$Failed]];
+ colors=ConstantArray[-1,Length[seeds]];colors[[1]]=0;
+ Do[{i,j}=edge+1;
+ If[!(IntegerQ[i]&&IntegerQ[j]&&1<=i<=Length[seeds]&&1<=j<=Length[seeds]&&
+ colors[[i]]==-1&&colors[[j]]>=0&&(seeds[[i]]-seeds[[j]]).(seeds[[i]]-seeds[[j]])>4),Throw[$Failed]];
+ colors[[i]]=1-colors[[j]],{edge,cert["seed_tree"]}];
+ If[Sort[DeleteDuplicates[colors]]!={0,1},Throw[$Failed]];
+ assigned=Join[Table[{},9],Table[Pick[seeds,colors,k],{k,0,1}]];
+ missed[point_,owner_,conflicts_]:=Catch[Module[{idlist,ptpool},
+ If[owner<=9,Throw[And@@(distSector[point,groups[[owner,#]]]>1&/@active[[owner]])]];
+ Do[If[record[[1]]+1!=owner,Continue[]];idlist=record[[2]]+1;ptpool=Append[assigned[[owner]],point];
+ If[MemberQ[{2,3},Length[idlist]]&&Length[DeleteDuplicates[idlist]]==Length[idlist]&&
+ And@@(IntegerQ[#]&&1<=#<=Length[ptpool]&/@idlist)&&conflict[ptpool[[idlist]]],Throw[True]],
+ {record,conflicts}];boxes[[owner-9]]=!=None&&boxDist[point,boxes[[owner-9]]]>1]];
+ steps=cert["steps"];
+ Do[step=steps[[idx]];terminal=False;
+ Which[
+ Keys[step]=={"bound"},obj=step["bound"];k=obj["owner"]+1;
+ If[!MemberQ[{10,11},k]||!TrueQ[centerDualCheck[assigned[[k]],obj["certificate"]]],Throw[$Failed]];
+ boxes[[k-9]]=Map[parse,obj["certificate"]["box"],{2}],
+ Keys[step]=={"force"},obj=step["force"];k=obj["owner"]+1;p=parse/@obj["point"];
+ If[!(IntegerQ[k]&&1<=k<=11&&p.p<=rr[[1]]^2)||
+ !And@@(missed[p,#,Lookup[obj,"inner_conflicts",{}]]&/@DeleteCases[Range[11],k]),Throw[$Failed]];
+ AppendTo[assigned[[k]],p],
+ Keys[step]=={"prune"},obj=step["prune"];k=obj["owner"]+1;i=obj["point_index"]+1;
+ removed=obj["pieces"]+1;
+ If[!(IntegerQ[k]&&1<=k<=9&&IntegerQ[i]&&1<=i<=Length[assigned[[k]]])||
+ Length[removed]<1||Length[DeleteDuplicates[removed]]!=Length[removed]||
+ !And@@(IntegerQ[#]&&MemberQ[active[[k]],#]&/@removed)||
+ !And@@(distSector[assigned[[k,i]],groups[[k,#]]]>1&/@removed),Throw[$Failed]];
+ active[[k]]=Complement[active[[k]],removed];terminal=active[[k]]=={},
+ Keys[step]=={"rank_prune"},obj=step["rank_prune"];k=obj["owner"]+1;i=obj["piece"]+1;
+ If[!(IntegerQ[k]&&1<=k<=9&&IntegerQ[i]&&MemberQ[active[[k]],i])||
+ !TrueQ[rankImpossible[params,active,rank,k,i]],Throw[$Failed]];
+ active[[k]]=DeleteCases[active[[k]],i];terminal=active[[k]]=={},
+ Keys[step]=={"mass"},
+ If[Total[Table[Min[params[[k,active[[k]],1]]],{k,9}]]<=1,Throw[$Failed]];terminal=True,
+ Keys[step]=={"hole"},obj=step["hole"];p=parse/@obj["point"];
+ If[p.p>rr[[1]]^2||!And@@(missed[p,#,Lookup[obj,"inner_conflicts",{}]]&/@Range[11]),Throw[$Failed]];
+ terminal=True,
+ Keys[step]=={"conflict"},obj=step["conflict"];k=obj["owner"]+1;ids=obj["indices"]+1;
+ If[!(IntegerQ[k]&&1<=k<=11)||!MemberQ[{2,3},Length[ids]]||Length[DeleteDuplicates[ids]]!=Length[ids]||
+ !And@@(IntegerQ[#]&&1<=#<=Length[assigned[[k]]]&/@ids)||!conflict[assigned[[k,ids]]],Throw[$Failed]];
+ terminal=True,
+ True,Throw[$Failed]];
+ If[terminal,Throw[If[status=="excluded"&&idx==Length[steps],True,$Failed]]],{idx,Length[steps]}];
+ If[status=="unresolved",False,$Failed]]];
+rr=parse/@data["radii"];
+gate["F1_radius_and_all_ranks",rr=={68/25,109/40}&&
+ (#["domain"]["root"]["rank"]&/@data["cases"])===expected];
+r=ivb[rr];a=ArcSin[1/r];dd=9a-iv[Pi];caps={iv[2],1+2/Sqrt[iv[3]],1+Sqrt[iv[2]]};
+ff=Table[ww=Table[ArcCos[(iv[re]^2+cap^2-1)/(2iv[re]cap)],{re,rr}];
+ width=ivb[{rat[Min[ww[[2]]]],rat[Max[ww[[1]]]]}];Max[0,rat[Min[(a-width)/dd]]],{cap,caps}];
+count=0;feedbackCount=0;example=None;
+Do[dom=entry["domain"];leaf=entry["leaf"];
+ If[slicedReplay[rr,dom,ff]===$Failed||!TrueQ[feedbackReplay[rr,dom,leaf]],
+ Print["FAIL feedback ",dom["root"]["rank"]];Exit[1]];
+ If[MemberQ[Keys/@leaf["steps"],{"prune"}],feedbackCount++;example=entry];count++,{entry,data["cases"]}];
+gate["F2_all_56_domains",count==56];
+gate["F3_feedback_actually_used",feedbackCount>0];
+bad=example["leaf"];bad["steps"]=Most[bad["steps"]];
+gate["F4_unfinished_rejected",feedbackReplay[rr,example["domain"],bad]===$Failed];
+bad=example["leaf"];st=bad["steps"];idx=First@First@Position[Keys/@st,{"force"}];
+obj=st[[idx]]["force"];obj["inner_conflicts"]={};st[[idx]]=<|"force"->obj|>;bad["steps"]=st;
+gate["F5_unjustified_owner_rejected",feedbackReplay[rr,example["domain"],bad]===$Failed];
+bad=example["leaf"];bad["steps"]={<|"rank_prune"-><|"owner"->0,"piece"->0|>|>};
+gate["F6_unjustified_rank_prune_rejected",feedbackReplay[rr,example["domain"],bad]===$Failed];
+Print["feedback domains = ",feedbackCount];
+Print["CERTIFICATE OK (L3): all b9 R < 2.72; 19a/18a/17a/16a replayed, combine separately rerun 15b; sharp Rstar NOT proved"];
+Exit[0];

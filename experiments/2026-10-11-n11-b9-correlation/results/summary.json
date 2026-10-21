@@ -1,0 +1,29 @@
+{
+  "level": "L3 computations; geometric reductions await review",
+  "strict_b9_upper": "273/100",
+  "panels": [
+    {
+      "radii": [
+        "273/100",
+        "547/200"
+      ],
+      "slice_counts": {
+        "4": 18,
+        "1": 35,
+        "8": 3
+      }
+    },
+    {
+      "radii": [
+        "547/200",
+        "137/50"
+      ],
+      "slice_counts": {
+        "1": 51,
+        "4": 5
+      }
+    }
+  ],
+  "sharp_Rstar_bound_proved": false,
+  "b10_touched": false
+}
