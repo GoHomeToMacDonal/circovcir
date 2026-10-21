@@ -111,15 +111,27 @@ def _cand_value(t: tuple, c: np.ndarray) -> float | None:
 
 
 def polish(c: np.ndarray, rounds: int = 300, delta: float = 2e-2, step: float = 0.1,
-           tol: float = 1e-13) -> np.ndarray:
+           tol: float = 1e-13, extra=None, e0=None, ineq=None):
     """Active-set minimax refinement of rho(c, 1) on the EXACT candidate set.
 
     Each round fixes the near-maximal candidates (with their generating centers), and solves
         min t  s.t.  |x_q(c) - c_gen(q)| <= t   for every active q
     by SLSQP inside a box trust region; accept only if the exact covering radius drops.
+
+    Optional ``extra(c, e) -> array`` adds side constraints ``extra <= t`` with auxiliary
+    variables ``e`` (initial ``e0``); the objective becomes max(rho, max extra) and the
+    function then returns ``(c, e)`` instead of ``c``.  Optional ``ineq(c, e) -> array``
+    adds hard constraints ``ineq >= 0`` (checked with tolerance on acceptance).
     """
     c = c.copy()
-    r = covering_radius(c, 1.0)
+    e = np.zeros(0) if e0 is None else np.asarray(e0, float).copy()
+    ne = e.size
+
+    def reff(cc, ee):
+        r0 = covering_radius(cc, 1.0)
+        return max(r0, float(np.max(extra(cc, ee)))) if extra is not None else r0
+
+    r = reff(c, e)
     for _ in range(rounds):
         act = _active_candidates(c, max(delta, 0.0))
         if not act:
@@ -132,23 +144,29 @@ def polish(c: np.ndarray, rounds: int = 300, delta: float = 2e-2, step: float = 
             for t in act:
                 x = _cand_point(t, cc)
                 out.append(z[-1] - (np.linalg.norm(x - cc[t[1]]) if x is not None else 0.0))
+            if extra is not None:
+                out.extend(z[-1] - np.asarray(extra(cc, z[n2:n2 + ne])))
+            if ineq is not None:
+                out.extend(np.asarray(ineq(cc, z[n2:n2 + ne])))
             return np.array(out)
 
-        z0 = np.append(c.ravel(), r)
-        bounds = [(v - step, v + step) for v in c.ravel()] + [(0, None)]
+        z0 = np.concatenate([c.ravel(), e, [r]])
+        bounds = [(v - step, v + step) for v in np.concatenate([c.ravel(), e])] + [(0, None)]
         res = minimize(lambda z: z[-1], z0, jac=lambda z: np.eye(len(z))[-1], method="SLSQP",
                        bounds=bounds, constraints=[{"type": "ineq", "fun": cons}],
                        options={"maxiter": 200, "ftol": 1e-15})
         cand = res.x[:n2].reshape(-1, 2)
-        r_new = covering_radius(cand, 1.0)
-        if r_new < r - tol:
-            c, r = cand, r_new
+        ecand = res.x[n2:n2 + ne]
+        r_new = reff(cand, ecand)
+        feas = ineq is None or float(np.min(ineq(cand, ecand))) >= -1e-10
+        if feas and r_new < r - tol:
+            c, e, r = cand, ecand, r_new
         else:
             step *= 0.5
             delta *= 0.5
             if step < 1e-9:
                 break
-    return c
+    return (c, e) if extra is not None else c
 
 
 @dataclass
