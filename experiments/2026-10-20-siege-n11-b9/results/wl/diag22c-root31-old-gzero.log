@@ -1,0 +1,14 @@
+Failed to open configuaration file at path: /home/skim/.config/Wolfram/WolframScript/WolframScript.conf
+Failed to open configuaration file at path: /home/skim/.config/Wolfram/WolframScript/WolframScript.conf
+Failed to open configuaration file at path: /home/skim/.config/Wolfram/WolframScript/WolframScript.conf
+Failed to open configuaration file at path: /home/skim/.config/Wolfram/WolframScript/WolframScript.conf
+2000 boxes, 216 s, stack 11, min open width 0.0114501232812970906`3.
+4000 boxes, 439 s, stack 9, min open width 0.0114501232812970906`3.
+6000 boxes, 678 s, stack 15, min open width 0.0057250616406485453`3.
+8000 boxes, 946 s, stack 17, min open width 0.0057250616406485453`3.
+10000 boxes, 1178 s, stack 13, min open width 0.0057250616406485453`3.
+12000 boxes, 1427 s, stack 5, min open width 0.0057250616406485453`3.
+14000 boxes, 1626 s, stack 15, min open width 0.0057250616406485453`3.
+16000 boxes, 1782 s, stack 9, min open width 0.0057250616406485453`3.
+The product exited because of a license error.
+root 31 done: boxes 16607 empty 0 cert 8304 stack 0 1829 s

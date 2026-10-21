@@ -1,0 +1,8 @@
+Failed to open configuaration file at path: /home/skim/.config/Wolfram/WolframScript/WolframScript.conf
+Failed to open configuaration file at path: /home/skim/.config/Wolfram/WolframScript/WolframScript.conf
+Failed to open configuaration file at path: /home/skim/.config/Wolfram/WolframScript/WolframScript.conf
+Failed to open configuaration file at path: /home/skim/.config/Wolfram/WolframScript/WolframScript.conf
+slice 12 K_X in {0.0301655368354098498`6., 0.0326793315716940039`6.}
+  U_Y = 4.0427199910728821331`8.  (21 s);  T = 2pi - U_Y = 2.2404653161067043436`8.
+  FAR refute X obj < T: {True, 304177} (165 s)
+The product exited because of a license error.

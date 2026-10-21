@@ -1,0 +1,343 @@
+Failed to open configuaration file at path: /home/skim/.config/Wolfram/WolframScript/WolframScript.conf
+Failed to open configuaration file at path: /home/skim/.config/Wolfram/WolframScript/WolframScript.conf
+Failed to open configuaration file at path: /home/skim/.config/Wolfram/WolframScript/WolframScript.conf
+Failed to open configuaration file at path: /home/skim/.config/Wolfram/WolframScript/WolframScript.conf
+22a: R = 26317/10000, working precision 50 (bignum Interval); width(B) = 9.525305784415`3.*^-45
+Z01 | enclosure sanity | INEQ | N[exact, 80] of a, d, B, C(1.085), rho(B/2), A(1.36,0.3683) lies in the bignum intervals; widths < 1e-40 | 6 quantities | True
+N01 | Notation | VAL | a = 0.3897774 (tol 1e-7) | true=0.389777399843, rnd=True | True
+N02 | Notation | VAL | 2a = 0.7795548 (tol 1e-7) | true=0.779554799687, rnd=True | True
+N03 | Notation | INEQ | 2a < pi/2 | 2a=0.779554799687 | True
+N04 | Notation | VAL | pi - 8a = 0.0233735 (tol 1e-7) | true=0.0233734548420, rnd=True | True
+N05 | Notation | VAL | delta = 9a - pi = 0.3664040 (tol 1e-7) | true=0.366403945002, rnd=False | True
+N06 | Notation | VAL | d = 0.863259 (tol 1e-6) | true=0.863259328200, rnd=True | True
+N07 | Notation | VAL | B = 12a - 2pi + 2d = 0.1206621 (tol 1e-7) | true=0.120662147342, rnd=True | True
+N08 | Notation | VAL | sqrt(R^2-1) = 2.4343058 (tol 1e-7) | true=2.43430583329, rnd=True | True
+R1a | Lemma R1 step2 | VAL | 16a = 6.23644 (tol 1e-5) | true=6.23643839750, rnd=True | True
+R1b | Lemma R1 step2 / Lemma A0 | INEQ | 16a < 2pi (eight arcs cannot cover S_R) | 2pi-16a=0.0467469096839 | True
+R1c | Lemma R1 step3 | INEQ | r_1 > 2 | exact | True
+R1d | Lemma R1 step4 | INEQ | r_1 >= 2.63169 (so T10(ii) excludes ten boundary disks) | exact | True
+R2a | Lemma R2(c) | INEQ | R - 1 < sqrt(R^2-1) | sqrt(R^2-1)-(R-1)=0.802605833292 | True
+R2b | Lemma R2(c) | INEQ | f(R-1) = 2R(R-1)(1-cos w), f(r) = r^2 - 2Rr cos w + R^2 - 1 (identity) | exact | True
+R2c | Lemma R2(c) | INEQ | R - 1 > 0 (so 1 - 2t(m-s) <= 1) | exact | True
+R3a | Lemma R3(3) | INEQ | 4a < 2pi (only consecutive lifted arcs meet) | 4a=1.55910959937 | True
+A01 | Part A header | VAL | sin(0.863259) = 0.759965 (tol 1e-6) | true=0.759964828290, rnd=True | True
+A02 | Part A header | VAL | 2/r_1 = 0.759965 (tol 1e-6) | true=0.759965041608, rnd=True | True
+A03 | Lemma A4(1) | INEQ | 12a - 2pi + 2d <= 0.12066 at r_1 (as written) | B=0.120662147342 | False
+A04 | Lemma A4(1) | INEQ | Sum_{m not in T} d_m <= B/2 <= 0.0604 | B/2=0.0603310736708 | True
+A05 | Lemma A4(1) | VAL | 12a = 4.677329 (tol 1e-6) | true=4.67732879812, rnd=True | True
+A06 | Lemma A4(1) | VAL | 2pi = 6.283185 (tol 1e-6) | true=6.28318530718, rnd=True | True
+A07 | Lemma A4(1) | VAL | 2d = 1.726518 (tol 1e-6) | true=1.72651865640, rnd=False | True
+A08 | Lemma A4(1) | VAL | 12a - 2pi + 2d = 0.120662 (tol 1e-6) | true=0.120662147342, rnd=True | True
+A09 | Lemma A4 | VAL | 2pi - 10a = 2.38541 (tol 1e-5) | true=2.38541130874, rnd=True | True
+A10 | Lemma A4 | VAL | 2d = 1.72652 (tol 1e-5) | true=1.72651865640, rnd=True | True
+A11 | Lemma A4 | INEQ | 2pi - 10a > 2d | 2pi-10a-2d=0.658892652345 | True
+A12 | Lemma A4, N1, N2, N3 (R > r_1) | INEQ | a(R), d(R), 12a+2d, 4d+6a strictly decrease for R > 2 (Reduce on derivatives) | Reduce | True
+A13 | Lemma A4(2) | VAL | pi - 6a = 0.802928 (tol 1e-6) | true=0.802928254529, rnd=True | True
+A14 | Lemma A4(2) | VAL | cos(pi - 6a) = 0.694603 (tol 1e-6) | true=0.694603124113, rnd=True | True
+A15 | Lemma A4(2) (not load-bearing) | VAL | 2R cos(pi-6a) = 3.655976 (tol 1e-6) | true=3.65597408345, rnd=False | False
+A16 | Lemma A4(2) (not load-bearing) | VAL | sqrt((2R cos)^2 - 4(R^2-4)) = 1.289488 (tol 1e-6) | true=1.28948320613, rnd=False | False
+A17 | Lemma A4(2) (not load-bearing) | INEQ | 1.1832 <= root_- and root_+ <= 2.4728 | root-=1.18324543866, root+=2.47272864479 | True
+A18 | Lemma A4(3) / N3 | VAL | 4d = 3.453036 (tol 1e-6) | true=3.45303731280, rnd=False | False
+A19 | Lemma A4(3) / N3 | VAL | 6a = 2.338664 (tol 1e-6) | true=2.33866439906, rnd=True | True
+A20 | Lemma A4(3) / N3 | VAL | 4d + 6a = 5.791700 (tol 1e-6) | true=5.79170171186, rnd=False | False
+A21 | Lemma A4(3) / N3 | INEQ | 4d + 6a < 2pi, margin >= 0.49 | 2pi-4d-6a=0.491483595320 | True
+A22 | Lemma A5 | INEQ | |c_E| <= 1 < R - 1 | exact | True
+B01 | Lemma N1 | VAL | 10a = 3.897774 (tol 1e-6) | true=3.89777399843, rnd=True | True
+B02 | Lemma N1 | VAL | 2pi - 10a = 2.385411 (tol 1e-6) | true=2.38541130874, rnd=True | True
+B03 | Lemma N1 | VAL | 2d = 1.726518 (tol 1e-6) | true=1.72651865640, rnd=False | True
+B04 | Lemma N2 | VAL | B = 0.120662 (tol 1e-6) | true=0.120662147342, rnd=True | True
+B05 | Lemma N2 | INEQ | 2pi - 2a > 2d | 2pi-2a-2d=3.77711185109 | True
+B06 | Lemma S | INEQ | 4(t^2-1) <= t^4 for all t (=> arccos(t/2) <= arcsin(1/t), t >= sqrt2) (Reduce) | Reduce | True
+D01 | Part D budget | VAL | 18a - 2pi = 2 delta = 0.732808 (tol 1e-6) | true=0.732807890003, rnd=True | True
+D02 | Lemma G | INEQ | (R+t)^2 - 4 + (R-t)^2 = 2(R^2+t^2-2) (identity) | exact | True
+D03 | Lemma G | INEQ | s > t > 0, s^2+t^2 > 2 => s^2+t^2-2 < 2s(s+t) (Reduce) | Reduce | True
+D04 | Lemma G | INEQ | log-derivative of f(s) < 0 for t > 0, t < s < t+2, s^2+t^2 > 2 (Reduce) | Reduce | True
+D05 | Part D remark | INEQ | h'(t) = 2(2R(R-t)-4)/(R+t)^3 for h = z^2 (identity) | exact | True
+D06 | Part D remark / Lemma 1.3 | INEQ | h' > 0 on (R-2, R-2/R), h >= 0 on [R-2, R-2/R]: g_sym increasing, C decreasing there (Reduce) | Reduce | True
+D07 | Part D remark | INEQ | z(t*)^2 = 1/(R^2-1) and g_sym(t*) = 2a exactly, t* = R - 2/R | exact | True
+D08 | Part D remark | VAL | t* = R - 2/R = 1.871735 (tol 1e-6) | true=1.87173495839, rnd=True | True
+D09 | Part D / Lemma 1.3 | INEQ | 1.8717 <= R - 2/R; R - 2 <= 0.8 (table inside monotone range start) | R-2/R=1.87173495839 | True
+D10.1 | Part D table (doc error < 1e-4) | VAL | g_sym(0.8) = 0.4597 (tol 1e-4) | true=0.459741078108, rnd=True | True
+D11.1 | Part D table (doc error < 1e-4) | VAL | C(0.8) = 0.3198 (tol 1e-4) | true=0.319813721579, rnd=True | True
+D10.2 | Part D table (doc error < 1e-4) | VAL | g_sym(0.9) = 0.5522 (tol 1e-4) | true=0.552172565356, rnd=True | True
+D11.2 | Part D table (doc error < 1e-4) | VAL | C(0.9) = 0.2274 (tol 1e-4) | true=0.227382234331, rnd=True | True
+D10.3 | Part D table (doc error < 1e-4) | VAL | g_sym(1.0) = 0.6166 (tol 1e-4) | true=0.616598734470, rnd=True | True
+D11.3 | Part D table (doc error < 1e-4) | VAL | C(1.0) = 0.1630 (tol 1e-4) | true=0.162956065217, rnd=True | True
+D10.4 | Part D table (doc error < 1e-4) | VAL | g_sym(1.1) = 0.6638 (tol 1e-4) | true=0.663757478509, rnd=True | True
+D11.4 | Part D table (doc error < 1e-4) | VAL | C(1.1) = 0.1158 (tol 1e-4) | true=0.115797321178, rnd=True | True
+D10.5 | Part D table (doc error < 1e-4) | VAL | g_sym(1.2) = 0.6990 (tol 1e-4) | true=0.698999647079, rnd=True | True
+D11.5 | Part D table (doc error < 1e-4) | VAL | C(1.2) = 0.0806 (tol 1e-4) | true=0.0805551526078, rnd=True | True
+D10.6 | Part D table (doc error < 1e-4) | VAL | g_sym(1.3) = 0.7255 (tol 1e-4) | true=0.725460572115, rnd=True | True
+D11.6 | Part D table (doc error < 1e-4) | VAL | C(1.3) = 0.0541 (tol 1e-4) | true=0.0540942275715, rnd=True | True
+D10.7 | Part D table (doc error < 1e-4) | VAL | g_sym(1.4) = 0.7452 (tol 1e-4) | true=0.745160138101, rnd=True | True
+D11.7 | Part D table (doc error < 1e-4) | VAL | C(1.4) = 0.0344 (tol 1e-4) | true=0.0343946615856, rnd=True | True
+D10.8 | Part D table (doc error < 1e-4) | VAL | g_sym(1.5) = 0.7595 (tol 1e-4) | true=0.759483487664, rnd=True | True
+D11.8 | Part D table (doc error < 1e-4) | VAL | C(1.5) = 0.0201 (tol 1e-4) | true=0.0200713120230, rnd=True | True
+D10.9 | Part D table (doc error < 1e-4) | VAL | g_sym(1.7) = 0.7757 (tol 1e-4) | true=0.775715036269, rnd=True | True
+D11.9 | Part D table (doc error < 1e-4) | VAL | C(1.7) = 0.0038 (tol 1e-4) | true=0.00383976341845, rnd=True | True
+E01 | Lemma E2.1/E2.2 | INEQ | rho_0 = R-2 = 0.6317, 1-rho_0 = 0.3683, rho_0^2 = 0.39904489, 1-rho_0^2 = 0.60095511 (exact) | exact | True
+E02 | Lemma E2.2 | VAL | u* = sqrt(1-rho_0^2) = 0.775213 (tol 1e-6) | true=0.775212944938, rnd=True | True
+E03 | Lemma E2.2 | VAL | sqrt(0.60095511) = 0.7752129 (tol 1e-7) | true=0.775212944938, rnd=True | True
+E04 | Lemma E2.2 | INEQ | u* <= 0.77522 (rounded up) | u*=0.775212944938 | True
+E05 | Lemma E2.2 | INEQ | u > u* => rho_0^2 + u^2 - 1 > 0 (Reduce) | Reduce | True
+E06 | Lemma E2.2 (reach) | INEQ | 1 + u* <= 1.77522 | 1+u*=1.77521294494 | True
+E07 | Lemma E3.1 | VAL | w = a - B/2 = 0.3294464 (tol 1e-7) | true=0.329446326173, rnd=False | True
+E08 | Lemma E3.1 | VAL | sin w = 0.3235192 (tol 1e-7) | true=0.323519179868, rnd=True | True
+E09 | Lemma E3.1 | VAL | cos w = 0.9462215 (tol 1e-7) | true=0.946221612656, rnd=False | False
+E10 | Lemma E3.1 | VAL | R cos w = 2.4901711 (tol 1e-7) | true=2.49017141803, rnd=False | False
+E11 | Lemma E3.1 | VAL | 1 - R^2 sin^2 w = 0.2751086 (tol 1e-7) | true=0.275108801159, rnd=False | False
+E12 | Lemma E3.1 | VAL | sqrt(1 - R^2 sin^2 w) = 0.5245082 (tol 1e-7) | true=0.524508151661, rnd=True | True
+E13 | Lemma E3.1 | VAL | rho(a - B/2) = 1.965663 (tol 1e-6) | true=1.96566326637, rnd=True | True
+E14 | Lemma E3.1 | INEQ | rho_lo = 1.9656 <= rho(a - B/2) | rho=1.96566326637 | True
+E15 | Lemma E3.1 | VAL | 2a - B = 0.6588928 (tol 1e-7) | true=0.658892652345, rnd=False | False
+E16 | Lemma E3.1 | INEQ | A(R,rho) increasing in rho on [R-1, sqrt(R^2-1)]: d/drho of cos = (rho^2-R^2+1)/(2R rho^2) < 0 (Reduce) | Reduce | True
+E17 | Lemma E3.2 | VAL | sin(2a - B) = 0.6122416 (tol 1e-7) | true=0.612241680200, rnd=False | True
+E18 | Lemma E3.2 | VAL | 1.9656 sin(2a - B) = 1.2034 (tol 1e-4) | true=1.20342224660, rnd=True | True
+E19 | Lemma E3.2 | INEQ | rho_lo sin(2a - B) > 1 (and g in [2a-B, 2a] subset (0, pi/2), so sin g >= sin(2a-B)) | 1.9656 sin(2a-B)=1.20342224660 | True
+E20 | Part M soundness / Lemma 1.4 / 3.1(c) | INEQ | rho(w) increasing in w on [0,a] (dÏ/dw >= 0 <=> R^2 >= 1; Reduce in s = sin w) | Reduce | True
+M01 | Lemma 1.3 | VAL | 2a = 0.779555 (tol 1e-6) | true=0.779554799687, rnd=True | True
+M02 | Lemma 1.3 | VAL | z(1.085) = sqrt(4-(R-1.085)^2)/(R+1.085) = 0.341152 (tol 1e-6) | true=0.341151731083, rnd=True | True
+M03 | Lemma 1.3 | VAL | 2 arctan z(1.085) = 0.657542 (tol 1e-6) | true=0.657541062584, rnd=False | True
+M04 | Lemma 1.3 (doc: series error < 1e-6) | VAL | C(1.085) = 0.122013 (tol 1e-6) | true=0.122013737103, rnd=False | True
+M05 | Section 13 (tightest margin) | VAL | C(1.085) - B = 0.00135 (tol 1e-5) | true=0.00135158976148, rnd=True | True
+M06 | Lemma 1.3 | INEQ | R - 2 <= 1.085 <= 1.8717 and C(1.085) > B (with D06: t_i <= 1.085 => C(t_i) >= C(1.085) > B >= kappa_i) | C(1.085)-B=0.00135158976148 | True
+M07 | Lemma 1.4 / Repair M3 | VAL | sqrt(1.965663^2 + 1) = 2.2054 (tol 1e-4) | true=2.20540949249, rnd=True | True
+M08 | Lemma 1.4 | INEQ | t <= 2.2054 => t^2 <= rho*(kappa)^2 + 1 (2.2054^2 <= rho(a-B/2)^2 + 1, rho* >= rho(a-B/2)) | rho(a-B/2)^2+1-2.2054^2=4.29167402188e-5 | True
+M09 | Lemma 1.4 | INEQ | d/drho (t^2+rho^2-1)/(2 t rho) = (rho^2-t^2+1)/(2 t rho^2), > 0 for rho^2 > t^2-1 (identity + Reduce) | Reduce | True
+M10 | Lemma 1.4 / Lemma S | INEQ | A(t,rho) <= arcsin(1/rho): (t^2+rho^2-1)/(2 t rho) >= sqrt(rho^2-1)/rho for rho > 1, t > 0 (Reduce) | Reduce | True
+M11 | Lemma 1.4 | VAL | arcsin(1/1.9656) = 0.53374 (tol 1e-5) | true=0.533732812530, rnd=False | True
+M12 | Lemma 1.4 | INEQ | arcsin(1/rho*(kappa)) <= arcsin(1/1.9656) <= 0.53374 | arcsin(1/1.9656)=0.533732812530 | True
+M13 | Lemma 1.4 | INEQ | lambda >= 2a - kappa - 0.53374 >= 0.24581 - kappa | 2a-0.53374=0.245814799687 | True
+M14 | Section 2 angle bookkeeping | VAL | 10a = 3.89777 (tol 1e-5) | true=3.89777399843, rnd=True | True
+M15 | Section 2 angle bookkeeping | VAL | 2 r(1.085) = 2.34466 (tol 1e-5) | true=2.34466945955, rnd=False | True
+M16 | Section 2 angle bookkeeping | VAL | 2pi - 3.89777 = 2.38541 (tol 1e-5) | true=2.38541530718, rnd=False | True
+M17 | Section 2 angle bookkeeping | INEQ | 2pi - 10a > 2 r(1.085) (circular distance = real difference) | 2pi-10a-2r(1.085)=0.0407418491946 | True
+M18.1 | Section 2 table (doc error < 1e-5) | VAL | C(1.085) = 0.122013 (tol 1e-5) | true=0.122013737103, rnd=False | True
+M19.1 | Section 2 table (doc error < 1e-5) | VAL | r(1.085) = 1.172329 (tol 1e-5) | true=1.17233472978, rnd=False | True
+M20.1 | Section 2 table (doc error < 1e-5) | VAL | m0(1.085) = A(t,1.9656) = 0.3255 (tol 1e-4) | true=0.325920617692, rnd=False | False
+M18.2 | Section 2 table (doc error < 1e-5) | VAL | C(1.1) = 0.1158 (tol 1e-4) | true=0.115797321178, rnd=True | True
+M19.2 | Section 2 table (doc error < 1e-5) | VAL | r(1.1) = 1.141095 (tol 1e-5) | true=1.14109666064, rnd=False | True
+M20.2 | Section 2 table (doc error < 1e-5) | VAL | m0(1.1) = A(t,1.9656) = 0.3434 (tol 1e-4) | true=0.342204824837, rnd=False | False
+M18.3 | Section 2 table (doc error < 1e-5) | VAL | C(1.15) = 0.096917 (tol 1e-5) | true=0.0969170659212, rnd=True | True
+M19.3 | Section 2 table (doc error < 1e-5) | VAL | r(1.15) = 1.054319 (tol 1e-5) | true=1.05432118595, rnd=False | True
+M18.4 | Section 2 table (doc error < 1e-5) | VAL | C(1.2) = 0.080557 (tol 1e-5) | true=0.0805551526078, rnd=False | True
+M19.4 | Section 2 table (doc error < 1e-5) | VAL | r(1.2) = 0.985111 (tol 1e-5) | true=0.985110783338, rnd=True | True
+M20.4 | Section 2 table (doc error < 1e-5) | VAL | m0(1.2) = A(t,1.9656) = 0.42201 (tol 1e-5) | true=0.422001628882, rnd=False | True
+M18.5 | Section 2 table (doc error < 1e-5) | VAL | C(1.25) = 0.066373 (tol 1e-5) | true=0.0663721220506, rnd=False | True
+M19.5 | Section 2 table (doc error < 1e-5) | VAL | r(1.25) = 0.927295 (tol 1e-5) | true=0.927295218002, rnd=True | True
+M20.5 | Section 2 table (doc error < 1e-5) | VAL | m0(1.25) = A(t,1.9656) = 0.4499 (tol 1e-4) | true=0.449397824956, rnd=False | False
+M18.6 | Section 2 table (doc error < 1e-5) | VAL | C(1.3) = 0.054103 (tol 1e-5) | true=0.0540942275715, rnd=False | True
+M19.6 | Section 2 table (doc error < 1e-5) | VAL | r(1.3) = 0.876298 (tol 1e-5) | true=0.877636419218, rnd=False | False
+M20.6 | Section 2 table (doc error < 1e-5) | VAL | m0(1.3) = A(t,1.9656) = 0.4705 (tol 1e-4) | true=0.471221201539, rnd=False | False
+M18.7 | Section 2 table (doc error < 1e-5) | VAL | C(1.35) = 0.043497 (tol 1e-5) | true=0.0434971635668, rnd=True | True
+M19.7 | Section 2 table (doc error < 1e-5) | VAL | r(1.35) = 0.834172 (tol 1e-5) | true=0.834172324776, rnd=True | True
+M20.7 | Section 2 table (doc error < 1e-5) | VAL | m0(1.35) = A(t,1.9656) = 0.48865 (tol 1e-5) | true=0.488622136556, rnd=False | False
+M18.8 | Section 2 table (doc error < 1e-5) | VAL | C(1.45) = 0.026631 (tol 1e-5) | true=0.0266302737527, rnd=False | True
+M19.8 | Section 2 table (doc error < 1e-5) | VAL | r(1.45) = 0.761013 (tol 1e-5) | true=0.761012754225, rnd=True | True
+M21 | Section 2 example | INEQ | R - 1.2 = 1.4317, R + 1.2 = 3.8317 (exact) | exact | True
+M22 | Section 2 example (table error < 1e-5) | VAL | z(1.2) = 0.364462 (tol 1e-5) | true=0.364461775380, rnd=True | True
+M23 | Section 2 example (table error < 1e-5) | VAL | arctan z(1.2) = 0.349499 (tol 1e-5) | true=0.349499823540, rnd=False | True
+M24 | Section 2 example (table error < 1e-5) | VAL | 2 arctan z(1.2) = 0.698998 (tol 1e-5) | true=0.698999647079, rnd=False | True
+M25 | Section 2 example (table error < 1e-5) | VAL | C(1.2) = 0.080557 (tol 1e-5) | true=0.0805551526078, rnd=False | True
+M26 | Lemma 2.1 | VAL | 10a = 3.897774 (tol 1e-6) | true=3.89777399843, rnd=True | True
+M27 | Lemma 2.1 | VAL | 10a - B - 1.06748 = 2.70963 (tol 1e-5) | true=2.70963185109, rnd=True | True
+M28 | Lemma 2.1 / Lemma 4.1(S) | INEQ | 10a - B - 2*0.53374 > 2 r(1.085) (true r) | diff=0.364962391543 | True
+M29 | Lemma 2.2 | VAL | 8a - B = 2.997557 (tol 1e-6) | true=2.99755705141, rnd=True | True
+M30 | Lemma 2.2 | INEQ | t <= 1.35 => t^2 <= 1.9656^2 + 1 | exact | True
+M31 | Lemma 2.2 | VAL | sqrt(1.9656^2 - 1) = 1.692 (tol 1e-3) | true=1.69221256348, rnd=True | True
+M32 | Lemma 2.2 | INEQ | m0 increasing in t on [1.085, 1.35]: d/dt cos = (t^2-rho^2+1)/(2t^2 rho) < 0 for t^2 < rho^2-1, rho = 1.9656; and |t-rho| <= 1 there (Reduce) | Reduce | True
+M33 | Lemma 2.2 | INEQ | r(t) = arcsin(1/t) decreasing for t > 1 (Reduce) | Reduce | True
+M34 | Lemma 2.2 | VAL | r(1.085) + m0(1.2) = 1.59434 (tol 1e-5) | true=1.59433635866, rnd=True | True
+M35 | Lemma 2.2 | VAL | r(1.2) + m0(1.35) = 1.47376 (tol 1e-5) | true=1.47373291989, rnd=False | False
+M36 | Lemma 2.2 | VAL | r(1.35) + 0.53374 = 1.36791 (tol 1e-5) | true=1.36791232478, rnd=True | True
+M37 | Lemma 2.2 | INEQ | h <= 1.59434 on [1.085,1.2] (monotone endpoints AND subdiv 400) | endpt=1.59433635866, subdiv sup=1.49903825070 | True
+M38 | Lemma 2.2 | INEQ | h <= 1.47376 on [1.2,1.35] (monotone endpoints AND subdiv 400) | endpt=1.47373291989, subdiv sup=1.40780768556 | True
+M39 | Lemma 2.2 | INEQ | h <= r(1.35) + 0.53374 <= 1.36791 on [1.35, oo) (as written) | r(1.35)+0.53374=1.36791232478 | False
+M39c | Lemma 2.2 (corrected M39) | INEQ | h <= r(1.35) + arcsin(1/1.9656) <= 1.36791 on [1.35, oo) | r(1.35)+arcsin(1/1.9656)=1.36790513731 | True
+M40 | Lemma 2.2 | VAL | C(1.2) + C(1.35) = 0.124054 (tol 1e-6) | true=0.124052316175, rnd=False | False
+M41 | Lemma 2.2 | INEQ | C(1.2) + C(1.35) > B (and C(1.2) >= C(1.35)) | C(1.2)+C(1.35)-B=0.00339016883291 | True
+M42 | Lemma 2.2 | INEQ | max(1.59434+1.36791, 2*1.47376) = 2.96225 < 8a - B | 8a-B-2.96225=0.0353070514062 | True
+M43 | Lemma 2.2 | INEQ | all remaining case pairs with true sup bounds < 8a - B | worst=2.96224868343 | True
+M44 | Lemma 3.1 | INEQ | rho' >= R - 1 = 1.6317 (exact) | exact | True
+M45 | Lemma 3.1(a) | VAL | 2pi - 16a = 2(pi - 8a) = 0.046747 (tol 1e-6) | true=0.0467469096839, rnd=True | True
+M46 | Lemma 3.1(c) | VAL | 3a + (pi - 8a) = pi - 5a = 1.1927057 (tol 1e-7) | true=1.19270565437, rnd=True | True
+M47 | Lemma 3.1(c) | INEQ | Theta <= 3a + w' <= 4a < pi/2 | pi/2-4a=0.0116867274210 | True
+M48 | Lemma 3.1(c) | INEQ | pi - 8a >= 0.023374 (2d_t <= w' - 0.023374) | pi-8a=0.0233734548420 | False
+M48c | Lemma 3.1(c) (corrected M48) | INEQ | pi - 8a >= 0.0233734 (2d_t <= w' - 0.0233734); the bound is not used later (case split uses d_t <= B/2) | pi-8a=0.0233734548420 | True
+M49 | Lemma 3.1(c) | VAL | B/2 = 0.060331 (tol 1e-6) | true=0.0603310736708, rnd=True | True
+M50 | Lemma 3.1(c)/(d) | INEQ | d_t <= B/2 <= 0.060331 (upper end of the second case [0.03, 0.060331], as written) | B/2=0.0603310736708 | False
+M51 | Lemma 3.1(c) | INEQ | rho_t >= rho(B/2) >= 1.965663 | rho(B/2)=1.96566326637 | True
+M52 | Lemma 3.1(d) | INEQ | rho_t <= sqrt(R^2-1) <= 2.4344, and 1.1927 <= pi - 5a (cos Theta <= cos 1.1927, Theta in [0, pi/2)) | pi-5a-1.1927=5.65437240427e-6 | True
+M53 | Lemma 3.1(d) | VAL | cos(1.1927) = 0.3692 (tol 1e-4) | true=0.369151924395, rnd=True | True
+M54 | Lemma 3.1(d) | INEQ | 2.4344 cos(1.1927) < 0.90 < 1.6317 <= rho' | 2.4344cos(1.1927)=0.898663444747 | True
+M55 | Lemma 3.1(d) | INEQ | cos(1.1927) <= 0.3692, 2.4344*0.3692 < 0.9 < 1.9656 <= rho_t | cos(1.1927)=0.369151924395 | True
+M56 | Lemma 3.1(d) case 1 | VAL | rho(0.03) = 2.086994 (tol 1e-6) | true=2.08698955071, rnd=False | False
+M57 | Lemma 3.1(d) case 1 | VAL | cos(1.1927057) = 0.369147 (tol 1e-6) | true=0.369146626985, rnd=True | True
+M58 | Lemma 3.1(d) case 1 | VAL | rho(0.03)^2 = 4.355544 (tol 1e-6) | true=4.35552538479, rnd=False | False
+M59 | Lemma 3.1(d) | VAL | 1.6317^2 = 2.662445 (tol 1e-6) | true=2.66244489000, rnd=True | True
+M60 | Lemma 3.1(d) case 1 | VAL | 2*1.6317*rho(0.03) = 6.810660 (tol 1e-6) | true=6.81068169980, rnd=False | False
+M61 | Lemma 3.1(d) case 1 | VAL | G lower bound (doc formula, cos(1.1927057)) = 4.5038 (tol 1e-4) | true=4.50383009784, rnd=True | True
+M62 | Lemma 3.1(d) case 1 | INEQ | G >= rho(0.03)^2 + (R-1)^2 - 2(R-1) rho(0.03) cos(pi-5a) > 4 (rigorous Theta_lo = pi-5a) | G1=4.50382980903 | True
+M63 | Lemma 3.1(d) case 2 | VAL | cos(1.2227057) = 0.341104 (tol 1e-6) | true=0.341103570406, rnd=True | True
+M64 | Lemma 3.1(d) case 2 | VAL | 1.9656^2 = 3.863583 (tol 1e-6) | true=3.86358336000, rnd=True | True
+M65 | Lemma 3.1(d) case 2 | VAL | 2*1.6317*1.9656 = 6.414537 (tol 1e-6) | true=6.41453904000, rnd=False | False
+M66 | Lemma 3.1(d) case 2 | VAL | G lower bound (doc formula) = 4.3380 (tol 1e-4) | true=4.33800608095, rnd=True | True
+M67 | Lemma 3.1(d) case 2 | INEQ | G >= 1.9656^2 + (R-1)^2 - 2(R-1)1.9656 cos(pi-5a+0.03) > 4, valid for all d_t in [0.03, B/2] (1.9656 <= rho(B/2)) | G2=4.33800580582 | True
+M68 | Lemma 3.1(d) | INEQ | margins: G1 - 4 >= 0.50 and G2 - 4 >= 0.33 | see M62/M67 | True
+M69 | Lemma 4.2 | INEQ | 1 + (3 - R) = 4 - R = 1.3683; R + (4-R) = 4; R - (4-R) = 1.2634 (exact) | exact | True
+M70 | Lemma 4.2 | VAL | z(1.3683) = sqrt(4-1.2634^2)/4 = 0.3876065 (tol 1e-7) | true=0.387606472469, rnd=True | True
+M71 | Lemma 4.2 | VAL | z(1.3683) = 0.387607 (tol 1e-6) | true=0.387606472469, rnd=False | True
+M72 | Lemma 4.2 | VAL | 2 arctan z(1.3683) = 0.739555 (tol 1e-6) | true=0.739553715305, rnd=False | False
+M73 | Lemma 4.2 | INEQ | C(1.3683) >= 0.039999 | C(1.3683)=0.0400010843820 | True
+M74 | Lemma 4.2 | VAL | B - 2*0.039999 = 0.040664 (tol 1e-6) | true=0.0406641473416, rnd=True | True
+M75 | Lemma 4.2 | INEQ | B - 2*0.039999 <= 0.040664 (as written: C(t_i) <= 0.040664) | B-0.079998=0.0406641473416 | False
+M76 | Lemma 4.2 | VAL | arctan z(1.36) = 0.3689961 (tol 1e-7) | true=0.368996154717, rnd=False | True
+M77 | Lemma 4.2 | VAL | C(1.36) = 0.041563 (tol 1e-6) | true=0.0415624902529, rnd=False | True
+M78 | Lemma 4.2 | INEQ | C(1.36) > 0.040664 and C(1.36) > B - 2 C(1.3683) (rigorous form) | C(1.36)-(B-2C(1.3683))=0.000902511675151 | True
+M79 | Lemma 4.2 | INEQ | A(t,u) decreasing in t (0 < u <= 1 < t) and increasing in u for u^2 <= t^2-1 (signs of exact partials; Reduce) | Reduce | True
+M80 | Lemma 4.2 | INEQ | sqrt(t^2-1) > 0.42 >= 0.3683 for t >= 1.36; and A(1.36,0.3683) defined (1.36-0.3683 <= 1) | sqrt(1.36^2-1)=0.921737489744 | True
+M81 | Lemma 4.2 | VAL | 1.36^2 + 0.3683^2 - 1 = 0.98524889 (tol 1e-8) | true=0.985244890000, rnd=False | False
+M82 | Lemma 4.2 | VAL | 2*1.36*0.3683 = 1.001776 (tol 1e-6) | true=1.00177600000, rnd=True | True
+M83 | Lemma 4.2 | VAL | ratio = 0.98350 (tol 1e-5) | true=0.983498197202, rnd=True | True
+M84 | Lemma 4.2 | INEQ | A(1.36, 0.3683) < 0.183 | A(1.36,0.3683)=0.181919699292 | True
+M85 | Lemma 4.2 | VAL | 6a - B - 2*0.53374 = 1.1505 (tol 1e-4) | true=1.15052225172, rnd=True | True
+M86 | Lemma 4.2 | INEQ | 2*0.183 < 6a - B - 2*0.53374 (contradiction) | 6a-B-1.06748=1.15052225172 | True
+M87 | Section 4 (NEAR-Y) | VAL | 2 C(4 - R) = 0.0800 (tol 1e-4) | true=0.0800021687639, rnd=True | True
+M88 | Lemma 4.1(S) proof | INEQ | D >= 2.70963 - 2.34466 > 0 (true: 10a - B - 2*0.53374 - 2r(1.085) > 0) | diff=0.364962391543 | True
+M89 | Section 4 Addendum (remark, not load-bearing) | INEQ | three corners at radius <= 1.38 cost more than B: 3 C(1.38) > B | 3C(1.38)=0.113600750395 | False
+M90 | Repair M1 | INEQ | 1 + rho_0 = R - 1 (exact) | exact | True
+M91 | Repair M2 | INEQ | r(1.085) < 1.1724 (every A(t,.) <= r(t) <= r(1.085) for t > 1.085) | r(1.085)=1.17233472978 | True
+M92 | Repair M2 | INEQ | 6a < 2.3387, 2.3387 + 1.1724 = 3.5111, 2pi - 1.1724 > 3.5111, -2pi + 1.1724 < -1.1724 | 6a=2.33866439906, 2pi-1.1724=5.11078530718 | True
+M93 | Repair M2 | VAL | 2pi - 1.1724 = 5.111 (tol 1e-3) | true=5.11078530718, rnd=True | True
+M94 | Repair M2 (Y side) | INEQ | 4a < 1.5592, -1.5592 - 1.1724 >= -2.732, 2pi - 1.1724 > 1.1724, -2pi + 1.1724 < -2.732 | 4a=1.55910959937 | True
+M95 | Repair M3 | VAL | sqrt(1.085^2 - 1) = 0.420981 (tol 1e-6) | true=0.420980997196, rnd=True | True
+M96 | Repair M3 | VAL | r(1.085) = pi/2 - arctan(0.420981...) = 1.172334 (tol 1e-6) | true=1.17233472978, rnd=False | True
+M97 | Repair M3 | VAL | 2 r(1.085) = 2.34467 (tol 1e-5) | true=2.34466945955, rnd=True | True
+M98 | Repair M3 | INEQ | r(1.085) = pi/2 - arctan(sqrt(1.085^2-1)) (identity) | exact | True
+   info (not a claim): 3 C(t) = B at t = 1.367119616; 3 C(4-R) = 0.120003253146 vs B = 0.120662147342
+S01 | Section 5 soundness (isqrt) | INEQ | 4 - (R-t)^2 > 0 for 1 <= t <= R (Reduce) | Reduce | True
+S02 | Section 5 soundness (isqrt) | INEQ | 1 - R^2 sin^2 w >= 0 for 0 <= sin w <= sin a = 1/R (Reduce) | Reduce | True
+S03 | Section 5 soundness (C_lo, M_up) | INEQ | 1 > R - 2; sqrt(rho^2+1) < rho + 1 for rho > 0 (Reduce) | Reduce | True
+W01 | Part W (angle polytope) | INEQ | 2pi < 7 | 2pi=6.28318530718 | True
+W02 | Lemma W step 1 | INEQ | R-1 <= rho <= sqrt(R^2-1) => (R-rho)^2 <= 1; cos w >= sqrt(R^2-1)/R (AM-GM) (Reduce) | Reduce | True
+W03 | Corollary W1 / half-plane lemma | INEQ | box width 3/2 < pi/2 | pi/2=1.57079632679 | True
+W04 | Lemma M35 | INEQ | rho_max <= 2.45, R < 2.64, 2.45+1 = 3.45 <= 7/2, 1+1 = 2, 2+1 = 3 <= 7/2 | rho_max=2.43430583329 | True
+W05 | Lemma M35 (RHO used by C2) | INEQ | RHO = sqrt_up(R^2-1) (K = 2^64) <= 2.45 | exact | True
+W06 | Section 11.1 (sincos) | INEQ | Lagrange remainder 8^80/80! ~ 1e-47 (in [1e-47, 1e-46]); root box [0,7] and 2pi within [0,8] | 8^80/80!=2.46871659741e-47 | True
+W07 | Section 11.2 (count arithmetic) | INEQ | 3272+824 = 4096; 4900 = 4096+2*402, 3272+1226 = 4498 = 4096+402; 5384 = 4096+2*644, 3272+1468 = 4740 = 4096+644 | exact | True
+X01 | Part A header (meta) | INEQ | every load-bearing numeric inequality of Part A has margin >= 0.06 (2pi-10a-2d, 2pi-4d-6a) | 2pi-10a-2d=0.658892652345, 2pi-4d-6a=0.491483595320 | True
+X02 | Section 13 (meta) | INEQ | every hand inequality has margin >= 1e-3 (tightest claimed: C(1.085)-B = 0.00135) | C(1.085)-B (L1.3)=0.00135158976148, C(1.2)+C(1.35)-B (L2.2)=0.00339016883291, 8a-B-2.96225 (L2.2)=0.0353070514062, 10a-B-1.06748-2r(1.085) (L2.1)=0.364962391543, C(1.36)-(B-2C(1.3683)) (L4.2)=0.000902511675151, C(1.36)-0.040664 (L4.2 as written)=0.000898490252874, 6a-B-1.06748-0.366 (L4.2)=0.784522251719, G2-4 (L3.1)=0.338005805823, 2pi-10a-2r(1.085) (M2)=0.0407418491946, rho_lo sin(2a-B)-1 (E3.2)=0.203422246601 | False
+A03v | Lemma A4(1) (corrected) | VAL | 12a - 2pi + 2d = B = 0.1206621 (tol 1e-7) | true=0.120662147342, rnd=True | True
+A15v | Lemma A4(2) (corrected) | VAL | 2R cos(pi-6a) = 3.655974 (tol 1e-6) | true=3.65597408345, rnd=True | True
+A16v | Lemma A4(2) (corrected) | VAL | sqrt((2R cos)^2 - 4(R^2-4)) = 1.289483 (tol 1e-6) | true=1.28948320613, rnd=True | True
+A18v | Lemma A4(3) / N3 (corrected, twice) | VAL | 4d = 3.453037 (tol 1e-6) | true=3.45303731280, rnd=True | True
+A20v | Lemma A4(3) / N3 (corrected, twice) | VAL | 4d + 6a = 5.791702 (tol 1e-6) | true=5.79170171186, rnd=True | True
+E09v | Lemma E3.1 (corrected) | VAL | cos w = 0.9462216 (tol 1e-7) | true=0.946221612656, rnd=True | True
+E10v | Lemma E3.1 (corrected) | VAL | R cos w = 2.4901714 (tol 1e-7) | true=2.49017141803, rnd=True | True
+E11v | Lemma E3.1 (corrected) | VAL | 1 - R^2 sin^2 w = 0.2751088 (tol 1e-7) | true=0.275108801159, rnd=True | True
+E15v | Lemma E3.1 (corrected) | INEQ | 2a - B >= 0.6588926 (printed truncated, '0.6588926...') | 2a-B=0.658892652345 | True
+M19v.1 | Section 2 table (corrected) | VAL | r(1.085) = 1.172335 (tol 1e-6) | true=1.17233472978, rnd=True | True
+M20v.1 | Section 2 table (corrected) | VAL | m0(1.085) = A(t,1.9656) = 0.32592 (tol 1e-5) | true=0.325920617692, rnd=True | True
+M19v.2 | Section 2 table (corrected) | VAL | r(1.1) = 1.141097 (tol 1e-6) | true=1.14109666064, rnd=True | True
+M20v.2 | Section 2 table (corrected) | VAL | m0(1.1) = A(t,1.9656) = 0.34220 (tol 1e-5) | true=0.342204824837, rnd=True | True
+M19v.3 | Section 2 table (corrected) | VAL | r(1.15) = 1.054321 (tol 1e-6) | true=1.05432118595, rnd=True | True
+M19v.4 | Section 2 table (corrected) | VAL | r(1.2) = 0.985111 (tol 1e-6) | true=0.985110783338, rnd=True | True
+M20v.4 | Section 2 table (corrected) | VAL | m0(1.2) = A(t,1.9656) = 0.42201 (tol 1e-5) | true=0.422001628882, rnd=False | True
+M19v.5 | Section 2 table (corrected) | VAL | r(1.25) = 0.927295 (tol 1e-6) | true=0.927295218002, rnd=True | True
+M20v.5 | Section 2 table (corrected) | VAL | m0(1.25) = A(t,1.9656) = 0.44940 (tol 1e-5) | true=0.449397824956, rnd=True | True
+M19v.6 | Section 2 table (corrected) | VAL | r(1.3) = 0.877636 (tol 1e-6) | true=0.877636419218, rnd=True | True
+M20v.6 | Section 2 table (corrected) | VAL | m0(1.3) = A(t,1.9656) = 0.47122 (tol 1e-5) | true=0.471221201539, rnd=True | True
+M19v.7 | Section 2 table (corrected) | VAL | r(1.35) = 0.834172 (tol 1e-6) | true=0.834172324776, rnd=True | True
+M20v.7 | Section 2 table (corrected) | VAL | m0(1.35) = A(t,1.9656) = 0.48863 (tol 1e-5) | true=0.488622136556, rnd=False | True
+M19v.8 | Section 2 table (corrected) | VAL | r(1.45) = 0.761013 (tol 1e-6) | true=0.761012754225, rnd=True | True
+M20v.7u | Section 2 table (corrected) | INEQ | m0(1.35) <= 0.48863 (upper bound) | m0(1.35)=0.488622136556 | True
+M35v | Lemma 2.2 (corrected) | INEQ | r(1.2) + m0(1.35) <= 1.47374 | r(1.2)+m0(1.35)=1.47373291989 | True
+M39v | Lemma 2.2 (corrected) | INEQ | r(1.35) + 0.53374 <= 1.367913 | r(1.35)+0.53374=1.36791232478 | True
+M40v | Lemma 2.2 (corrected) | VAL | C(1.2) + C(1.35) = 0.124052 (tol 1e-6) | true=0.124052316175, rnd=True | True
+M42v | Lemma 2.2 (corrected) | INEQ | max(1.59434 + 1.367913, 2*1.47374) = 2.962253 < 8a - B = 2.997557 | 8a-B-2.962253=0.0353040514062 | True
+M50v | Lemma 3.1(c) (corrected) | VAL | B/2 = 0.0603311 (tol 1e-7) | true=0.0603310736708, rnd=True | True
+M56v | Lemma 3.1(d) case 1 (corrected) | VAL | rho(0.03) = 2.0869896 (tol 1e-7) | true=2.08698955071, rnd=True | True
+M57v | Lemma 3.1(d) case 1 (corrected) | INEQ | cos(pi - 5a) <= 0.369147 | cos(pi-5a)=0.369146669390 | True
+M58v | Lemma 3.1(d) case 1 (corrected) | INEQ | rho(0.03)^2 >= 4.355525 (lower bound used in G) | rho(0.03)^2=4.35552538479 | True
+M60v | Lemma 3.1(d) case 1 (corrected) | INEQ | 2*1.6317*rho(0.03) <= 6.810682 (upper bound used in G) | 2*1.6317*rho(0.03)=6.81068169980 | True
+M61v | Lemma 3.1(d) case 1 (corrected) | VAL | 4.355525 + 2.662445 - 6.810682*0.369147 = 4.5038 (tol 1e-4) | true=4.50382717175, rnd=True | True
+M63v | Lemma 3.1(d) case 2 (corrected) | INEQ | cos(pi - 5a + 0.03) <= 0.341104 | cos(pi-5a+0.03)=0.341103613297 | True
+M65v | Lemma 3.1(d) case 2 (corrected) | VAL | 2*1.6317*1.9656 = 6.414539 (tol 1e-6) | true=6.41453904000, rnd=True | True
+M66v | Lemma 3.1(d) case 2 (corrected) | VAL | 3.863583 + 2.662445 - 6.414539*0.341104 = 4.3380 (tol 1e-4) | true=4.33800308894, rnd=True | True
+M72v | Lemma 4.2 (corrected) | VAL | 2 arctan z(1.3683) = 0.7395537 (tol 1e-7) | true=0.739553715305, rnd=True | True
+M72v.C | Lemma 4.2 (corrected) | VAL | C(1.3683) = 0.0400011 (tol 1e-7) | true=0.0400010843820, rnd=True | True
+M75v | Lemma 4.2 (corrected) | INEQ | B - 2C(1.3683) <= B - 2*0.039999 <= 0.0406642 | B-0.079998=0.0406641473416 | True
+M76v | Lemma 4.2 (corrected) | VAL | arctan z(1.36) = 0.3689962 (tol 1e-7) | true=0.368996154717, rnd=True | True
+M77v | Lemma 4.2 (corrected) | VAL | C(1.36) = 0.0415625 (tol 1e-7) | true=0.0415624902529, rnd=True | True
+M77v.g | Lemma 4.2 (corrected) | INEQ | C(1.36) > 0.0406642, margin >= 8.9e-4 | C(1.36)-0.0406642=0.000898290252874 | True
+M81v | Lemma 4.2 (corrected) | VAL | 1.36^2 + 0.3683^2 - 1 = 0.98524489 (tol 1e-8) | true=0.985244890000, rnd=True | True
+M89v | Section 4 Addendum (corrected remark) | VAL | C(4 - R) = 0.0400 (tol 1e-4) | true=0.0400010843820, rnd=True | True
+X02v | Section 13 (meta, corrected) | INEQ | every hand inequality has margin >= 8e-4 (tightest: L4.2 0.00089, L1.3 0.00135) | C(1.085)-B (L1.3)=0.00135158976148, C(1.2)+C(1.35)-B (L2.2)=0.00339016883291, 8a-B-2.962253 (L2.2)=0.0353040514062, 10a-B-1.06748-2r(1.085) (L2.1)=0.364962391543, C(1.36)-(B-2C(1.3683)) (L4.2)=0.000902511675151, C(1.36)-0.0406642 (L4.2)=0.000898290252874, 6a-B-1.06748-0.366 (L4.2)=0.784522251719, G2-4 (L3.1)=0.338005805823, 2pi-10a-2r(1.085) (M2)=0.0407418491946, rho_lo sin(2a-B)-1 (E3.2)=0.203422246601 | True
+
+22a consequence checks (A04,A17,A21,E13,E14,E19,M37,M38,M39c,M41,M42,M43,M48c,M62,M67,M73,M78,M83,M84): ALL TRUE
+22a: 269 claims checked (103 INEQ, 166 VAL); 240 True, 29 False.
+22a FALSE CLAIMS OF THE ORIGINAL TEXT (id | location | kind | claim  ==> consequence):
+  A03 | Lemma A4(1) | INEQ | 12a - 2pi + 2d <= 0.12066 at r_1 (as written)
+      ==> typo (B = 0.1206621 > 0.12066); the only use, Sum d <= B/2 <= 0.0604, holds: A04
+  A15 | Lemma A4(2) (not load-bearing) | VAL | 2R cos(pi-6a) = 3.655976 (tol 1e-6)
+      ==> not load-bearing; the stated range 1.1832 <= |q| <= 2.4728 holds with the true roots: A17
+  A16 | Lemma A4(2) (not load-bearing) | VAL | sqrt((2R cos)^2 - 4(R^2-4)) = 1.289488 (tol 1e-6)
+      ==> not load-bearing; see A17
+  A18 | Lemma A4(3) / N3 | VAL | 4d = 3.453036 (tol 1e-6)
+      ==> printed 4d slightly off (true 3.4530373); 4d+6a < 2pi with margin 0.4915 holds: A21
+  A20 | Lemma A4(3) / N3 | VAL | 4d + 6a = 5.791700 (tol 1e-6)
+      ==> printed sum off (true 5.7917017); conclusion holds: A21
+  E09 | Lemma E3.1 | VAL | cos w = 0.9462215 (tol 1e-7)
+      ==> last-digit slip; final rho(a-B/2) = 1.965663 is correct (E13) and rho_lo = 1.9656 valid (E14)
+  E10 | Lemma E3.1 | VAL | R cos w = 2.4901711 (tol 1e-7)
+      ==> last-digit slip (true 2.4901714); final rho value correct: E13, E14
+  E11 | Lemma E3.1 | VAL | 1 - R^2 sin^2 w = 0.2751086 (tol 1e-7)
+      ==> last-digit slip (true 0.2751088); final rho value correct: E13, E14
+  E15 | Lemma E3.1 | VAL | 2a - B = 0.6588928 (tol 1e-7)
+      ==> last-digit slip (true 0.65889265); E3.2 inequality holds with true value: E19
+  M20.1 | Section 2 table (doc error < 1e-5) | VAL | m0(1.085) = A(t,1.9656) = 0.3255 (tol 1e-4)
+      ==> table entry unused (true 0.32592); only m0(1.2), m0(1.35) are used: M37, M38, M43
+  M20.2 | Section 2 table (doc error < 1e-5) | VAL | m0(1.1) = A(t,1.9656) = 0.3434 (tol 1e-4)
+      ==> table entry unused (true 0.34220); see M37, M38, M43
+  M20.5 | Section 2 table (doc error < 1e-5) | VAL | m0(1.25) = A(t,1.9656) = 0.4499 (tol 1e-4)
+      ==> table entry unused (true 0.44940); see M37, M38, M43
+  M19.6 | Section 2 table (doc error < 1e-5) | VAL | r(1.3) = 0.876298 (tol 1e-5)
+      ==> table entry unused (true 0.877636); no lemma uses r(1.3)
+  M20.6 | Section 2 table (doc error < 1e-5) | VAL | m0(1.3) = A(t,1.9656) = 0.4705 (tol 1e-4)
+      ==> table entry unused (true 0.47122); see M37, M38, M43
+  M20.7 | Section 2 table (doc error < 1e-5) | VAL | m0(1.35) = A(t,1.9656) = 0.48865 (tol 1e-5)
+      ==> m0(1.35) printed 0.48865 >= true 0.488622 (safe upper bound); M38 and M43 hold
+  M35 | Lemma 2.2 | VAL | r(1.2) + m0(1.35) = 1.47376 (tol 1e-5)
+      ==> printed 1.47376 >= true 1.473733 (safe upper bound): M38, M42, M43
+  M39 | Lemma 2.2 | INEQ | h <= r(1.35) + 0.53374 <= 1.36791 on [1.35, oo) (as written)
+      ==> r(1.35)+0.53374 = 1.3679123 > 1.36791 by 2.3e-6; with the sharper valid bound arcsin(1/1.9656) it holds (M39c), and Lemma 2.2 holds with true bounds (M43)
+  M40 | Lemma 2.2 | VAL | C(1.2) + C(1.35) = 0.124054 (tol 1e-6)
+      ==> printed sum off by 1.7e-6 (true 0.1240523); C(1.2)+C(1.35) > B holds: M41
+  M48 | Lemma 3.1(c) | INEQ | pi - 8a >= 0.023374 (2d_t <= w' - 0.023374)
+      ==> pi-8a = 0.02337345 < 0.023374 by 5.5e-7; corrected M48c holds; this bound is not used afterwards
+  M50 | Lemma 3.1(c)/(d) | INEQ | d_t <= B/2 <= 0.060331 (upper end of the second case [0.03, 0.060331], as written)
+      ==> B/2 = 0.06033107 > 0.060331, so the case split [0,0.03] u [0.03,0.060331] misses (0.060331, B/2]; case 2 holds on the whole [0.03, B/2]: M67
+  M56 | Lemma 3.1(d) case 1 | VAL | rho(0.03) = 2.086994 (tol 1e-6)
+      ==> rho(0.03) printed 2.086994 > true 2.0869896 (not a lower bound); case 1 holds with the true value: M62 (G1 = 4.5038)
+  M58 | Lemma 3.1(d) case 1 | VAL | rho(0.03)^2 = 4.355544 (tol 1e-6)
+      ==> follows M56; see M62
+  M60 | Lemma 3.1(d) case 1 | VAL | 2*1.6317*rho(0.03) = 6.810660 (tol 1e-6)
+      ==> follows M56; see M62
+  M65 | Lemma 3.1(d) case 2 | VAL | 2*1.6317*1.9656 = 6.414537 (tol 1e-6)
+      ==> arithmetic slip (true 6.41453904); case 2 holds: M67 (G2 = 4.3380)
+  M72 | Lemma 4.2 | VAL | 2 arctan z(1.3683) = 0.739555 (tol 1e-6)
+      ==> printed 0.739555 vs true 0.7395537; C(1.3683) >= 0.039999 holds: M73
+  M75 | Lemma 4.2 | INEQ | B - 2*0.039999 <= 0.040664 (as written: C(t_i) <= 0.040664)
+      ==> B - 0.079998 = 0.04066415 > 0.040664; the step holds in rigorous form C(1.36) > B - 2C(1.3683): M78 (margin 9.0e-4)
+  M81 | Lemma 4.2 | VAL | 1.36^2 + 0.3683^2 - 1 = 0.98524889 (tol 1e-8)
+      ==> typo 0.98524889 for 0.98524489; ratio and A(1.36,0.3683) < 0.183 hold: M83, M84
+  M89 | Section 4 Addendum (remark, not load-bearing) | INEQ | three corners at radius <= 1.38 cost more than B: 3 C(1.38) > B
+      ==> explanatory remark, not load-bearing: 3C(t) = B only at t = 1.3671 < 1.38 (even 3C(4-R) = 0.12000 < B); (Q2) itself is proved and used only inside C1
+  X02 | Section 13 (meta) | INEQ | every hand inequality has margin >= 1e-3 (tightest claimed: C(1.085)-B = 0.00135)
+      ==> Lemma 4.2's step C(1.36) > B - 2C(1.3683) has margin 9.0e-4 < 1e-3 (still ~1e40 times the enclosure width)
+22a corrected-text claims (section V): 46, False: {};  undocumented false claims: {}
+22a ALL HAND CONSTANTS VERIFIED (corrected text; every original slip documented)
+
+real	0m7.112s
+user	0m0.047s
+sys	0m0.074s

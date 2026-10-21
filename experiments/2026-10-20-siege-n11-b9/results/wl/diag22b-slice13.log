@@ -1,0 +1,9 @@
+Failed to open configuaration file at path: /home/skim/.config/Wolfram/WolframScript/WolframScript.conf
+Failed to open configuaration file at path: /home/skim/.config/Wolfram/WolframScript/WolframScript.conf
+Failed to open configuaration file at path: /home/skim/.config/Wolfram/WolframScript/WolframScript.conf
+Failed to open configuaration file at path: /home/skim/.config/Wolfram/WolframScript/WolframScript.conf
+slice 13 K_X in {0.0326793315716940039`6., 0.035193126307978158`6.}
+  U_Y = 3.9207942515466678707`8.  (19 s);  T = 2pi - U_Y = 2.362391055632918606`8.
+  FAR refute X obj < T: {True, 266083} (133 s)
+  NEAR: Y near empty: {False, 22547, wMin} (11 s)
+  NEAR: X far empty: {True, 3163343} (1655 s)

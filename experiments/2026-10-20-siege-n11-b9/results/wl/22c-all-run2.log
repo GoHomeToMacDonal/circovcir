@@ -1,0 +1,19 @@
+Failed to open configuaration file at path: /home/skim/.config/Wolfram/WolframScript/WolframScript.conf
+Failed to open configuaration file at path: /home/skim/.config/Wolfram/WolframScript/WolframScript.conf
+Failed to open configuaration file at path: /home/skim/.config/Wolfram/WolframScript/WolframScript.conf
+Failed to open configuaration file at path: /home/skim/.config/Wolfram/WolframScript/WolframScript.conf
+S1 constants/sqrtUp/Cos-Sin enclosures: True;  S2 constraint lists (m=1..8): True
+T1 R=2.6316 reference boxes (must be open): {open, open};  T2 R=2.6317 half 1e-3 tree {boxes,empty,cert,fails}: {1, 0, 1} 0
+m=1: roots 512, boxes 512, empty 127, certified 385, failures 0, 13 s
+m=2: roots 512, boxes 512, empty 127, certified 385, failures 0, 13 s
+m=3: roots 512, boxes 512, empty 127, certified 385, failures 0, 12 s
+m=4: roots 512, boxes 1468, empty 127, certified 863, failures 0, 84 s
+m=5: roots 512, boxes 1046, empty 127, certified 652, failures 0, 31 s
+m=6: roots 512, boxes 512, empty 127, certified 385, failures 0, 13 s
+m=7: roots 512, boxes 512, empty 127, certified 385, failures 0, 13 s
+m=8: roots 512, boxes 512, empty 127, certified 385, failures 0, 12 s
+22c ALL m CERTIFIED
+
+real	3m24.262s
+user	0m0.381s
+sys	0m0.557s

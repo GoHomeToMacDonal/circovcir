@@ -1,0 +1,10 @@
+Failed to open configuaration file at path: /home/skim/.config/Wolfram/WolframScript/WolframScript.conf
+Failed to open configuaration file at path: /home/skim/.config/Wolfram/WolframScript/WolframScript.conf
+Failed to open configuaration file at path: /home/skim/.config/Wolfram/WolframScript/WolframScript.conf
+Failed to open configuaration file at path: /home/skim/.config/Wolfram/WolframScript/WolframScript.conf
+22b: R = 26317/10000, a in InputForm[Interval[{0.38977739984347779324743076705939826776`20., 0.38977739984347779326098329421546707318`20.}]], B in InputForm[Interval[{0.12066214734163939902171958110591918819`20., 0.12066214734163939902510771289493638955`20.}]], 3-R >= InputForm[3683/10000]
+T1 enclosures (2000 random boxes x 8 functions, 500 ArcTan args in [1,3], constants): True
+T2 B, C(1.085), rho(B/2) = {0.1206621473416394, 0.1220137371031232, 1.9656632663658897}: True
+T3 negative controls (both must be False): objX<1.2 refuted? False;  far X empty at K=B? False
+slices: 48, cover [0, B.hi] contiguously: True
+The product exited because of a license error.
