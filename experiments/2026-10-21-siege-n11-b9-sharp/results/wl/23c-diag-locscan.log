@@ -1,0 +1,11 @@
+Failed to open configuaration file at path: /home/skim/.config/Wolfram/WolframScript/WolframScript.conf
+Failed to open configuaration file at path: /home/skim/.config/Wolfram/WolframScript/WolframScript.conf
+Failed to open configuaration file at path: /home/skim/.config/Wolfram/WolframScript/WolframScript.conf
+Failed to open configuaration file at path: /home/skim/.config/Wolfram/WolframScript/WolframScript.conf
+S1 J-constants / sqrtUp / Cos-Sin-ArcSin enclosures: True;  S2 Theorem C constraint lists m=1..8 + 19 anchors: True
+J = [2.63169077261980820552`25., 2.631692`10.],  A = 0.77955768039033215908147977684027431382`20.,  RHO = 2.43429718458203044441044725001467574632`15.,  TPH-TPL = 2.5243548967072377773175314089`3.*^-29
+D m=5: {Q orthogonal exactly -> True, lambda bijection onto 1..11, E,F inner -> True, F5 disk 3 = D_8 (m=5) / D_3 (m=4) -> True, D_1..D_9 counter-clockwise in F5 -> True, phibar in Phi_A (exact) -> True, U widths <= 3/2, U in root -> True, frame deviation (40 digits) -> 1.22314779857403570421065892`3.*^-12, |phibar - refPhi interval| (F5 witness interval) -> 4.3909813793669939499095621`3.*^-13, tau vs tan(theta0/2) -> -2.257777466727199381586`3.*^-17, |Q^T cbar_E| -> 0.39324960179250027086`20.}
+D m=4: {Q orthogonal exactly -> True, lambda bijection onto 1..11, E,F inner -> True, F5 disk 3 = D_8 (m=5) / D_3 (m=4) -> True, D_1..D_9 counter-clockwise in F5 -> True, phibar in Phi_A (exact) -> True, U widths <= 3/2, U in root -> True, frame deviation (40 digits) -> 1.22339613499409158999042191`3.*^-12, |phibar - refPhi interval| (F5 witness interval) -> 7.415650759494120807582879`3.*^-13, tau vs tan(theta0/2) -> 5.964849036497079749547`3.*^-17, |Q^T cbar_E| -> 0.71839227931685877597`20.}
+D0 Rlo < I_*, Rhi > I_*+1e-6, phibar' = App.E 0.2 decimals: True;  data checks all: True
+m=5: delta*(1/1024) = 0.0024541018222735929`5.  (L = 2.5130002660081591529`4.), worst triple {witness index, iota, e} = {10, 1, -1};  min over triples 0.0006246752480349357`4.
+m=4: delta*(1/1024) = 0.0024902344348098762`5.  (L = 2.5500000612453132024`4.), worst triple {witness index, iota, e} = {5, 1, -1};  min over triples 0.0006342289967167181`4.

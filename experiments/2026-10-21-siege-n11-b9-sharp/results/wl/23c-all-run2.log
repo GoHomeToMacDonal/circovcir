@@ -1,0 +1,47 @@
+Failed to open configuaration file at path: /home/skim/.config/Wolfram/WolframScript/WolframScript.conf
+Failed to open configuaration file at path: /home/skim/.config/Wolfram/WolframScript/WolframScript.conf
+Failed to open configuaration file at path: /home/skim/.config/Wolfram/WolframScript/WolframScript.conf
+Failed to open configuaration file at path: /home/skim/.config/Wolfram/WolframScript/WolframScript.conf
+S1 J-constants / sqrtUp / Cos-Sin-ArcSin enclosures: True;  S2 Theorem C constraint lists m=1..8 + 19 anchors: True
+J = [2.63169077261980820552`25., 2.631692`10.],  A = 0.77955768039033215908147977684027431382`20.,  RHO = 2.43429718458203044441044725001467574632`15.,  TPH-TPL = 2.5243548967072377773175314089`3.*^-29
+D m=5: {Q orthogonal exactly -> True, lambda bijection onto 1..11, E,F inner -> True, F5 disk 3 = D_8 (m=5) / D_3 (m=4) -> True, D_1..D_9 counter-clockwise in F5 -> True, phibar in Phi_A (exact) -> True, U widths <= 3/2, U in root -> True, frame deviation (40 digits) -> 1.22314779857403570421065892`3.*^-12, |phibar - refPhi interval| (F5 witness interval) -> 4.3909813793669939499095621`3.*^-13, tau vs tan(theta0/2) -> -2.257777466727199381586`3.*^-17, |Q^T cbar_E| -> 0.39324960179250027086`20.}
+D m=4: {Q orthogonal exactly -> True, lambda bijection onto 1..11, E,F inner -> True, F5 disk 3 = D_8 (m=5) / D_3 (m=4) -> True, D_1..D_9 counter-clockwise in F5 -> True, phibar in Phi_A (exact) -> True, U widths <= 3/2, U in root -> True, frame deviation (40 digits) -> 1.22339613499409158999042191`3.*^-12, |phibar - refPhi interval| (F5 witness interval) -> 7.415650759494120807582879`3.*^-13, tau vs tan(theta0/2) -> 5.964849036497079749547`3.*^-17, |Q^T cbar_E| -> 0.71839227931685877597`20.}
+D0 Rlo < I_*, Rhi > I_*+1e-6, phibar' = App.E 0.2 decimals: True;  data checks all: True
+LOC m=5 eta=1/1024 delta1=3/1000: certified 44/44  (4 s)
+LOC m=4 eta=1/1024 delta1=3/1000: certified 44/44  (3 s)
+N1 phibar/phibar' cube half 1e-6,1e-5 certified? (must be all False): {{False, False}, {False, False}};  N2 F5 witness box half 1e-6 certified? False;  N3 LOC delta=1e-6 certified count (must be 0): m=5 0/44, m=4 0/44
+controls OK: True
+  round 1: tasks 512, boxes so far 512, requeued 0, fails 0, 6 s
+GLOB m=1: roots 512, boxes tested 512, leaves 512 (empty 0, cert 512, local 0), splits 0, fails 0, tiling {paths consistent & prefix-free, exact volume = 7^8, interior nodes} {True, True, 511}, 6 s
+  round 1: tasks 512, boxes so far 512, requeued 0, fails 0, 6 s
+GLOB m=2: roots 512, boxes tested 512, leaves 512 (empty 0, cert 512, local 0), splits 0, fails 0, tiling {paths consistent & prefix-free, exact volume = 7^8, interior nodes} {True, True, 511}, 6 s
+  round 1: tasks 512, boxes so far 512, requeued 0, fails 0, 6 s
+GLOB m=3: roots 512, boxes tested 512, leaves 512 (empty 0, cert 512, local 0), splits 0, fails 0, tiling {paths consistent & prefix-free, exact volume = 7^8, interior nodes} {True, True, 511}, 6 s
+  round 1: tasks 512, boxes so far 512, requeued 0, fails 0, 6 s
+GLOB m=6: roots 512, boxes tested 512, leaves 512 (empty 0, cert 512, local 0), splits 0, fails 0, tiling {paths consistent & prefix-free, exact volume = 7^8, interior nodes} {True, True, 511}, 6 s
+  round 1: tasks 512, boxes so far 512, requeued 0, fails 0, 6 s
+GLOB m=7: roots 512, boxes tested 512, leaves 512 (empty 0, cert 512, local 0), splits 0, fails 0, tiling {paths consistent & prefix-free, exact volume = 7^8, interior nodes} {True, True, 511}, 6 s
+  round 1: tasks 512, boxes so far 512, requeued 0, fails 0, 6 s
+GLOB m=8: roots 512, boxes tested 512, leaves 512 (empty 0, cert 512, local 0), splits 0, fails 0, tiling {paths consistent & prefix-free, exact volume = 7^8, interior nodes} {True, True, 511}, 6 s
+  round 1: tasks 512, boxes so far 1129, requeued 27, fails 0, 33 s
+  round 2: tasks 27, boxes so far 1711, requeued 15, fails 0, 64 s
+  round 3: tasks 15, boxes so far 4248, requeued 62, fails 0, 98 s
+  round 4: tasks 62, boxes so far 9653, requeued 45, fails 0, 167 s
+  round 5: tasks 45, boxes so far 12846, requeued 38, fails 0, 207 s
+  round 6: tasks 38, boxes so far 14734, requeued 0, fails 0, 232 s
+GLOB m=5: roots 512, boxes tested 14734, leaves 7623 (empty 0, cert 7450, local 173), splits 7111, fails 0, tiling {paths consistent & prefix-free, exact volume = 7^8, interior nodes} {True, True, 7622}, 235 s
+  local leaves: 173, all inside U exactly: True
+  round 1: tasks 512, boxes so far 1083, requeued 23, fails 0, 34 s
+  round 2: tasks 23, boxes so far 2303, requeued 17, fails 0, 67 s
+  round 3: tasks 17, boxes so far 4900, requeued 56, fails 0, 102 s
+  round 4: tasks 56, boxes so far 8602, requeued 52, fails 0, 153 s
+  round 5: tasks 52, boxes so far 12859, requeued 71, fails 0, 216 s
+  round 6: tasks 71, boxes so far 16421, requeued 21, fails 0, 272 s
+  round 7: tasks 21, boxes so far 17241, requeued 11, fails 0, 300 s
+  round 8: tasks 11, boxes so far 18207, requeued 7, fails 0, 327 s
+  round 9: tasks 7, boxes so far 18422, requeued 0, fails 0, 337 s
+GLOB m=4: roots 512, boxes tested 18422, leaves 9467 (empty 0, cert 9236, local 231), splits 8955, fails 0, tiling {paths consistent & prefix-free, exact volume = 7^8, interior nodes} {True, True, 9466}, 340 s
+  local leaves: 231, all inside U exactly: True
+total time 635 s
+23c GLOB+LOC VERIFIED
+EXIT=0

@@ -1,0 +1,19 @@
+Failed to open configuaration file at path: /home/skim/.config/Wolfram/WolframScript/WolframScript.conf
+Failed to open configuaration file at path: /home/skim/.config/Wolfram/WolframScript/WolframScript.conf
+Failed to open configuaration file at path: /home/skim/.config/Wolfram/WolframScript/WolframScript.conf
+Failed to open configuaration file at path: /home/skim/.config/Wolfram/WolframScript/WolframScript.conf
+S1 J-constants / sqrtUp / Cos-Sin-ArcSin enclosures: True;  S2 Theorem C constraint lists m=1..8 + 19 anchors: True
+J = [2.63169077261980820552`25., 2.631692`10.],  A = 0.77955768039033215908147977684027431382`20.,  RHO = 2.43429718458203044441044725001467574632`15.,  TPH-TPL = 2.5243548967072377773175314089`3.*^-29
+D m=5: {Q orthogonal exactly -> True, lambda bijection onto 1..11, E,F inner -> True, F5 disk 3 = D_8 (m=5) / D_3 (m=4) -> True, D_1..D_9 counter-clockwise in F5 -> True, phibar in Phi_A (exact) -> True, U widths <= 3/2, U in root -> True, frame deviation (40 digits) -> 1.22314779857403570421065892`3.*^-12, |phibar - refPhi interval| (F5 witness interval) -> 4.3909813793669939499095621`3.*^-13, tau vs tan(theta0/2) -> -2.257777466727199381586`3.*^-17, |Q^T cbar_E| -> 0.39324960179250027086`20.}
+D m=4: {Q orthogonal exactly -> True, lambda bijection onto 1..11, E,F inner -> True, F5 disk 3 = D_8 (m=5) / D_3 (m=4) -> True, D_1..D_9 counter-clockwise in F5 -> True, phibar in Phi_A (exact) -> True, U widths <= 3/2, U in root -> True, frame deviation (40 digits) -> 1.22339613499409158999042191`3.*^-12, |phibar - refPhi interval| (F5 witness interval) -> 7.415650759494120807582879`3.*^-13, tau vs tan(theta0/2) -> 5.964849036497079749547`3.*^-17, |Q^T cbar_E| -> 0.71839227931685877597`20.}
+D0 Rlo < I_*, Rhi > I_*+1e-6, phibar' = App.E 0.2 decimals: True;  data checks all: True
+  round 1: tasks 4, boxes so far 611, requeued 27, fails 0, 33 s
+  round 2: tasks 27, boxes so far 1193, requeued 15, fails 0, 66 s
+  round 3: tasks 15, boxes so far 3730, requeued 62, fails 0, 101 s
+  round 4: tasks 62, boxes so far 9135, requeued 45, fails 0, 170 s
+  round 5: tasks 45, boxes so far 12328, requeued 38, fails 0, 210 s
+  round 6: tasks 38, boxes so far 14216, requeued 0, fails 0, 235 s
+GLOB m=5: roots 4, boxes tested 14216, leaves 7110 (empty 0, cert 6937, local 173), splits 7106, fails 0, tiling {paths consistent & prefix-free, exact volume = 7^8, interior nodes} {n/a (pilot)}, 235 s
+  local leaves: 173, all inside U exactly: True
+total time 243 s
+23c partial run OK (not the full certificate)

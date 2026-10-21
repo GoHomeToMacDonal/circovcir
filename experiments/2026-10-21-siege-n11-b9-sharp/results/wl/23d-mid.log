@@ -1,0 +1,126 @@
+Failed to open configuaration file at path: /home/skim/.config/Wolfram/WolframScript/WolframScript.conf
+Failed to open configuaration file at path: /home/skim/.config/Wolfram/WolframScript/WolframScript.conf
+Failed to open configuaration file at path: /home/skim/.config/Wolfram/WolframScript/WolframScript.conf
+Failed to open configuaration file at path: /home/skim/.config/Wolfram/WolframScript/WolframScript.conf
+==== 23d: independent WL check of Appendix D (Theorem A', Lemma Q, Theorem MID) ====
+      info (evidence, not proof): max |F5 decimal - 60-digit KKT json| = 4.272161e-21 (F5 says <= 1e-20)
+==== Part A: A0 and the reference checks of Theorem A' ====
+[PASS] A0  R_* - Rbar >= IstarLo - Rbar >= 1.5011595e-21 > 1e-22 (R >= R_* => R > Rbar)   IstarLo-Rbar = 1.501160e-21
+      note: IstarLo - Rbar = 1.50115959...e-21 < 1.50116e-21 (the rounded value quoted in the brief/log is rounded UP; only > 0 is used)
+[PASS] A1a |c1| <= 0.40
+[PASS] A1b |c2| <= 0.72
+[PASS] A1c 1.84 <= |c_k| <= 2.35, k=3..11   min/max |c_k| = 1.844473/2.348841
+[PASS] A2  pair {8, 4}: cross >= 0.57|a||b|, dot >= 0.18|a||b|   step angle = 0.6638339
+[PASS] A2  pair {4, 3}: cross >= 0.57|a||b|, dot >= 0.18|a||b|   step angle = 0.7712334
+[PASS] A2  pair {3, 5}: cross >= 0.57|a||b|, dot >= 0.18|a||b|   step angle = 0.7712334
+[PASS] A2  pair {5, 9}: cross >= 0.57|a||b|, dot >= 0.18|a||b|   step angle = 0.6638339
+[PASS] A2  pair {9, 7}: cross >= 0.57|a||b|, dot >= 0.18|a||b|   step angle = 0.6216650
+[PASS] A2  pair {7, 11}: cross >= 0.57|a||b|, dot >= 0.18|a||b|   step angle = 0.7128517
+[PASS] A2  pair {11, 10}: cross >= 0.57|a||b|, dot >= 0.18|a||b|   step angle = 0.7440172
+[PASS] A2  pair {10, 6}: cross >= 0.57|a||b|, dot >= 0.18|a||b|   step angle = 0.7128517
+[PASS] A2  pair {6, 8}: cross >= 0.57|a||b|, dot >= 0.18|a||b|   step angle = 0.6216650
+[PASS] A3  pair {8, 4}: 0<x-, x+<2, phi(x-/+) >= 0.80   phi_min ~ 0.9984458
+[PASS] A3  pair {4, 3}: 0<x-, x+<2, phi(x-/+) >= 0.80   phi_min ~ 0.8412951
+[PASS] A3  pair {3, 5}: 0<x-, x+<2, phi(x-/+) >= 0.80   phi_min ~ 0.8412951
+[PASS] A3  pair {5, 9}: 0<x-, x+<2, phi(x-/+) >= 0.80   phi_min ~ 0.9984458
+[PASS] A3  pair {9, 7}: 0<x-, x+<2, phi(x-/+) >= 0.80   phi_min ~ 0.9478802
+[PASS] A3  pair {7, 11}: 0<x-, x+<2, phi(x-/+) >= 0.80   phi_min ~ 0.9954045
+[PASS] A3  pair {11, 10}: 0<x-, x+<2, phi(x-/+) >= 0.80   phi_min ~ 0.9644070
+[PASS] A3  pair {10, 6}: 0<x-, x+<2, phi(x-/+) >= 0.80   phi_min ~ 0.9954045
+[PASS] A3  pair {6, 8}: 0<x-, x+<2, phi(x-/+) >= 0.80   phi_min ~ 0.9478802
+[PASS] A3  pair {1, 2}: 0<x-, x+<2, phi(x-/+) >= 0.80   phi_min ~ 0.9147852
+[PASS] A4  |Q_1| <= 1.70 (pair {8, 4})   |Q| ~ 1.281055
+[PASS] A4  |Q_2| <= 1.70 (pair {4, 3})   |Q| ~ 1.639326
+[PASS] A4  |Q_3| <= 1.70 (pair {3, 5})   |Q| ~ 1.639326
+[PASS] A4  |Q_4| <= 1.70 (pair {5, 9})   |Q| ~ 1.281055
+[PASS] A4  |Q_5| <= 1.70 (pair {9, 7})   |Q| ~ 1.042215
+[PASS] A4  |Q_6| <= 1.70 (pair {7, 11})   |Q| ~ 1.275465
+[PASS] A4  |Q_7| <= 1.70 (pair {11, 10})   |Q| ~ 1.393250
+[PASS] A4  |Q_8| <= 1.70 (pair {10, 6})   |Q| ~ 1.275465
+[PASS] A4  |Q_9| <= 1.70 (pair {6, 8})   |Q| ~ 1.042215
+[PASS] A5  tight Q_1 (X=2): dist >= 1.2 to c_k, k in {3, 5, 6, 7, 9, 10, 11, 1}   min dist ~ 1.558587
+[PASS] A5  tight Q_2 (X=2): dist >= 1.2 to c_k, k in {5, 6, 7, 8, 9, 10, 11, 1}   min dist ~ 1.790855
+[PASS] A5  tight Q_3 (X=2): dist >= 1.2 to c_k, k in {4, 6, 7, 8, 9, 10, 11, 1}   min dist ~ 1.790855
+[PASS] A5  tight Q_4 (X=2): dist >= 1.2 to c_k, k in {3, 4, 6, 7, 8, 10, 11, 1}   min dist ~ 1.558587
+[PASS] A5  tight Q_5 (X=1): dist >= 1.2 to c_k, k in {3, 4, 5, 6, 8, 10, 11, 2}   min dist ~ 1.429091
+[PASS] A5  tight Q_7 (X=1): dist >= 1.2 to c_k, k in {3, 4, 5, 6, 7, 8, 9, 2}   min dist ~ 1.830676
+[PASS] A5  tight Q_9 (X=1): dist >= 1.2 to c_k, k in {3, 4, 5, 7, 9, 10, 11, 2}   min dist ~ 1.429091
+[PASS] A6a |t+| <= 0.9   |t| ~ 0.8470493
+[PASS] A6b t+: dist >= 1.2 to boundary c_k, k != 8   min dist ~ 1.447020
+[PASS] A6a |t-| <= 0.9   |t| ~ 0.8470493
+[PASS] A6b t-: dist >= 1.2 to boundary c_k, k != 9   min dist ~ 1.447020
+[PASS] A7  far points, pair {8, 4}: |F(a)-b|,|F(b)-a| >= 1.2   min ~ 1.752708
+[PASS] A7  far points, pair {4, 3}: |F(a)-b|,|F(b)-a| >= 1.2   min ~ 2.272400
+[PASS] A7  far points, pair {3, 5}: |F(a)-b|,|F(b)-a| >= 1.2   min ~ 2.272400
+[PASS] A7  far points, pair {5, 9}: |F(a)-b|,|F(b)-a| >= 1.2   min ~ 1.752708
+[PASS] A7  far points, pair {9, 7}: |F(a)-b|,|F(b)-a| >= 1.2   min ~ 1.684886
+[PASS] A7  far points, pair {7, 11}: |F(a)-b|,|F(b)-a| >= 1.2   min ~ 1.968373
+[PASS] A7  far points, pair {11, 10}: |F(a)-b|,|F(b)-a| >= 1.2   min ~ 2.146609
+[PASS] A7  far points, pair {10, 6}: |F(a)-b|,|F(b)-a| >= 1.2   min ~ 1.968373
+[PASS] A7  far points, pair {6, 8}: |F(a)-b|,|F(b)-a| >= 1.2   min ~ 1.684886
+      tightness: max ||P_j|-Rbar| = 4.496059e-21, max ||Q_j-c_X|-1| = 3.342325e-21, max ||t-c|-1| = 2.358294e-21
+[PASS] TIGHT the 18 active functions vanish at zbar to < 1e-18
+[PASS] TIGHT inactive corners Q_6, Q_8 are strictly inside D(c1) or D(c2) (margin > 1e-3)   min_X |Q_j - c_X| - 1 = {-0.007471337, -0.007471337}
+[PASS] K1  1.41421357^2 >= 2 and delta = 1.41421357*7e-3 <= 0.0099   delta = 0.009899495
+[PASS] K2  (0): 0.40+1 <= 1.41, 0.72+1 <= 1.73 < Rbar
+[PASS] K3  (1): sin 0.606 < 0.57, cos 1.391 < 0.18, 9*1.391 <= 12.52 < 4 Pi, 9*0.606 > 0
+[PASS] K4  (1): arcsin(delta0/(1.84-delta0)) < 0.006; perturbed steps stay in (0, pi/2)
+[PASS] K5  (2): 2 d0/0.80 <= 0.0248, 1.70+0.0248 < 1.725 < Rbar
+[PASS] K6  (3): (1+1/1.83) < 1.55, 1.2 - 2.55 d0 > 1
+[PASS] K7  (4),(5): 2.5 d0 + d0 < 0.035, 1.2-0.035 > 1, 0.9+0.0248 <= 0.93 < Rbar
+==== Part B: lifted quadratic problem ====
+[PASS] B0  58 unknowns
+[PASS] B1  54 constraints = 36 equalities + 18 inequalities
+---- run A: base points 'text', theta = 7/10, mu_eq = 3/10, multipliers rounded to 1e-30 ----
+[PASS] A B-eta |p(zbar) - pbar| <= eta_p for all 18 corners (exact interval)   max eta = 1.735521e-30
+[PASS] A B-exp c_k(xbar+h) = c_k(xbar) + J_k h + q_k(h), q_k = h.H_k.h/2 (54 exact Expand)
+[PASS] A B-w   w_k(h) = sum m_kj h_j^2 as stated (54 exact Expand)
+      max |E_k(xbar)| = 1.545997e-30, max |g_i(xbar)| = 2.366447e-20
+      lambda (18 inequalities) = {0.02944135, 0.01403798, 0.01403798, 0.02944135, 0.02468105, 0.02080832, 0.01205452, 0.02080832, 0.02468105, 0.01685735, 0.004372135, 0.004372135, 0.01685735, 0.07489425, 0.02611877, 0.07489425, 0.01737619, 0.01737619}
+      sum of outer lambda = 0.1899919, 1/(2 Rbar) = 0.1899919
+      |rhat|_2 = 9.848935e-22, eps_L = 1.501160e-21, eps1 = 1.501160e-21
+      corner radii r_p in [0.01982981, 0.02164331]
+[PASS] A L   Lagrangian identity L(xbar+h) = Rbar+eps_L+rhat.h+h.H.h/2 (exact Expand)
+[PASS] A (i) all 18 lambda > 0   min lambda = 0.004372135
+[PASS] A mu  0 < mu_i <= lambda_i/S_i, S_i > 0
+[PASS] A (ii) G - kappa I positive definite, exact LDL^T (58 pivots > 0)   float lambda_min(G) = 0.009040760, kappa = 559397/62500000, min pivot = 0.01757775
+[PASS] A (iii) tau <= 2e-6   tau <= 5.791731e-10
+[PASS] A side: tau <= 2e-6 = 1/500000 (F6' box radius)
+      run A time 2.965890 s
+[PASS] A   Step 6 side claim: tau(run A) < 8.6e-10 < 1/500000
+[PASS] A   G - 0.004068342 I positive definite (the value printed by mid_cert)
+[PASS] A   tau with kappa = 0.004068342 <= 8.6e-10   tau <= 8.590525e-10
+[PASS] A   robustness: eta_p := 1e-12 still certifies (eta_p = 1e-30|d| is far below need)   kappa = 0.008950352, tau = 5.791731e-10
+---- negative controls (on run A data) ----
+[PASS] NEG rho = 5/100 violates Theorem A' (sqrt2 rho <= 0.0099) -- control must fail
+[PASS] NEG rho = 5/100: certificate -- control must fail   float lambda_min(G) = -0.1294176
+[PASS] NEG rho = 2/100: certificate -- control must fail   float lambda_min(G) = -0.009386192, tau = 1.732721e-6
+[PASS] NEG kappa = 1.02 lambda_min: exact LDL^T -- control must fail
+[PASS] NEG lambda(O1) * (1+1e-3): certificate -- control must fail   tau = 0.04897311
+[PASS] NEG lambda(I_5) sign-flipped: certificate -- control must fail   min lambda = -0.004372135
+[PASS] NEG A1a tightened to |c1| <= 0.39 -- control must fail
+[PASS] NEG A3 pair (1,2) with phi threshold 0.9160000 (observed 0.9147852) -- control must fail
+[PASS] NEG A5 Q_1 with threshold 1.560000 (observed 1.558587) -- control must fail
+[PASS] NEG A7 pair (9,7) with threshold 1.686000 -- control must fail
+---- run B: base points 'own', theta = 3/4, mu_eq = 1/2, multipliers rounded to 1e-12 ----
+[PASS] B B-eta |p(zbar) - pbar| <= eta_p for all 18 corners (exact interval)   max eta = 4.838732e-41
+[PASS] B B-exp c_k(xbar+h) = c_k(xbar) + J_k h + q_k(h), q_k = h.H_k.h/2 (54 exact Expand)
+[PASS] B B-w   w_k(h) = sum m_kj h_j^2 as stated (54 exact Expand)
+      max |E_k(xbar)| = 8.850414e-41, max |g_i(xbar)| = 2.366447e-20
+      lambda (18 inequalities) = {0.02944135, 0.01403798, 0.01403798, 0.02944135, 0.02468105, 0.02080832, 0.01205452, 0.02080832, 0.02468105, 0.01685735, 0.004372135, 0.004372135, 0.01685735, 0.07489425, 0.02611877, 0.07489425, 0.01737619, 0.01737619}
+      sum of outer lambda = 0.1899919, 1/(2 Rbar) = 0.1899919
+      |rhat|_2 = 8.158994e-12, eps_L = 1.501160e-21, eps1 = 1.501160e-21
+      corner radii r_p in [0.01982981, 0.02164331]
+[PASS] B L   Lagrangian identity L(xbar+h) = Rbar+eps_L+rhat.h+h.H.h/2 (exact Expand)
+[PASS] B (i) all 18 lambda > 0   min lambda = 0.004372135
+[PASS] B mu  0 < mu_i <= lambda_i/S_i, S_i > 0
+[PASS] B (ii) G - kappa I positive definite, exact LDL^T (58 pivots > 0)   float lambda_min(G) = 0.009613035, kappa = 1189613/125000000, min pivot = 0.02009869
+[PASS] B (iii) tau <= 2e-6   tau <= 1.882237e-9
+[PASS] B side: tau <= 2e-6 = 1/500000 (F6' box radius)
+      run B time 2.337978 s
+==== Summary ====
+passed 95 checks; failed: {}
+run A: kappa = 559397/62500000 (0.008950352), tau <= 5.791731e-10
+run B: kappa = 1189613/125000000 (0.009516904), tau <= 1.882237e-9
+total time 22.71830 s
+23d MID VERIFIED

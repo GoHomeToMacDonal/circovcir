@@ -1,0 +1,281 @@
+Failed to open configuaration file at path: /home/skim/.config/Wolfram/WolframScript/WolframScript.conf
+Failed to open configuaration file at path: /home/skim/.config/Wolfram/WolframScript/WolframScript.conf
+Failed to open configuaration file at path: /home/skim/.config/Wolfram/WolframScript/WolframScript.conf
+Failed to open configuaration file at path: /home/skim/.config/Wolfram/WolframScript/WolframScript.conf
+|F(u~)| (float) = ScientificForm[9.86114055509635`3.*^-140]
+K1 Krawczyk K(X) in int X: True   max width K/X = ScientificForm[2.2119817575985308`3.*^-42]
+K2 all lambda > 0: True   min lower = 0.01205451728310322404559372329445872393`8.
+K3 SOSC (Finsler rho=1): True   lambda_min(mid) = 0.0447325376256604893`8.   max entry width = ScientificForm[3.956251548312`3.*^-84]  (bound dF=1e-30 valid: True)
+K4 margins: True   min other-centre margin = 1.0423016497460498696`6.   min geometric margin = 3.1089777702139193401`6.
+K5 accounted 286 of 286 candidates (1 exactly collinear triple)
+K5 candidates: active=18 strict(f<1)=236 outside=26 coincide-with-J=5 unresolved={}  => True
+R* in InputForm[Interval[{2.63169077261980820552150115950569610516711684782381068173438771509112173013924`50., 2.63169077261980820552150115950569610516711684782389621020511066535179822730619`50.}]]
+ALL: <|K1_krawczyk -> True, K2_lambda_pos -> True, K3_width -> True, K3_sosc -> True, K4_margins -> True, K5_coverage -> True|>
+n=11 local-optimality certificate OK
+23a: R_* enclosure from certificate 07: R_* - Rbar in [1.5011595056961051671168478238534459958`12.*^-21, 1.5011595056961051671168478238534459958`12.*^-21], width 2.748082667110009150689152224`3.*^-88
+23a: working precision 50 (bignum Interval); JJ=[263169/100000,26317/10000], JS=[R*,r1], J0=(R*,R*+1e-6]
+Z01 | enclosure sanity | INEQ LB | - | N[exact,80] of a, B, rho_lo, C(1.085), c4, G1 at r0 and r1 lie in the bignum enclosures; widths < 1e-40 | 12 enclosures | True
+N1 | Notation l.49 / Step 5 | INEQ LB | - | 0 < R_* - Rbar <= 1.502e-21 | R*-Rbar in [1.50115951e-21, 1.50115951e-21] | True
+N2 | Notation l.49 (mid_cert A0 margin) | INEQ nlb | - | R_* - Rbar >= 1.50116e-21 (as written) | R*-Rbar>=1.50115951e-21 | False
+N3 | Notation (I_*) | INEQ nlb | - | certificate-07 enclosure of R_* lies in I_* of the problem statement | exact | True
+N4 | Notation l.50 / App.B 1 / App.B 4 | INEQ LB | - | R_* + 1e-6 < 2.6316918 < R_hi = 2.631692 < r1 | exact | True
+S0a | Step 0 / App.B 1 step 2 | INEQ LB | - | R_* > 2.61313 > 1/sin(pi/8) | 1/sin(pi/8)<=2.61312593e0 | True
+S0b | Step 0 / App.B 1 step 2 (F1) | INEQ LB | J0=(R*,R*+1e-6] | 8a(R') < pi, i.e. pi - 8a > 0, on J0 (also > 0.02336 as F1 states at R_*) | range=[2.33619320e-2, 2.33631808e-2], margin=1.93202846e-6 | True
+S0c | F1 (used via (SH)/F3) | INEQ LB | J0=(R*,R*+1e-6] | 9a(R) - pi > 0.3664 on J0 | range=[3.66415503e-1, 3.66416908e-1], margin=1.55033033e-5 | True
+S0d | Step 0 / App.B 1 steps 3-4 | INEQ LB | - | R' > 2 (F4(i)) and R' > R_* > r0 (F4(ii) excludes ten) | exact | True
+S0e | Step 0 last line | INEQ LB | - | R' in [2.63169, 2.631692] subset JJ, and R' in J = [Rbar, 2.631692] | exact | True
+RED1 | App.B 1 step 7 | INEQ LB | - | R^2 cos^2 w - (R^2-1) = 1 - (R sin w)^2; (m-s)(m+s) = R^2-1 for m=R cos w, s=sqrt(1-h^2); f(R-1)=2R(R-1)(1-cos w) (identities, symbolic R, w) | exact | True
+RED2 | App.B 1 step 7 / R2(c) | INEQ LB | - | R - 1 < sqrt(R^2-1) and R - 1 > 0 for every R > 1 (Reduce) | Reduce | True
+RED3 | App.B 1 step 5 | INEQ LB | - | h = R sin w <= 1 for 0 <= w <= a(R): R sin a = 1 and sin increasing on [0, pi/2] (a < pi/2 for R > 1) (Reduce in s = sin w) | Reduce | True
+RED4 | App.B 1 remarks | INEQ LB | - | R_* + 1e-6 < 2.6316918 < r1 | exact | True
+D1a | App.B (D1) | INEQ LB | - | a'(R) = -1/(R sqrt(R^2-1)), d'(R) = -2/(R sqrt(R^2-4)) (R > 2) | exact | True
+D1b | App.B (D1) | INEQ LB | - | |a'| and |d'| decrease in R for R > 2 (Reduce on the derivatives of 1/(R sqrt(R^2-1)), 2/(R sqrt(R^2-4))) | Reduce | True
+D1c | App.B (D1) | INEQ nlb | - | r0^2 = 6.92579226 (exact 6.9257922561; tol 1e-8) | r0^2=6.92579225610 | True
+D1d | App.B (D1) | VAL nlb | 263169/100000 | sqrt(r0^2-1) = 2.434295 (tol 10.0000000e-7) | true=2.43429502e0 | True
+D1e | App.B (D1) | VAL nlb | 263169/100000 | sqrt(r0^2-4) = 1.710495 (tol 10.0000000e-7) | true=1.71049474e0 | True
+D1f | App.B (D1) | INEQ LB | JJ=[r0,r1] | |a'| <= 0.1561 on JJ | range=[1.56094816e-1, 1.56096102e-1], margin=3.89776936e-6 | True
+D1g | App.B (D1) | INEQ LB | JJ=[r0,r1] | |d'| <= 0.4443 on JJ | range=[4.44291460e-1, 4.44297145e-1], margin=2.85513755e-6 | True
+D2a | App.B (D2) | INEQ LB | - | B decreasing in R for R > 2 (B' = -12/(R sqrt(R^2-1)) - 4/(R sqrt(R^2-4)) by FullSimplify; < 0 by Reduce) | FullSimplify+Reduce | True
+D2b | App.B (D2) | INEQ LB | - | 12*0.1561 + 2*0.4443 <= 2.762 (exact) | =2.7618 | True
+D2c | App.B (D2) | INEQ LB | JJ=[r0,r1] | |B'| <= 2.762 on JJ (direct) | range=[2.76172071e0, 2.76174752e0], margin=2.52483507e-4 | True
+D2d | App.B (D2) | VAL nlb | 26317/10000 | B(r1) = 0.1206621 (tol 1.00000000e-7) | true=1.20662147e-1 | True
+D2e | App.B (D2) / Step 1 | INEQ LB | JJ=[r0,r1] | B(R) <= 0.1206898 on JJ | range=[1.20662147e-1, 1.20689765e-1], margin=3.53172236e-8 | True
+D2f | App.B (D2) / Step 1 / 3 Lemma N2 | INEQ LB | JJ=[r0,r1] | B(R) < 0.12069 on JJ | range=[1.20662147e-1, 1.20689765e-1], margin=2.35317224e-7 | True
+D2g | App.B (D2) / 3 A4(1), E3.1, 3.1 | INEQ LB | JJ=[r0,r1] | B/2 <= 0.0603449 on JJ | range=[6.03310737e-2, 6.03448823e-2], margin=1.76586118e-8 | True
+D3a | App.B (D3) | INEQ LB | - | dz/dR = -[(R^2-t^2)/N + N]/(R+t)^2, N = sqrt(4-(R-t)^2) (identity) | exact | True
+D3b | App.B (D3) | INEQ LB | - | |R - t| <= r1 - 1 = 1.6317 for t in [1,R], R in JJ; N >= sqrt(4 - 1.6317^2) = 1.15653 (as written) | sqrt(4-1.6317^2)=1.15652718e0 | False
+D3c | App.B (D3) | INEQ LB | - | 0 <= R^2 - t^2 <= r1^2 - 1 = 5.92584 (as written) | r1^2-1=5.92584489000 | False
+D3d | App.B (D3) | INEQ LB | - | (R+t)^2 >= (r0+1)^2 = 13.1892 (as written) | (r0+1)^2=13.1891722561 | False
+D3e | App.B (D3) | INEQ LB | - | (5.92584/1.15653 + 2)/13.1892 <= 0.5402 (exact arithmetic of the printed numbers) | =0.54012450 | True
+D3f | App.B (D3) | INEQ LB | - | sup |dz/dR| <= 0.5402 over t in [1, r1], R in JJ (direct, 2 x 256 boxes) | sup<=4.76851532e-1 | True
+D3g | App.B (D3) | INEQ LB | - | 2*0.1561 + 2*0.5402 = 1.3926 <= 1.4 (printed 1.393) | =1.3926 | True
+D3h | App.B (D3) / Step 1 | INEQ LB | - | sup |dC_R(t)/dR| <= 1.4 over t in [1, r1] (superset of [1,R]), R in JJ (direct) | sup<=5.53980428e-1 | True
+D3i | App.B (D3) / Step 1 'C-table +-1.4e-5' | INEQ LB | - | |C_R(t) - C_r1(t)| <= 1.4e-5 for t in [1,R], R in JJ (mean value: |R - r1| <= 1e-5 times sup) | bound=5.53980428e-6 | True
+D3j | App.B (D3) | VAL nlb | 263169/100000 | r0 - 2/r0 = 1.8717221 (tol 1.00000000e-7) | true=1.87172207e0 | True
+D3k | App.B (D3) / 3 Part D | INEQ LB | JJ=[r0,r1] | R - 2/R > 1.8717 on JJ (so [R-2, 1.8717] is inside the decreasing range) | range=[1.87172207e0, 1.87173496e0], margin=2.20706466e-5 | True
+D3l | App.B (D3) / Part D (G) | INEQ LB | - | for every R > 2: h = z^2 has h' = 2(2R(R-t)-4)/(R+t)^3 > 0 on (R-2, R-2/R) and h >= 0 on [R-2, R-2/R], so C_R decreasing there (Reduce, symbolic R) | Reduce | True
+D4a | App.B (D4) | INEQ LB | - | d rho/dw = R sin w (R cos w / sqrt(1-R^2 sin^2 w) - 1); d rho/dR = cos w + R sin^2 w / sqrt(1-R^2 sin^2 w) (identities) | exact | True
+D4b | App.B (D4) / Part M 5 item 4 | INEQ LB | - | for R > 1, 0 <= sin w <= 1/R, cos w = sqrt(1 - sin^2 w): R cos w >= sqrt(R^2-1) >= 1 >= sqrt(1-R^2 sin^2 w) when R^2 >= 2, hence d rho/dw >= 0; and d rho/dR > 0 (Reduce in s = sin w, c = sqrt(1-s^2)) | Reduce | True
+D5a | App.B (D5) | INEQ LB | - | a - B/2 = pi - 5a - d (identity) | exact | True
+D5b | App.B (D5) | INEQ LB | - | w(R) = pi - 5a - d increasing in R on JJ (derivative enclosure) | deriv>0 | True
+D5c | App.B (D5) / Step 1 | INEQ LB | - | rho_lo(R) = rho_R(w(R)) increasing in R on JJ (enclosure of d/dR rho_lo on 64 pieces) | min deriv=5.37857463e0 | True
+D5d | App.B (D5) | INEQ LB | - | 5*0.1561 + 0.4443 = 1.2248 (exact) | exact | True
+D5e | App.B (D5) | INEQ LB | - | w(r0) >= w(r1) - 1.2248e-5 | w(r0)-w(r1)=-1.22477160e-5 | True
+D5e2 | App.B (D5) | INEQ LB | - | w(r0) >= w(r1) - 1.3e-5 (the rectangle contains every (w(R), R), R in JJ) | exact | True
+D5f | App.B (D5) rectangle | INEQ LB | - | R sin w <= 0.851405 on [w(r1)-1.3e-5, w(r1)] x JJ | sup<=8.51405426e-1 | False
+D5g | App.B (D5) rectangle | INEQ LB | - | sqrt(1 - R^2 sin^2 w) >= 0.524508 on the rectangle | inf>=5.24508152e-1 | True
+D5h | App.B (D5) rectangle | INEQ LB | - | R cos w <= 2.49019 on the rectangle | sup<=2.49018249e0 | True
+D5i | App.B (D5) rectangle | INEQ LB | - | sin w <= 0.3236 on the rectangle (used in d rho/dR) | sup<=3.23519180e-1 | True
+D5j | App.B (D5) | INEQ LB | - | 0.851405*(2.49019/0.524508 - 1) <= 3.20 and 1 + 0.851405*0.3236/0.524508 <= 1.53 (exact) | =3.19078, 1.52528 | True
+D5k | App.B (D5) rectangle (direct) | INEQ LB | - | d rho/dw <= 3.20 and d rho/dR <= 1.53 on the rectangle (direct enclosure) | sup dw<=3.19076718e0, sup dR<=1.47137367e0 | True
+D5l | App.B (D5) | INEQ LB | - | 3.20*1.2248e-5 + 1.53e-5 <= 5.45e-5 (exact) | =5.44936000e-5 | True
+D5m | App.B (D5) | INEQ LB | - | rho_lo(r1) - rho_lo(r0) <= 5.45e-5 (direct) | diff<=5.37893715e-5 | True
+D5n | App.B (D5) (F7 component) | VAL nlb | 26317/10000 | R cos w at r1 = 2.4901714 (tol 1.00000000e-7) | true=2.49017142e0 | True
+D5o | App.B (D5) (F7 component) | VAL nlb | 26317/10000 | sqrt(1 - R^2 sin^2 w) at r1 = 0.5245082 (tol 1.00000000e-7) | true=5.24508152e-1 | True
+D5p | App.B (D5) | VAL nlb | 26317/10000 | rho_lo(r1) = 1.9656632 (tol 1.00000000e-7) | true=1.96566327e0 | True
+D5q | App.B (D5) (re-derived) | VAL nlb | 26317/10000 | d(r1) = 0.8632593 (tol 1.00000000e-7) | true=8.63259328e-1 | True
+D5r | App.B (D5) (re-derived) | VAL nlb | 26317/10000 | w(r1) = 0.3294464 (tol 1.00000000e-7) | true=3.29446326e-1 | True
+D5s | App.B (D5) | INEQ LB | - | |rho_lo(r1) - 1.9656632| <= 1.5e-6 | rho_lo(r1)=1.96566327e0 | True
+D5t | App.B (D5) | INEQ LB | - | 1.9656632 - 1.5e-6 - 5.45e-5 >= 1.965607 (exact) | exact | True
+D5u | App.B (D5) / Step 1 | INEQ LB | JJ=[r0,r1] | rho_lo(R) >= 1.965607 on JJ (direct, 256 pieces) | range=[1.96560944e0, 1.96566331e0], margin=2.43626236e-6 | True
+D5v | App.B (D5) / Step 1 / 3 E3.1, 1.4, 3.1 | INEQ LB | JJ=[r0,r1] | rho_lo(R) > 1.9656 on JJ (direct, 256 pieces) | range=[1.96560944e0, 1.96566331e0], margin=9.43626236e-6 | True
+D5w | Step 1 / 3 (claimed range) | INEQ LB | JS=[R*,r1] | rho_lo(R) > 1.9656 on JS = [R_*, r1] (direct, 256 pieces) | range=[1.96561360e0, 1.96566330e0], margin=1.35950255e-5 | True
+D5x | App.B (D5) / Step 1 | APPROX nlb | JJ | margin rho_lo - 1.9656 about 7e-6 on JJ (stated 7e-6) | rigorous>=9.43626236e-6 | True
+D5y | App.B (D5) / Step 1 | APPROX nlb | JS | margin rho_lo - 1.9656 about 1.1e-5 on [R_*, r1] (stated 1.1e-5) | rigorous>=1.35950255e-5 | True
+D5z | App.B (D5) | INEQ nlb | - | on [R_*, r1] the drop rho_lo(r1) - rho_lo(R) <= 5.0e-5 (direct) | drop<=4.96337552e-5 | True
+D5z2 | App.B (D5) | INEQ nlb | - | the hand route gives the [R_*,r1] drop <= 5.0e-5: (r1 - R_*)(3.20*1.2248 + 1.53) <= 5.0e-5 | =5.02833165e-5 | False
+D5aa | App.B (D5) (estimate) | VAL nlb | 263169/100000 | rho_lo(r0) 'estimate 1.96561' = 1.96561 (tol 10.0000000e-6) | true=1.96560948e0 | True
+S1v1 | Step 1 (60-digit corroboration) | VAL nlb | 263169/100000 | rho_lo(r0) = 1.9656095 (tol 1.00000000e-7) | true=1.96560948e0 | True
+S1v2 | Step 1 (60-digit corroboration) | VAL nlb | R* | rho_lo(R_*) = 1.9656136 (tol 1.00000000e-7) | true=1.96561363e0 | True
+S1v3 | Step 1 (60-digit corroboration) | VAL nlb | 26317/10000 | rho_lo(r1) = 1.9656633 (tol 1.00000000e-7) | true=1.96566327e0 | True
+S1fb | Step 1 / App.B (D5) fallback | APPROX nlb | JJ | fallback rho_lo = 1.9655: margin about 1.1e-4 on JJ (stated 1.1e-4) | rigorous>=1.09314066e-4 | True
+S1fb2 | Step 1 / App.B (D5) fallback | INEQ nlb | JJ=[r0,r1] | rho_lo(R) > 1.9655 on JJ | range=[1.96560931e0, 1.96566343e0], margin=1.09314066e-4 | True
+D6a | App.B (D6) | INEQ LB | - | R - 2, 3 - R, 4 - R, R - 1 within 1e-5 of their r1 values on JJ (r1 - r0 = 1e-5) | exact | True
+D6b | App.B (D6) | INEQ LB | - | sqrt(R^2-1) increasing (Reduce) | Reduce | True
+D6c | App.B (D6) | INEQ LB | JJ=[r0,r1] | sqrt(R^2-1) <= 2.4343058 on JJ | range=[2.43429502e0, 2.43430583e0], margin=-3.32921112e-8 | False
+D6d | App.B (D6) / 3 E2.2 (not used downstream) | INEQ nlb | JJ=[r0,r1] | u* = sqrt(1-(R-2)^2) <= 0.77523 on JJ | range=[7.75212945e-1, 7.75221094e-1], margin=8.90644023e-6 | True
+D6e | App.B 3 E2.2 (not used downstream) | INEQ nlb | JJ=[r0,r1] | reach 1 + u* <= 1.77523 on JJ | range=[1.77521294e0, 1.77522109e0], margin=8.90644023e-6 | True
+D6f | App.B (D6) (G) | INEQ LB | - | A(t,u), r(t) = arcsin(1/t), m0(t) = A(t, 1.9656) contain no R (structural) | exact | True
+U01 | App.B 3 Lemma R3 (G) | INEQ LB | JJ=[r0,r1] | 2pi - 4a > 0 on JJ | range=[4.72406946e0, 4.72407571e0], margin=4.72406946e0 | True
+U02 | App.B 3 Lemma A0 / 5 (Prop. P, Thm J(1)) | INEQ LB | - | R > 2.61313 for R in [R_*, r1] (eight arcs never cover) | exact | True
+U03 | App.B 3 A4 / N1 | INEQ LB | - | 2pi - 10a - 2d increasing in R on JJ (derivative enclosure) | deriv>0 on JJ | True
+U04 | App.B 3 A4 | VAL nlb | 26317/10000 | 2pi - 10a - 2d at r1 = 0.658893 (tol 10.0000000e-7) | true=6.58892652e-1 | True
+U05 | App.B 3 A4 / E3.1 / Step 1 | INEQ LB | JJ=[r0,r1] | 2pi - 10a - 2d = 2a - B >= 0.658868 on JJ | range=[6.58868157e-1, 6.58892652e-1], margin=1.56913360e-7 | True
+U05i | App.B 3 E3.1 | INEQ LB | - | 2a - B = 2pi - 10a - 2d (identity) | exact | True
+U06 | App.B 3 A4(3) / N3 | INEQ LB | - | 2pi - 4d - 6a increasing in R on JJ (derivative enclosure) | deriv>0 on JJ | True
+U07 | App.B 3 A4(3) | VAL nlb | 26317/10000 | 2pi - 4d - 6a at r1 = 0.491483 (tol 10.0000000e-7) | true=4.91483595e-1 | True
+U08 | App.B 3 A4(3) / N3 | INEQ LB | JJ=[r0,r1] | 2pi - 4d - 6a >= 0.491456 on JJ | range=[4.91456458e-1, 4.91483595e-1], margin=4.57820089e-7 | True
+U09 | App.B 3 A5 / 5 K1 / Step 1 | INEQ LB | - | R >= r0 on [R_*, r1] (F4(ii) threshold) | exact | True
+U10 | App.B 3 A5 / 5 Prop. P | INEQ LB | - | |c_E| <= 1 < R - 1 on JJ (R > 2) | exact | True
+U11 | App.B 3 N2 | INEQ LB | JJ=[r0,r1] | 2pi - 2a - 2d > 0 on JJ | range=[3.77709984e0, 3.77711185e0], margin=3.77709984e0 | True
+U12 | App.B 3 N2 | VAL nlb | 26317/10000 | 2pi - 2a - 2d at r1 = 3.7771 (tol 10.0000000e-5) | true=3.77711185e0 | True
+U13 | App.B 3 Lemma S (G) | INEQ LB | - | 4(t^2-1) <= t^4 for all t (R-free; Reduce) | Reduce | True
+U14 | App.B 3 Lemma G (G) | INEQ LB | - | s > t > 0, s^2+t^2 > 2 => s^2+t^2-2 < 2s(s+t); log-derivative < 0 (R-free; Reduce) | Reduce | True
+U15 | App.B 3 Part D identity (G) | INEQ LB | - | z(t*)^2 = 1/(R^2-1) at t* = R - 2/R, and arctan(1/sqrt(R^2-1)) = arcsin(1/R), symbolic R > 2 | exact | True
+U16 | App.B 3 Part D table / Step 1 | INEQ LB | - | |C_R(t) - C_r1(t)| <= 1.4e-5 on JJ for all 17 tabulated t >= 1 (direct) | worst=5.91485402e-6 | True
+U16L | App.B 3 Part D 'each C value within 1.4e-5 of the tabulated one' (literal) | INEQ nlb | - | tabulated - 1.4e-5 <= C_R(t) <= tabulated + 1.4e-5 on JJ for all 17 entries | fail: D:1.0 D:1.2 D:1.5 D:1.7 | False
+U17 | App.B 3 E2.1 / E2.2 (G) | INEQ LB | - | rho_0 = R - 2, 1 - rho_0 = 3 - R; u > u* => rho_0^2 + u^2 - 1 > 0 (symbolic R in JJ; Reduce) | Reduce | True
+U18 | App.B 3 E3.1 (G) | INEQ LB | - | A(R, rho) increasing in rho on [R-1, sqrt(R^2-1)) for every R in JJ (Reduce, symbolic R) | Reduce | True
+U19 | App.B 3 E3.2 | INEQ LB | - | sin(0.658868) >= 0.612222 | sin=6.12222188e-1 | True
+U20 | App.B 3 E3.2 | INEQ LB | - | 1.9656 * 0.612222 >= 1.20339 (as written '= 1.20339' used as a lower bound) | =1.203383563 | False
+U21 | App.B 3 E3.2 (direct) | INEQ LB | JJ=[r0,r1] | 1.9656 sin(2a - B) > 1 on JJ (and 2a - B > 0) | range=[1.20338418e0, 1.20342225e0], margin=2.03384177e-1 | True
+U22 | App.B 3 E3.2 | INEQ LB | JJ=[r0,r1] | 2a <= 0.77957 on JJ | range=[7.79554800e-1, 7.79557922e-1], margin=1.20784039e-5 | True
+U23 | App.B 3 E3.2 | INEQ LB | - | 0.77957 < pi/2 | exact | True
+U24 | App.B 3 Lemma 1.3 | INEQ LB | - | 0.122013 - 1.4e-5 = 0.121999 > 0.12069 (exact) | exact | True
+U25 | App.B 3 Lemma 1.3 (direct) | INEQ LB | JJ=[r0,r1] | C_R(1.085) >= 0.121999 on JJ | range=[1.22008945e-1, 1.22014127e-1], margin=9.94465231e-6 | True
+U26 | App.B 3 Lemma 1.3 (direct) | INEQ LB | JJ=[r0,r1] | C_R(1.085) - B(R) > 0 on JJ | range=[1.31957021e-3, 1.35158976e-3], margin=1.31957021e-3 | True
+U27 | App.B 3 Lemma 1.3 | APPROX nlb | JJ | margin C_R(1.085) - B about 1.3e-3 on JJ (stated 1.3e-3) | rigorous>=1.31957021e-3 | True
+U28 | App.B 3 Lemma 1.3 | INEQ LB | - | R - 2 <= 1.085 <= 1.8717 on JJ | exact | True
+U29 | App.B 3 Lemma 1.4 (R-free) | INEQ LB | - | arcsin(1/1.9656) <= 0.53374 | =5.33732813e-1 | True
+U30 | App.B 3 Lemma 1.4 | VAL nlb | 26317/10000 | sqrt(1.9656^2 + 1) = 2.2054 (tol 10.0000000e-5) | true=2.20535334e0 | True
+U31 | App.B 3 Lemma 1.4 (threshold used as written) | INEQ nlb | JS=[R*,r1] | t <= 2.2054 => t^2 <= rho*^2 + 1: 2.2054^2 <= rho_lo(R)^2 + 1 on [R_*, r1] | range=[-1.52798318e-4, 4.35077938e-5], margin=-1.52798318e-4 | False
+U32 | App.B 3 Lemma 1.4 | INEQ LB | JS=[R*,r1] | 2a(R) - 0.53374 >= 0.24581 on [R_*, r1] (a(R) >= a(r1)) | range=[2.45814800e-1, 2.45817680e-1], margin=4.79968696e-6 | True
+U33 | App.B 3 Lemma 1.4 fallback | INEQ nlb | - | arcsin(1/1.9655) <= 0.53378 | =5.33762879e-1 | True
+U34 | App.B 3 Lemma 1.4 fallback | INEQ nlb | JS=[R*,r1] | 2a(R) - 0.53378 >= 0.24577 on [R_*, r1] | range=[2.45774800e-1, 2.45777680e-1], margin=4.79968696e-6 | True
+U35 | App.B 3 Lemma 1.4 fallback | INEQ nlb | - | |dA/du| <= 0.65 for t in [1.085, 1.35], u in [1.9655, 1.9656]; m0 increases by <= 7e-5 | sup|dA/du|<=1.37809582e0, increase<=1.37809582e-4 | False
+U36 | App.B 3 M2 bookkeeping | INEQ LB | JJ=[r0,r1] | 2pi - 10a >= 2.385395 on JJ | range=[2.38539570e0, 2.38541131e0], margin=6.99198904e-7 | True
+U37 | App.B 3 M2 bookkeeping (R-free) | INEQ LB | - | 2 r(1.085) <= 2.34467 < 2.385395 | 2r(1.085)=2.34466946e0 | True
+U38 | App.B 3 Lemma 2.1 | INEQ LB | - | 10a - B - 1.06748 = 2pi - 2a - 2d - 1.06748 (identity); increasing in R on JJ | exact + deriv>0 on JJ | True
+U39 | App.B 3 Lemma 2.1 | VAL nlb | 26317/10000 | 10a - B - 1.06748 at r1 = 2.70963 (tol 10.0000000e-6) | true=2.70963185e0 | True
+U40 | App.B 3 Lemma 2.1 / 4.1(S) | INEQ LB | JJ=[r0,r1] | 10a - B - 1.06748 >= 2.70962 on JJ | range=[2.70961984e0, 2.70963185e0], margin=-1.56702094e-7 | False
+U41 | App.B 3 Lemma 2.1 / 4.1 | INEQ LB | - | 2.70962 > 2.34467 (exact) | exact | True
+U42 | App.B 3 Lemma 2.2 | INEQ LB | - | 8a - B = 2pi - 4a - 2d (identity); increasing in R on JJ | exact + deriv>0 on JJ | True
+U43 | App.B 3 Lemma 2.2 | INEQ LB | - | 1e-5 (4*0.1561 + 2*0.4443) <= 1.51e-5 (as written) | =1.51300000e-5 | False
+U44 | App.B 3 Lemma 2.2 | INEQ LB | - | 2.997557 - 1.51e-5 = 2.997542 (exact)  | exact | False
+U45 | App.B 3 Lemma 2.2 (direct) | INEQ LB | JJ=[r0,r1] | 8a - B >= 2.997542 on JJ | range=[2.99754192e0, 2.99755705e0], margin=-7.82982304e-8 | False
+U46 | App.B 3 Lemma 2.2 | INEQ LB | - | 2.962253 < 2.997542, margin 0.0353 (2.962253 is R-free: built from r, m0 only; 22a M42v) | exact | True
+U47 | App.B 3 Lemma 2.2 | INEQ LB | - | 0.124052 - 2.8e-5 = 0.124024 > 0.12069; margin 3.3e-3 (exact) | exact | True
+U48 | App.B 3 Lemma 2.2 (direct) | INEQ LB | JJ=[r0,r1] | C_R(1.2) + C_R(1.35) >= 0.124024 on JJ | range=[1.24046040e-1, 1.24053097e-1], margin=2.20400010e-5 | True
+U48b | App.B 3 Lemma 2.2 (direct) | INEQ LB | JJ=[r0,r1] | C_R(1.2) + C_R(1.35) - B(R) > 0 on JJ, and C_R(1.2) >= C_R(1.35) | range=[3.35705580e-3, 3.39016883e-3], margin=3.35705580e-3 | True
+U48c | App.B 3 Lemma 2.2 (direct) | INEQ LB | JJ=[r0,r1] | C_R(1.2) - C_R(1.35) >= 0 on JJ | range=[3.70562556e-2, 3.70586561e-2], margin=3.70562556e-2 | True
+U49 | App.B 3 Lemma 3.1 | INEQ nlb | JJ=[r0,r1] | pi - 8a >= 0.0233610 on JJ | range=[2.33609672e-2, 2.33734548e-2], margin=-3.27947528e-8 | False
+U49b | App.B 3 Lemma 3.1 (a) | INEQ LB | JJ=[r0,r1] | pi - 8a > 0 on JJ | range=[2.33609672e-2, 2.33734548e-2], margin=2.33609672e-2 | True
+U50 | App.B 3 Lemma 3.1 (c) | INEQ LB | JJ=[r0,r1] | pi - 5a >= 1.1926976 on JJ (increasing in R) | range=[1.19269785e0, 1.19270565e0], margin=2.49599452e-7 | True
+U50m | App.B 3 Lemma 3.1 (c) | INEQ LB | - | pi - 5a increasing in R on JJ (derivative enclosure) | deriv>0 on JJ | True
+U51 | App.B 3 Lemma 3.1 (c) / Repair M2 | INEQ LB | JJ=[r0,r1] | 4a <= 1.55912 on JJ | range=[1.55910960e0, 1.55911584e0], margin=4.15680773e-6 | True
+U52 | App.B 3 Lemma 3.1 | INEQ LB | - | 1.55912 < pi/2; R - 1 >= 1.63169 on JJ (exact) | exact | True
+U53 | App.B 3 Lemma 3.1 (re-derived) | VAL nlb | 26317/10000 | R cos(a - 0.03) at r1 = 2.463206 (tol 10.0000000e-7) | true=2.46320598e0 | True
+U54 | App.B 3 Lemma 3.1 (re-derived) | VAL nlb | 26317/10000 | sqrt(1 - R^2 sin^2(a - 0.03)) at r1 = 0.376216 (tol 10.0000000e-7) | true=3.76216427e-1 | True
+U55 | App.B 3 Lemma 3.1 | INEQ LB | - | 2.463206 - 0.376216 = 2.086990 (exact) | exact | True
+U56 | App.B 3 Lemma 3.1 (F7, corrected 22a M56v) | VAL nlb | 26317/10000 | rho_r1(a - 0.03) = 2.0869896 (tol 1.00000000e-7) | true=2.08698955e0 | True
+U57 | App.B 3 Lemma 3.1 | INEQ LB | - | |d_w rho| <= 5.15 and |d_R rho| <= 1.81 at w = a(R) - 0.03, R in JJ (direct box) | sup|dw|<=5.13993198e0, sup|dR|<=1.80305850e0 | True
+U58 | App.B 3 Lemma 3.1 | INEQ LB | - | 5.15*0.1561 + 1.81 <= 2.7 (exact) | exact | True
+U58b | App.B 3 Lemma 3.1 (direct) | INEQ LB | JJ=[r0,r1] | |d/dR rho_R(a(R) - 0.03)| <= 2.7 on JJ | range=[1.00073878e0, 1.00074182e0], margin=1.69925818e0 | True
+U59 | App.B 3 Lemma 3.1 | INEQ LB | - | 2.0869896 - 2.7e-5 >= 2.086962 (exact) | exact | True
+U60 | App.B 3 Lemma 3.1 (direct) | INEQ LB | JJ=[r0,r1] | rho_R(a - 0.03) >= 2.086962 on JJ | range=[2.08697895e0, 2.08699014e0], margin=1.69514858e-5 | True
+U61 | App.B 3 Lemma 3.1 (d) | INEQ LB | - | cos(1.1926976) <= 0.36916, 2.4344*0.36916 < 0.9 < 1.63169, 0.9 < 1.9656 | cos=3.69154155e-1 | True
+U62 | App.B 3 Lemma 3.1 (d) | INEQ LB | JJ=[r0,r1] | rho_t, rho' <= sqrt(R^2-1) <= 2.4344 on JJ | range=[2.43429502e0, 2.43430583e0], margin=9.41667079e-5 | True
+U63 | App.B 3 Lemma 3.1 (d) | INEQ LB | - | cos(1.1926976) - cos(pi - 5a(r1)) <= 7.9e-6 and cos(1.2226976) - cos(pi - 5a(r1) + 0.03) <= 7.9e-6 | d1=7.48548938e-6, d2=7.57130603e-6 | True
+U64 | App.B 3 Lemma 3.1 (d) | INEQ LB | - | cos(1.1926976) <= 0.369155 and cos(1.2226976) <= 0.341112 (cos decreasing on [0, pi/2]) | exact | True
+U64b | App.B 3 Lemma 3.1 (d) (direct) | INEQ LB | JJ=[r0,r1] | cos(pi - 5a(R)) <= 0.369155 on JJ | range=[3.69146669e-1, 3.69153923e-1], margin=1.07709005e-6 | True
+U64c | App.B 3 Lemma 3.1 (d) (direct) | INEQ LB | JJ=[r0,r1] | cos(pi - 5a(R) + 0.03) <= 0.341112 on JJ | range=[3.41103613e-1, 3.41110950e-1], margin=1.05002643e-6 | True
+U65 | App.B 3 Lemma 3.1 case 1 | INEQ LB | - | 2.086962^2 >= 4.355402, 1.63169^2 >= 2.662412, 2*1.63169*2.086962*0.369155 <= 2.514152 (directions used) | 2.086962^2=4.355410389, prod=2.514148604 | True
+U65v | App.B 3 Lemma 3.1 case 1 (VAL) | INEQ nlb | - | the printed values 4.355402, 2.662412, 2.514152 are within 1e-6 of the exact products | 2.086962^2-4.355402=8.38944400e-6 | False
+U66 | App.B 3 Lemma 3.1 case 1 | INEQ LB | - | 4.355402 + 2.662412 - 2.514152 = 4.5037 (4 decimals) > 4; and the exact hand chain 2.086962^2 + 1.63169^2 - 2*1.63169*2.086962*0.369155 > 4 | exact | True
+U67 | App.B 3 Lemma 3.1 case 1 (direct) | INEQ LB | JJ=[r0,r1] | G1(R) = rho_R(a-0.03)^2 + (R-1)^2 - 2(R-1) rho_R(a-0.03) cos(pi-5a) > 4 on JJ | range=[4.50372857e0, 4.50383471e0], margin=5.03728568e-1 | True
+U68 | App.B 3 Lemma 3.1 case 2 | INEQ LB | - | 1.9656^2 >= 3.863583; 2*1.63169*1.9656*0.341112 <= 2.188063; 3.863583 + 2.662412 - 2.188063 = 4.3379 > 4; exact hand chain > 4 | prod=2.188062831 | True
+U69 | App.B 3 Lemma 3.1 case 2 (direct) | INEQ LB | JJ=[r0,r1] | G2(R) = 1.9656^2 + (R-1)^2 - 2(R-1) 1.9656 cos(pi-5a+0.03) > 4 on JJ | range=[4.33793868e0, 4.33800664e0], margin=3.37938682e-1 | True
+U70 | App.B 3 Lemma 3.1 (d) monotone-in-rho_t/rho' conditions | INEQ LB | - | rho_t cos Theta <= 2.4344*0.369155 < 1.63169 <= rho' and rho' cos Theta <= 2.4344*0.369155 < 1.9656 <= rho_t (exact) | exact | True
+U71 | App.B 3 Lemma 4.2 | INEQ LB | - | c4(R) := C_R(4-R) = 2a - 2 arctan(sqrt(4-(2R-4)^2)/4) (identity) | exact | True
+U72 | App.B 3 Lemma 4.2 | INEQ LB | JJ=[r0,r1] | (2R-4)/sqrt(4-(2R-4)^2) <= 0.815 on JJ (the arctan part of |c4'|) | range=[8.14851409e-1, 8.14872873e-1], margin=1.27126521e-4 | True
+U73 | App.B 3 Lemma 4.2 | INEQ LB | - | 2*0.1561 = 0.3122; 0.3122 + 0.815 <= 1.13 (exact) | exact | True
+U74 | App.B 3 Lemma 4.2 (direct) | INEQ LB | JJ=[r0,r1] | |c4'(R)| <= 1.13 on JJ | range=[3.96225202e-1, 3.96248381e-1], margin=7.33751619e-1 | True
+U75 | App.B 3 Lemma 4.2 (F7 corrected value) | VAL nlb | 26317/10000 | c4(r1) = C(1.3683) = 0.0400011 (tol 1.00000000e-7) | true=4.00010844e-2 | True
+U76 | App.B 3 Lemma 4.2 | INEQ LB | - | 0.0400011 - 1.13e-5 >= 0.039989 (exact) | exact | True
+U77 | App.B 3 Lemma 4.2 / Step 1 (direct) | INEQ LB | JJ=[r0,r1] | c4(R) >= 0.039989 on JJ | range=[3.99969269e-2, 4.00012795e-2], margin=7.92689397e-6 | True
+U78 | App.B 3 Lemma 4.2 | INEQ LB | - | 0.12069 - 2*0.039989 = 0.040712 (exact) | exact | True
+U79 | App.B 3 Lemma 4.2 (direct) | INEQ LB | JJ=[r0,r1] | B(R) - 2 c4(R) <= 0.040712 on JJ | range=[4.06595883e-2, 4.06959109e-2], margin=1.60891052e-5 | True
+U80 | App.B 3 Lemma 4.2 | INEQ LB | - | 0.0415625 - 1.4e-5 = 0.0415485 > 0.040712; margin 8.4e-4 (exact) | exact | True
+U81 | App.B 3 Lemma 4.2 (direct) | INEQ LB | JJ=[r0,r1] | C_R(1.36) >= 0.0415485 on JJ | range=[4.15599456e-2, 4.15628805e-2], margin=1.14456455e-5 | True
+U82 | App.B 3 Lemma 4.2 (direct, rigorous form) | INEQ LB | JJ=[r0,r1] | C_R(1.36) - (B(R) - 2 c4(R)) > 0 on JJ | range=[8.64424991e-4, 9.02901912e-4], margin=8.64424991e-4 | True
+U82a | App.B 3 Lemma 4.2 | APPROX nlb | r1 | margin 8.9e-4 at r1 (stated 8.9e-4) | rigorous>=9.02511675e-4 | True
+U82b | App.B 3 Lemma 4.2 / Step 1 / caveat 2 | APPROX nlb | JJ | margin about 8.4e-4 on JJ (rigorous form) (stated 8.4e-4) | rigorous>=8.64424991e-4 | True
+U83 | App.B 3 Lemma 4.2 | INEQ LB | - | 4 - R <= 1.36831 on JJ, and 4 - R <= R - 2/R (inside the decreasing range of C) | exact | True
+U84 | App.B 3 Lemma 4.2 | INEQ nlb | - | 1.36^2 + 0.36831^2 - 1 = 0.985252, 2*1.36*0.36831 = 1.001803 (6 decimals; 3 - r0 = 0.36831) | exact | True
+U85 | App.B 3 Lemma 4.2 | INEQ LB | - | A(1.36, 3 - r0) < 0.183; A increasing in u for u <= sqrt(1.36^2-1) and 3 - R <= 3 - r0 on JJ; 1.36 - 0.36831 <= 1 | A=1.82026624e-1 | True
+U86 | App.B 3 Lemma 4.2 | INEQ LB | - | 6a - B - 1.06748 = 2pi - 6a - 2d - 1.06748 (identity) | exact | True
+U87 | App.B 3 Lemma 4.2 (direct) | INEQ LB | JJ=[r0,r1] | 6a - B - 1.06748 >= 1.15048 on JJ | range=[1.15050400e0, 1.15052225e0], margin=2.40001056e-5 | True
+U88 | App.B 3 Lemma 4.2 | INEQ LB | - | 2*0.183 < 1.15048 | exact | True
+U89 | App.B 3 Repair M2 | INEQ LB | JJ=[r0,r1] | 6a <= 2.33870 on JJ | range=[2.33866440e0, 2.33867376e0], margin=2.62352116e-5 | True
+U90 | App.B 3 Repair M2 (R-free part) | INEQ LB | - | r(1.085) < 1.1724; 2.3387 + 1.1724 = 3.5111 < 2pi - 1.1724; -2pi + 1.1724 < -1.1724; -1.5592 - 1.1724 >= -2.732; 2pi - 1.1724 > 1.1724; -2pi + 1.1724 < -2.732 | exact | True
+U91 | App.B 3 Lemma 4.1(S) | INEQ LB | - | D >= 2.70962 - 2.34467 > 0 (exact) | exact | True
+U92 | App.B 3 Part M 5 soundness (G, symbolic R) | INEQ LB | - | 4 - (R-t)^2 > 0 for 1 <= t <= R, R in JJ; 1 - R^2 sin^2 w >= 0 for 0 <= sin w <= 1/R (Reduce) | Reduce | True
+U93 | App.B (D5)/3 Lemma 1.4 fallback | INEQ nlb | - | with rho_lo = 1.9655 all margins using rho_lo are >= 0.03 (E3.2, L2.1, L2.2 (true sup of r + A(.,1.9655)), L3.1 case 2, L4.2) | L2.2=1.28775941e-1, E3.2=2.03322955e-1, L2.1=3.64904627e-1, L3.1=3.37656052e-1, L4.2=7.84458243e-1 | True
+P5a | App.B 5 (K1 via A5/F4(ii); Prop. P, Thm J(1) via A0/F3) | INEQ LB | - | for R in [R_*, r1]: R >= r0, R > 2.61313, R > 2 | exact | True
+T01 | Step 5 / App.C 3.3 | INEQ LB | - | ybar_3 = 2.34884120... (F5) and ybar_3 - delta1 > 0; x(c3bar) = 0 | exact | True
+T02 | Step 5 | INEQ nlb | - | beta_max = delta1/(ybar_3 - delta1) = 1.27886e-3 (5 digits; exact rational) | =1.27885894e-3 | True
+T03 | Step 5 | INEQ nlb | - | (1+beta)delta1 = 3.00384e-3, 2.0125 beta = 2.57370e-3, 1.18 beta^2 = 0.00193e-3 (printed digits) | 3.00383658e-3, 2.57370362e-3, 1.92986663e-6 | True
+T04 | Step 5 / App.C 3.3 / App.E 0.4 | INEQ LB | - | (1+beta)delta1 + 2.0125 beta + 1.18 beta^2 = 5.57947e-3 (printed) and < 7e-3 (exact) | =5.57947007e-3 | True
+T05 | Step 5 / App.C 3.3 | INEQ LB | - | max_{v!=3} |ybar_v| = 2.01247018... (disks 10, 11) <= 2.0125 | =2.01247018721 | True
+T06 | Step 5 / App.C 3.3 | INEQ LB | - | max_v |xbar_v| = 1.82750955... <= 1.8276 | =1.82750955295 | True
+T07 | App.C 3.3 | INEQ nlb | - | every |cbar_v| <= 2.3489 | max |c|^2=5.517054987 | True
+T08 | App.C 3.3 | INEQ LB | - | 1.18 >= max(max|xbar|, max_{v!=3}|ybar|)/2 = 1.00624 (printed); 2.0125 >= 1.8276 (so both coordinates share the bound) | exact | True
+T09 | App.C 3.3 | INEQ LB | - | |sin b| <= |b|, 1 - cos b <= b^2/2, |cos b| + |sin b| <= 1 + |b| (|b| <= 1/2), sqrt(d^2+(y+d)^2) <= y + d + d^2/(2y), d^2/(2y) <= d^2 for y > 1/2 (Reduce) | Reduce | True
+T09b | App.C 3.3 | INEQ LB | - | |beta| <= |x(u3)|/y(u3) < delta/(ybar3 - delta) (|arctan s| <= |s|; y(u3) > ybar3 - delta > 0) | Reduce | True
+T10 | App.C 3.3 (v = 3) | INEQ LB | - | delta1 + delta1^2 <= 5.57947e-3 (v = 3 bound is smaller) | exact | True
+T11 | Step 5 / App.C 3.3 | INEQ LB | - | 0 < R' - Rbar <= 1e-6 + 1.502e-21 < 7e-3 for R' in (R_*, R_*+1e-6] | exact | True
+T12 | App.E 0.4 | INEQ nlb | - | |R - Rbar| <= 1e-6 + 2e-21 (alternative statement) | exact | True
+T13 | App.E 0.4 table (not used) | INEQ nlb | - | delta1 = 1.5e-3: beta_max = 6.3902e-4, bound 2.7875e-3 | 6.39020863e-4, 2.78746987e-3 | True
+T14 | App.E 0.4 table (not used) | INEQ nlb | - | delta1 = 3e-4: beta_max = 1.2774e-4, bound 5.572e-4 | 1.27738870e-4, 5.57132053e-4 | True
+T15 | App.E 0.4 table (not used) | INEQ nlb | - | delta1 = 2.5e-4: bound 4.643e-4; 'delta1 must be <= 2.69e-4' for rho_A = 5e-4 | 4.64264152e-4, 4.99553362e-4 | True
+T16 | Step 6 hand-off (not in scope; trivial) | INEQ nlb | - | tau = 8.591e-10 < 8.6e-10 < 1/500000; 5.57947e-3 <= rho_A = 7/1000 | exact | True
+X01 | App.B 3 Summary / caveat 2 | INEQ nlb | - | apart from rho_lo, every hand margin on JJ is >= 8.4e-4 (rounded rule: >= 8.35e-4) | C(1.36)-(B-2c4) L4.2=8.64424991e-4, C(1.085)-B L1.3=1.31957021e-3, C(1.2)+C(1.35)-B L2.2=3.35705580e-3, 8a-B-2.962253 L2.2=3.52889217e-2 | True
+N2v | Notation l.49 (corrected) | INEQ LB | - | R_* - Rbar >= 1.50115e-21 (mid_cert A0 prints the margin 1.5011595e-21 to 6 digits) | exact | True
+D3bv | App.B (D3) (corrected) | INEQ LB | - | N >= sqrt(4 - 1.6317^2) >= 1.15652 | exact | True
+D3cv | App.B (D3) (corrected) | INEQ LB | - | R^2 - t^2 <= r1^2 - 1 <= 5.925845 | exact | True
+D3dv | App.B (D3) (corrected) | INEQ LB | - | (R+t)^2 >= (r0+1)^2 >= 13.18917 | exact | True
+D3ev | App.B (D3) (corrected) | INEQ LB | - | (5.925845/1.15652 + 2)/13.18917 <= 0.5402 | =0.54012941 | True
+U20v | App.B 3 E3.2 (corrected) | INEQ LB | - | 1.9656 * 0.612222 >= 1.20338 > 1 | exact | True
+U31v | App.B 3 Lemma 1.4 (corrected threshold) | INEQ LB | JJ=[r0,r1] | t <= 2.2053 => t^2 <= rho*^2 + 1 on JJ (2.2053^2 <= 1.9656^2 + 1 <= rho_lo(R)^2 + 1) | range=[2.71885543e-4, 4.84627283e-4], margin=2.71885543e-4 | True
+U31w | App.B 3 Lemma 1.4 (corrected threshold, R-free) | INEQ LB | - | 2.2053^2 <= 1.9656^2 + 1 (so 'sqrt(1.9656^2+1) >= 2.2053' is R-free given (D5)) | exact | True
+U43v | App.B 3 Lemma 2.2 (corrected) | INEQ LB | - | 1e-5 (4*0.1561 + 2*0.4443) = 1.5130e-5 <= 1.52e-5 and 2.997557 - 1.52e-5 = 2.9975418 >= 2.962253 + 0.035 | exact | True
+U45v | App.B 3 Lemma 2.2 (direct, corrected constant) | INEQ LB | JJ=[r0,r1] | 8a - B >= 2.9975418 on JJ | range=[2.99754192e0, 2.99755705e0], margin=1.21701770e-7 | True
+D5z2v | App.B (D5) (corrected) | INEQ LB | - | on [R_*, r1] the hand drop bound is (r1 - R_*)(3.20*1.2248 + 1.53) <= 5.1e-5, so the margin is >= 1.965663 - 1.5e-6 - 5.1e-5 - 1.9656 >= 1.0e-5 | exact | True
+D5fv | App.B (D5) rectangle (corrected) | INEQ LB | - | R sin w <= 0.8514055 on [w(r1)-1.3e-5, w(r1)] x JJ | exact | True
+D5jv | App.B (D5) (corrected) | INEQ LB | - | 0.8514055*(2.49019/0.524508 - 1) <= 3.20 and 1 + 0.8514055*0.3236/0.524508 <= 1.53 (exact) | exact | True
+D6cv | App.B (D6) (corrected) | INEQ LB | JJ=[r0,r1] | sqrt(R^2-1) <= 2.4343059 on JJ | range=[2.43429502e0, 2.43430583e0], margin=6.67078888e-8 | True
+U40v | App.B 3 Lemma 2.1 (corrected) | INEQ LB | JJ=[r0,r1] | 10a - B - 1.06748 >= 2.709619 on JJ | range=[2.70961984e0, 2.70963185e0], margin=8.43297906e-7 | True
+U41v | App.B 3 Lemma 2.1 / 4.1(S) (corrected) | INEQ LB | - | 2.709619 - 2.34467 > 0 | exact | True
+
+23a: 206 claims of the text checked (178 INEQ, 22 VAL, 6 APPROX; 152 load-bearing); 189 True, 17 False.
+23a FALSE CLAIMS OF THE TEXT (id | LB? | location | claim  ==> consequence):
+  N2 | nlb | Notation l.49 (mid_cert A0 margin) | R_* - Rbar >= 1.50116e-21 (as written)
+      ==> NOT load-bearing. R_* - Rbar = 1.5011595057e-21 (cert 07) < 1.50116e-21: the text read the 6-significant-digit margin printed by mid_cert line A0 ('margin=1.50116e-21', a rounding of 1.5011595e-21) as a lower bound. mid_cert A0 itself checks Rbar < I_*lo exactly, and the proof uses only 0 < R_* - Rbar <= 1.502e-21 (N1, T11). Correct statement N2v: R_* - Rbar >= 1.50115e-21.
+  D3b | LB | App.B (D3) | |R - t| <= r1 - 1 = 1.6317 for t in [1,R], R in JJ; N >= sqrt(4 - 1.6317^2) = 1.15653 (as written)
+      ==> derivation step of (D3), rounding slip: sqrt(4 - 1.6317^2) = 1.1565271 < 1.15653. Harmless: with 1.15652 (D3bv) the chain still gives |dz/dR| <= 0.5402 (D3ev), and the conclusion |dC/dR| <= 1.4 holds directly (D3h, true sup 0.55).
+  D3c | LB | App.B (D3) | 0 <= R^2 - t^2 <= r1^2 - 1 = 5.92584 (as written)
+      ==> derivation step of (D3), rounding slip: r1^2 - 1 = 5.92584489 > 5.92584. Harmless: D3cv/D3ev, and the direct D3f/D3h.
+  D3d | LB | App.B (D3) | (R+t)^2 >= (r0+1)^2 = 13.1892 (as written)
+      ==> derivation step of (D3), rounding slip in the wrong direction: (r0+1)^2 = 13.1891722 < 13.1892 (a lower bound was rounded up). Harmless: D3dv/D3ev, and direct D3f/D3h.
+  D5f | LB | App.B (D5) rectangle | R sin w <= 0.851405 on [w(r1)-1.3e-5, w(r1)] x JJ
+      ==> derivation step of (D5), rounding slip: sup R sin w on the rectangle is r1 sin w(r1) = 0.85140543 > 0.851405. Harmless: with 0.8514055 (D5fv) the hand bounds 3.20 and 1.53 still follow (D5jv), they hold directly (D5k), and rho_lo > 1.9656 on JJ is verified directly (D5v).
+  D5z2 | nlb | App.B (D5) | the hand route gives the [R_*,r1] drop <= 5.0e-5: (r1 - R_*)(3.20*1.2248 + 1.53) <= 5.0e-5
+      ==> derivation slip: with the (D5) constants the hand bound of the drop on [R_*, r1] is (r1 - R_*)(3.20*1.2248 + 1.53) = 5.03e-5 > 5.0e-5, so the text's '<= 5.0e-5' does not follow from its own constants (the true drop 4.97e-5 is <= 5.0e-5, D5z). Not load-bearing: only rho_lo > 1.9656 on [R_*, r1] is used, verified directly (D5w), and with 5.1e-5 the hand margin is still >= 1.0e-5 (D5z2v).
+  D6c | LB | App.B (D6) | sqrt(R^2-1) <= 2.4343058 on JJ
+      ==> rounding slip: sqrt(r1^2 - 1) = 2.43430583 > 2.4343058 (the F7 7-digit value was rounded down and then used as an upper bound). Harmless: no lemma uses 2.4343058; Lemma 3.1 uses 2.4344 (U62), and sqrt(R^2-1) <= 2.4343059 (D6cv).
+  U16L | nlb | App.B 3 Part D 'each C value within 1.4e-5 of the tabulated one' (literal) | tabulated - 1.4e-5 <= C_R(t) <= tabulated + 1.4e-5 on JJ for all 17 entries
+      ==> NOT load-bearing as literally read: the Part D table entries carry the F7 table error (< 1e-4 by the F7 text) on top of the 1.4e-5 R-transfer. What the transfer actually claims, |C_R(t) - C_r1(t)| <= 1.4e-5, holds for every entry (U16). The load-bearing C values (1.085, 1.2+1.35, 1.36, c4) are verified directly on JJ (U25, U48, U81, U77).
+  U20 | LB | App.B 3 E3.2 | 1.9656 * 0.612222 >= 1.20339 (as written '= 1.20339' used as a lower bound)
+      ==> rounding slip in the wrong direction: 1.9656*0.612222 = 1.2033836 < 1.20339 (used as a lower bound). Harmless: >= 1.20338 > 1 (U20v); the direct inequality 1.9656 sin(2a - B) > 1 holds on JJ (U21).
+  U31 | nlb | App.B 3 Lemma 1.4 (threshold used as written) | t <= 2.2054 => t^2 <= rho*^2 + 1: 2.2054^2 <= rho_lo(R)^2 + 1 on [R_*, r1]
+      ==> NOT load-bearing (as Repair M3 already says: the hand lemmas use the rho-monotonicity only for t <= 1.35, and C1_R tests t^2 <= rho_L^2 + 1 directly). As a threshold, 't <= 2.2054' is false near R_*: rho_lo(R_*) = 1.9656136 gives sqrt(rho_lo^2+1) = 2.2053681 < 2.2054; even 1.9656 gives 2.2053535. Correct threshold: t <= 2.2053 (U31v on JJ, U31w R-free).
+  U35 | nlb | App.B 3 Lemma 1.4 fallback | |dA/du| <= 0.65 for t in [1.085, 1.35], u in [1.9655, 1.9656]; m0 increases by <= 7e-5
+      ==> NOT load-bearing (fallback only, and the fallback is not needed since rho_lo > 1.9656 is verified, D5v/D5w). The constant is false: |dA/du| at u ~ 1.966 is 1.37 at t = 1.085 (0.62 only near t = 1.35), so m0 values move by up to 1.4e-4, not 7e-5. The fallback conclusion still holds: with rho_lo = 1.9655 every dependent margin is >= 0.03, computed directly with A(., 1.9655) (U93).
+  U40 | LB | App.B 3 Lemma 2.1 / 4.1(S) | 10a - B - 1.06748 >= 2.70962 on JJ
+      ==> the transferred bound is off by 1.6e-7: min over JJ of 10a - B - 1.06748 is 2.7096198 < 2.70962 (2.70963185 at r1 minus 1.2e-5). Harmless: it is compared with 2.34467 (margin 0.365): >= 2.709619 holds (U40v, U41v).
+  U43 | LB | App.B 3 Lemma 2.2 | 1e-5 (4*0.1561 + 2*0.4443) <= 1.51e-5 (as written)
+      ==> derivation arithmetic slip: 1e-5(4*0.1561 + 2*0.4443) = 1.5130e-5 > 1.51e-5. Harmless: the corrected chain 2.997557 - 1.52e-5 = 2.9975418 still leaves margin >= 0.035 over 2.962253 (U43v), and directly 8a - B >= 2.9975418 on JJ (U45v).
+  U44 | LB | App.B 3 Lemma 2.2 | 2.997557 - 1.51e-5 = 2.997542 (exact) 
+      ==> arithmetic slip: 2.997557 - 1.51e-5 = 2.9975419, not 2.997542 (and see U43). Harmless: see U45.
+  U45 | LB | App.B 3 Lemma 2.2 (direct) | 8a - B >= 2.997542 on JJ
+      ==> the transferred bound is off by 7.8e-8: min over JJ of 8a - B = 2.99754192 < 2.997542. Harmless: it is compared with 2.962253 (margin 0.0353): 8a - B >= 2.9975418 on JJ (U45v) and the margin over 2.962253 is still >= 0.035 (U43v).
+  U49 | nlb | App.B 3 Lemma 3.1 | pi - 8a >= 0.0233610 on JJ
+      ==> not load-bearing (only pi - 8a > 0 is used, U49b).
+  U65v | nlb | App.B 3 Lemma 3.1 case 1 (VAL) | the printed values 4.355402, 2.662412, 2.514152 are within 1e-6 of the exact products
+      ==> printed intermediate values in Lemma 3.1 case 1 are off in the 6th decimal (2.086962^2 = 4.3554104, printed 4.355402), but every one is off in the SAFE direction (U65) and the exact chain is > 4 (U66); direct G1 > 4 on JJ (U67).
+23a load-bearing false: {D3b, D3c, D3d, D5f, D6c, U20, U40, U43, U44, U45}; non-load-bearing false: {N2, D5z2, U16L, U31, U35, U49, U65v}
+23a corrected statements (section V): 16, False: {}; undocumented false: {}; load-bearing false without verified replacement: {}
+23a thinnest margins on JJ: rho_lo-1.9656 = 9.43626236e-6 (on [R*,r1]: 1.35950255e-5); C(1.36)-(B-2c4) L4.2 = 8.64424991e-4; C(1.085)-B L1.3 = 1.31957021e-3; C(1.2)+C(1.35)-B L2.2 = 3.35705580e-3; 8a-B-2.962253 L2.2 = 3.52889217e-2
+23a time 20 s
+23a ALL HAND CONSTANTS VERIFIED
+EXIT 0
