@@ -379,3 +379,10 @@
   - 精确有理二分围绕真可行点（近 Y 集）会无限下降、内存 10–22 GB：加最小盒宽 1e−10，存活即返回“未驳倒”（保守）。
   - 16 个子核曾触发会话看门狗内存回收；长跑用 3–6 核 + `setsid nohup`，日志放 `out/judge/wl/`。
 - 结论：b=9 与 (B10) 合起来给 n=11 全局 R < 2.6317（**非锋利**，Melissen 2.6316908，差 ~9e−6；不证明 Melissen 最优）。手证待人工复核，未升 L4。
+
+## 2026-10-21 n=11 (B9) 锋利化：siege 声称 R ≤ R*（L0，待独立复核）（math）
+
+- 用户要求“用 siege 做 b=9 锋利化”。问题 `experiments/2026-10-21-siege-n11-b9-sharp/out/problem.md`：恰 9 圆碰 S_R ⟹ R ≤ R_*（Melissen 取等，陈述先对照过）。已知事实 F1–F8，含 F6′（13b 盒）与 F7（R < 2.6317 及其证明全文）。
+- siege：4 轮 CONCLUDE，short tail；12 个 worker 查询，10 答复、0 partial、2 无答复（后端 5xx/空回复）。round3_q1/q2 两次独立链核验 CORRECT，round3_q3 程序逐行审计 CORRECT，r3_verify 无缺口。
+- 链：RED → UNI + C1_R（[2.63169, 2.631692] ALL CASES VERIFIED）→ GLOB（J=[R̄, 2.631692]，m≠4,5 各 4096 盒排除；m=5 17634 盒、m=4 24582 盒收进 η=1/1024 立方体）→ LOC（δ₁=3e−3，44+44 全认证）→ 迁移 5.5795e−3 → MID（ρ_A=7e−3 精确认证）→ F6′。日志 `out/judge/r3/`。
+- 等级 L0：程序单实现、judge 运行；C1_R 仍依赖 IEEE/libm。若成立，配合 (B10) 即 n=11 最优 R₁₁ = R_*。下一步：WL 独立复现 MID/GLOB/LOC，22b 在 R 区间重跑，手证复核。
